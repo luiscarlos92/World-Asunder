@@ -3,18 +3,18 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
-
-	public Canvas dialogUI;
 	public float speed;
 
 	private int direction;
 	private bool backtracking;
 	private string lastArea;
-
-	private bool npcColliding = false;
-	private Collider2D collidingObject;
+	private Animator animator;
+	private SpriteRenderer sprite;
 
 	void Start() {
+		animator = GetComponent<Animator>();
+		sprite = GetComponent<SpriteRenderer>();
+
 		direction = 0;
 		backtracking = false;
 		lastArea = "";
@@ -23,12 +23,9 @@ public class PlayerController : MonoBehaviour {
 
 		//Loads starting level
 		SceneManager.LoadScene("Fort");
-
 	}
 	
 	void FixedUpdate() {
-		dialogUI = GameObject.Find ("DialogUI").GetComponent<Canvas>();
-
 		float moveHorizontal = Input.GetAxis("Horizontal");
 		float moveVertical = Input.GetAxis("Vertical");
 
@@ -42,71 +39,108 @@ public class PlayerController : MonoBehaviour {
 				//Idle
 				switch(direction) {
 					case 0:
-						loadSprite ("spr_idle_up_0");
+						//Idle Up
+						animator.Play("player_idle_right");
 						break;
 					case 1:
-						loadSprite("spr_idle_down_0");
+						//Idle Down
+						animator.Play("player_idle_right");
 						break;
 					case 2:
-						loadSprite("spr_idle_left_0");
+						//Idle Left
+						animator.Play("player_idle_right");
 						break;
 					case 3:
-						loadSprite("spr_idle_up_left_0");
+						//Idle Up Left
+						animator.Play("player_idle_right");
 						break;
 					case 4:
-						loadSprite("spr_idle_down_left_0");
+						//Idle Down Left
+						animator.Play("player_idle_right");
 						break;
 					case 5:
-						loadSprite("spr_idle_right_0");
+						//Idle Right
+						animator.Play("player_idle_right");
 						break;
 					case 6:
-						loadSprite("spr_idle_up_right_0");
+						//Idle Up Right
+						animator.Play("player_idle_right");
 						break;
 					case 7:
-						loadSprite("spr_idle_down_right_0");
+						//Idle Down Right
+						animator.Play("player_idle_right");
 						break;
 				}
 			}
 			if(moveVertical > 0) {
+				//Up
 				direction = 0;
-				loadSprite("spr_up_0");
+				animator.Play("player_walk_up");
 			}
 			if(moveVertical < 0) {
+				//Down
 				direction = 1;
-				loadSprite("spr_down_0");
+				animator.Play("player_walk_down");
 			}
 		}
 		if(moveHorizontal < 0) {
 			if(moveVertical == 0) {
+				//Left
 				direction = 2;
-				loadSprite("spr_left_0");
+
+				if(sprite.flipX == false)
+					sprite.flipX = true;
+
+				animator.Play("player_walk_left");
 			}
 			if(moveVertical > 0) {
+				//Up Left
 				direction = 3;
-				loadSprite("spr_up_left_0");
+
+				if(sprite.flipX == false)
+					sprite.flipX = true;
+
+				animator.Play("player_walk_left"); //up-left
 			}
 			if(moveVertical < 0) {
+				//Down Left
 				direction = 4;
-				loadSprite("spr_down_left_0");
+
+				if(sprite.flipX == false)
+					sprite.flipX = true;
+
+				animator.Play("player_walk_left"); //down_left
 			}
 		}
 		if(moveHorizontal > 0) {
 			if(moveVertical == 0) {
+				//Right
 				direction = 5;
-				loadSprite("spr_right_0");
+
+				if(sprite.flipX == true)
+					sprite.flipX = false;
+
+				animator.Play("player_walk_right");
 			}
 			if(moveVertical > 0) {
+				//Up Right
 				direction = 6;
-				loadSprite("spr_up_right_0");
+
+				if(sprite.flipX == true)
+					sprite.flipX = false;
+
+				animator.Play("player_walk_right"); //up_right
 			}
 			if(moveVertical < 0) {
+				//Down Right
 				direction = 7;
-				loadSprite("spr_down_right_0");
+
+				if(sprite.flipX == true)
+					sprite.flipX = false;
+
+				animator.Play("player_walk_right"); //down_right
 			}
 		}
-			
-
-
 	}
 
 	void loadSprite(string name) {
@@ -115,19 +149,11 @@ public class PlayerController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if(other.gameObject.CompareTag("Enemy")) {
-			npcColliding = true;
-			collidingObject = other;
+			//Change to Arena Scene
 		}
 
 		if(other.gameObject.CompareTag("Companion")) {
 			//Something happens?
-			npcColliding = true;
-			//dialogUI.enabled = true;
-			collidingObject = other;
-		}
-
-		if(other.gameObject.CompareTag("Entrance")) {
-			//Change to Entrance Scene
 		}
 
 		if(other.gameObject.CompareTag("StairsCell")) {
@@ -148,34 +174,6 @@ public class PlayerController : MonoBehaviour {
 
 			//Change to Fort Scene
 			SceneManager.LoadScene("Fort");
-		}
-	}
-
-	void OnTriggerExit2D(Collider2D other) {
-		if(other.gameObject.CompareTag("Enemy")) {
-			//Change to Arena Scene
-			npcColliding = false;
-			collidingObject = null;
-		}
-
-		if(other.gameObject.CompareTag("Companion")) {
-			//Something happens?
-			//dialogUI.enabled = false;
-			npcColliding = false;
-			collidingObject = null;
-		}
-
-		if(other.gameObject.CompareTag("Entrance")) {
-			//Change to Entrance Scene
-
-		}
-
-		if(other.gameObject.CompareTag("StairsCell")) {
-			
-		}
-
-		if(other.gameObject.CompareTag("StairsFort")) {
-			
 		}
 	}
 
