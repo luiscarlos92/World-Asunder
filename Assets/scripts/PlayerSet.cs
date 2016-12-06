@@ -2,24 +2,31 @@
 using System.Collections;
 
 public class PlayerSet : MonoBehaviour {
-	public float positionX;
-	public float positionY;
-	public float backX;
-	public float backY;
+	public float playerPositionX;
+	public float playerPositionY;
+	public float playerBacktrackX;
+	public float playerBacktrackY;
+	public float companionPositionX;
+	public float companionPositionY;
+	public float companionBacktrackX;
+	public float companionBacktrackY;
 
 	private bool backtracking;
-
-	private GameObject player;
 	
 	void Start() {
-		//Get the player object
-		player = GameObject.FindWithTag("Player");
+		//Get the player and companion objects
+		GameObject player = GameObject.FindWithTag("Player");
 		PlayerController pc = (PlayerController) player.GetComponent(typeof(PlayerController));
 		backtracking = pc.getBacktracking();
+		GameObject companion = GameObject.FindWithTag("Companion");
 
-		if(backtracking == false)
-			player.transform.position = new Vector3(positionX, positionY, 0.0f);
-		else
-			player.transform.position = new Vector3(backX, backY, 0.0f);
+		if(backtracking == false) {
+			player.transform.position = new Vector3(playerPositionX, playerPositionY, 0.0f);
+			companion.transform.position = new Vector3(companionPositionX, companionPositionY, 0.0f);
+		}
+		else {
+			player.transform.position = new Vector3(playerBacktrackX, playerBacktrackY, 0.0f);
+			companion.transform.position = new Vector3(companionBacktrackX, companionBacktrackY, 0.0f);
+		}
 	}
 }

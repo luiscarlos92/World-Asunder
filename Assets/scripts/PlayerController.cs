@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 	public float speed;
+	public GameObject companion;
 
 	private int direction;
 	private bool backtracking;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour {
 		lastArea = "";
 
 		DontDestroyOnLoad(gameObject);
+		DontDestroyOnLoad(companion);
 
 		//Loads starting level
 		SceneManager.LoadScene("Fort");
@@ -100,7 +102,7 @@ public class PlayerController : MonoBehaviour {
 				if(sprite.flipX == false)
 					sprite.flipX = true;
 
-				animator.Play("player_walk_left"); //up-left
+				animator.Play("player_walk_up_left");
 			}
 			if(moveVertical < 0) {
 				//Down Left
@@ -109,7 +111,7 @@ public class PlayerController : MonoBehaviour {
 				if(sprite.flipX == false)
 					sprite.flipX = true;
 
-				animator.Play("player_walk_left"); //down_left
+				animator.Play("player_walk_down_left");
 			}
 		}
 		if(moveHorizontal > 0) {
@@ -129,7 +131,7 @@ public class PlayerController : MonoBehaviour {
 				if(sprite.flipX == true)
 					sprite.flipX = false;
 
-				animator.Play("player_walk_right"); //up_right
+				animator.Play("player_walk_up_right");
 			}
 			if(moveVertical < 0) {
 				//Down Right
@@ -138,7 +140,7 @@ public class PlayerController : MonoBehaviour {
 				if(sprite.flipX == true)
 					sprite.flipX = false;
 
-				animator.Play("player_walk_right"); //down_right
+				animator.Play("player_walk_down_right");
 			}
 		}
 	}
@@ -152,7 +154,7 @@ public class PlayerController : MonoBehaviour {
 			//Change to Arena Scene
 		}
 
-		if(other.gameObject.CompareTag("Companion")) {
+		if(other.gameObject.CompareTag("Poss")) {
 			//Something happens?
 		}
 
