@@ -23,10 +23,25 @@ public class UIController : MonoBehaviour {
 		if (Input.GetKeyDown ("space") && dialogUI.isActiveAndEnabled) {
 			if(messages.Count == 0){
 			dialogUI.enabled = false;
+			
+
 			} else {
 				string toPrint = (string)messages [0];
+				if(toPrint.Equals("*trigger*")){
+					messages.Remove (toPrint);
+					dialogUI.enabled = false;
+
+
+					GameObject.Find ("Cell Door").SetActive (false);
+
+
+
+					//GoToCombat
+				} else {
+
 				npcTextBox.text = toPrint;
 				messages.Remove (toPrint);
+				}
 			}
 		}		
 		if ((messages.Count != 0) && !dialogUI.isActiveAndEnabled){
@@ -34,6 +49,7 @@ public class UIController : MonoBehaviour {
 			npcTextBox.text = toPrint;
 			messages.Remove (toPrint);
 			dialogUI.enabled = true;
+
 
 		}
 	}

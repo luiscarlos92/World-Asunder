@@ -28,120 +28,127 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void FixedUpdate() {
-		float moveHorizontal = Input.GetAxis("Horizontal");
-		float moveVertical = Input.GetAxis("Vertical");
+		Canvas DialogUI = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
+		if (!DialogUI.isActiveAndEnabled) {
 
-		Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0.0f);
+			float moveHorizontal = Input.GetAxis ("Horizontal");
+			float moveVertical = Input.GetAxis ("Vertical");
 
-		transform.position += movement * speed;
+			Vector3 movement = new Vector3 (moveHorizontal, moveVertical, 0.0f);
 
-		//Swap sprite
-		if(moveHorizontal == 0) {
-			if(moveVertical == 0) {
-				//Idle
-				switch(direction) {
+			transform.position += movement * speed;
+
+			//Swap sprite
+			if (moveHorizontal == 0) {
+				if (moveVertical == 0) {
+					//Idle
+					switch (direction) {
 					case 0:
 						//Idle Up
-						animator.Play("player_idle_right");
+						animator.Play ("player_idle_right");
 						break;
 					case 1:
 						//Idle Down
-						animator.Play("player_idle_right");
+						animator.Play ("player_idle_right");
 						break;
 					case 2:
 						//Idle Left
-						animator.Play("player_idle_right");
+						animator.Play ("player_idle_right");
 						break;
 					case 3:
 						//Idle Up Left
-						animator.Play("player_idle_right");
+						animator.Play ("player_idle_right");
 						break;
 					case 4:
 						//Idle Down Left
-						animator.Play("player_idle_right");
+						animator.Play ("player_idle_right");
 						break;
 					case 5:
 						//Idle Right
-						animator.Play("player_idle_right");
+						animator.Play ("player_idle_right");
 						break;
 					case 6:
 						//Idle Up Right
-						animator.Play("player_idle_right");
+						animator.Play ("player_idle_right");
 						break;
 					case 7:
 						//Idle Down Right
-						animator.Play("player_idle_right");
+						animator.Play ("player_idle_right");
 						break;
+					}
+				}
+				if (moveVertical > 0) {
+					//Up
+					direction = 0;
+					animator.Play ("player_walk_up");
+				}
+				if (moveVertical < 0) {
+					//Down
+					direction = 1;
+					animator.Play ("player_walk_down");
 				}
 			}
-			if(moveVertical > 0) {
-				//Up
-				direction = 0;
-				animator.Play("player_walk_up");
+			if (moveHorizontal < 0) {
+				if (moveVertical == 0) {
+					//Left
+					direction = 2;
+
+					if (sprite.flipX == false)
+						sprite.flipX = true;
+
+					animator.Play ("player_walk_left");
+				}
+				if (moveVertical > 0) {
+					//Up Left
+					direction = 3;
+
+					if (sprite.flipX == false)
+						sprite.flipX = true;
+
+					animator.Play ("player_walk_up_left");
+				}
+				if (moveVertical < 0) {
+					//Down Left
+					direction = 4;
+
+					if (sprite.flipX == false)
+						sprite.flipX = true;
+
+					animator.Play ("player_walk_down_left");
+				}
 			}
-			if(moveVertical < 0) {
-				//Down
-				direction = 1;
-				animator.Play("player_walk_down");
+			if (moveHorizontal > 0) {
+				if (moveVertical == 0) {
+					//Right
+					direction = 5;
+
+					if (sprite.flipX == true)
+						sprite.flipX = false;
+
+					animator.Play ("player_walk_right");
+				}
+				if (moveVertical > 0) {
+					//Up Right
+					direction = 6;
+
+					if (sprite.flipX == true)
+						sprite.flipX = false;
+
+					animator.Play ("player_walk_up_right");
+				}
+				if (moveVertical < 0) {
+					//Down Right
+					direction = 7;
+
+					if (sprite.flipX == true)
+						sprite.flipX = false;
+
+					animator.Play ("player_walk_down_right");
+				}
 			}
-		}
-		if(moveHorizontal < 0) {
-			if(moveVertical == 0) {
-				//Left
-				direction = 2;
+		} else {
+			animator.Play ("player_idle_right");
 
-				if(sprite.flipX == false)
-					sprite.flipX = true;
-
-				animator.Play("player_walk_left");
-			}
-			if(moveVertical > 0) {
-				//Up Left
-				direction = 3;
-
-				if(sprite.flipX == false)
-					sprite.flipX = true;
-
-				animator.Play("player_walk_up_left");
-			}
-			if(moveVertical < 0) {
-				//Down Left
-				direction = 4;
-
-				if(sprite.flipX == false)
-					sprite.flipX = true;
-
-				animator.Play("player_walk_down_left");
-			}
-		}
-		if(moveHorizontal > 0) {
-			if(moveVertical == 0) {
-				//Right
-				direction = 5;
-
-				if(sprite.flipX == true)
-					sprite.flipX = false;
-
-				animator.Play("player_walk_right");
-			}
-			if(moveVertical > 0) {
-				//Up Right
-				direction = 6;
-
-				if(sprite.flipX == true)
-					sprite.flipX = false;
-
-				animator.Play("player_walk_up_right");
-			}
-			if(moveVertical < 0) {
-				//Down Right
-				direction = 7;
-
-				if(sprite.flipX == true)
-					sprite.flipX = false;
-
-				animator.Play("player_walk_down_right");
-			}
 		}
 	}
 
@@ -164,6 +171,10 @@ public class PlayerController : MonoBehaviour {
 
 			//Change to Cell Scene
 			SceneManager.LoadScene("Cell");
+
+		
+
+
 		}
 
 		if(other.gameObject.CompareTag("StairsFort")) {

@@ -4,7 +4,7 @@ using System.Collections;
 public class CompanionController : MonoBehaviour {
 
 	Transform target; //the enemy's target
-	float moveSpeed = 1f; //move speed
+	float moveSpeed = 1.5f; //move speed
 	float maxDistance = 1;
 	float range;
 	Transform myTransform; //current transform data of this enemy
