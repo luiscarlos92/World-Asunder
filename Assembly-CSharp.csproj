@@ -47,8 +47,10 @@
   <ItemGroup>
      <Compile Include="Assets\scripts\CameraController.cs" />
      <Compile Include="Assets\scripts\ColorAlpha.cs" />
+     <Compile Include="Assets\scripts\CompanionController.cs" />
      <Compile Include="Assets\scripts\GroundReplicator.cs" />
      <Compile Include="Assets\scripts\NPCController.cs" />
+     <Compile Include="Assets\scripts\OpenDoorScript.cs" />
      <Compile Include="Assets\scripts\PlayerController.cs" />
      <Compile Include="Assets\scripts\PlayerSet.cs" />
      <Compile Include="Assets\scripts\UIController.cs" />

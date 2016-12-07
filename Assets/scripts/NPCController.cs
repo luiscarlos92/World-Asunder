@@ -10,7 +10,6 @@ public class NPCController : MonoBehaviour {
 
 
 
-
 	// Use this for initialization
 	void Start () {
 		
@@ -23,13 +22,16 @@ public class NPCController : MonoBehaviour {
 
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if(other.gameObject.CompareTag("Player")) {
+		if(other.gameObject.CompareTag("Player") && !dialogSpoken) {
 
 				Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
-				canvas.enabled = true;
-				canvas.GetComponentInChildren<Text> ().text = message;
-				dialogSpoken = true;
+				UIController ui = (UIController)canvas.GetComponent (typeof(UIController));
+				ui.addToQueue (message);
 				bubbleCanvas.enabled = false; 
+
+				//canvas.GetComponentInChildren<Text> ().text = message;
+				dialogSpoken = true;
+				
 		}
 
 	}
