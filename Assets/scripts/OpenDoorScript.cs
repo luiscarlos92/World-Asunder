@@ -23,7 +23,7 @@ public class OpenDoorScript : MonoBehaviour {
 			UIController ui = (UIController)canvas.GetComponent (typeof(UIController)); 
 			ui.addToQueue ("Prisoner: \"♪ ... and when came home on Friday Night, ♪\"");
 			ui.addToQueue ("Prisoner: \"♪ As drunk as drunk could be, ♪\"");
-			ui.addToQueue ("Prisoner: \"\"♪ I saw a head upon my bed, ♪\"");
+			ui.addToQueue ("Prisoner: \"♪ I saw a head upon my bed, ♪\"");
 			ui.addToQueue ("Prisoner: \"♪ Where my own head should be, ♪\"");
 			ui.addToQueue ("Prisoner: \"♪ So I looked at my wife, and I said to her, ♪\"");
 			ui.addToQueue ("Prisoner: \"♪ ‘Would you kindly tell me, ♪\"");

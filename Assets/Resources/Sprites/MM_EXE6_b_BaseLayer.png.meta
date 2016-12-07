@@ -1,0 +1,1170 @@
+fileFormatVersion: 2
+guid: a8b1fb2b1c0922748b1f566e6f39c859
+timeCreated: 1480437508
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: idle
+    21300002: MM_EXE6_b_BaseLayer_1
+    21300004: MM_EXE6_b_BaseLayer_2
+    21300006: MM_EXE6_b_BaseLayer_3
+    21300008: MM_EXE6_b_BaseLayer_4
+    21300010: MM_EXE6_b_BaseLayer_5
+    21300012: MM_EXE6_b_BaseLayer_6
+    21300014: MM_EXE6_b_BaseLayer_7
+    21300016: MM_EXE6_b_BaseLayer_8
+    21300018: MM_EXE6_b_BaseLayer_9
+    21300020: MM_EXE6_b_BaseLayer_10
+    21300022: MM_EXE6_b_BaseLayer_11
+    21300024: MM_EXE6_b_BaseLayer_12
+    21300026: MM_EXE6_b_BaseLayer_13
+    21300028: MM_EXE6_b_BaseLayer_14
+    21300030: MM_EXE6_b_BaseLayer_15
+    21300032: MM_EXE6_b_BaseLayer_16
+    21300034: MM_EXE6_b_BaseLayer_17
+    21300036: MM_EXE6_b_BaseLayer_18
+    21300038: MM_EXE6_b_BaseLayer_19
+    21300040: MM_EXE6_b_BaseLayer_20
+    21300042: MM_EXE6_b_BaseLayer_21
+    21300044: MM_EXE6_b_BaseLayer_22
+    21300046: MM_EXE6_b_BaseLayer_23
+    21300048: MM_EXE6_b_BaseLayer_24
+    21300050: MM_EXE6_b_BaseLayer_25
+    21300052: MM_EXE6_b_BaseLayer_26
+    21300054: MM_EXE6_b_BaseLayer_27
+    21300056: MM_EXE6_b_BaseLayer_28
+    21300058: MM_EXE6_b_BaseLayer_29
+    21300060: MM_EXE6_b_BaseLayer_30
+    21300062: MM_EXE6_b_BaseLayer_31
+    21300064: MM_EXE6_b_BaseLayer_32
+    21300066: MM_EXE6_b_BaseLayer_33
+    21300068: MM_EXE6_b_BaseLayer_34
+    21300070: MM_EXE6_b_BaseLayer_35
+    21300072: MM_EXE6_b_BaseLayer_36
+    21300074: MM_EXE6_b_BaseLayer_37
+    21300076: MM_EXE6_b_BaseLayer_38
+    21300078: MM_EXE6_b_BaseLayer_39
+    21300080: MM_EXE6_b_BaseLayer_40
+    21300082: MM_EXE6_b_BaseLayer_41
+    21300084: MM_EXE6_b_BaseLayer_42
+    21300086: MM_EXE6_b_BaseLayer_43
+    21300088: MM_EXE6_b_BaseLayer_44
+    21300090: MM_EXE6_b_BaseLayer_45
+    21300092: MM_EXE6_b_BaseLayer_46
+    21300094: MM_EXE6_b_BaseLayer_47
+    21300096: MM_EXE6_b_BaseLayer_48
+    21300098: MM_EXE6_b_BaseLayer_49
+    21300100: MM_EXE6_b_BaseLayer_50
+    21300102: MM_EXE6_b_BaseLayer_51
+    21300104: MM_EXE6_b_BaseLayer_52
+    21300106: MM_EXE6_b_BaseLayer_53
+    21300108: MM_EXE6_b_BaseLayer_54
+    21300110: MM_EXE6_b_BaseLayer_55
+    21300112: MM_EXE6_b_BaseLayer_56
+    21300114: MM_EXE6_b_BaseLayer_57
+    21300116: MM_EXE6_b_BaseLayer_58
+    21300118: MM_EXE6_b_BaseLayer_59
+    21300120: MM_EXE6_b_BaseLayer_60
+    21300122: MM_EXE6_b_BaseLayer_61
+    21300124: MM_EXE6_b_BaseLayer_62
+    21300126: MM_EXE6_b_BaseLayer_63
+    21300128: MM_EXE6_b_BaseLayer_64
+    21300130: MM_EXE6_b_BaseLayer_65
+    21300132: MM_EXE6_b_BaseLayer_66
+    21300134: MM_EXE6_b_BaseLayer_67
+    21300136: MM_EXE6_b_BaseLayer_68
+    21300138: MM_EXE6_b_BaseLayer_69
+    21300140: MM_EXE6_b_BaseLayer_70
+    21300142: MM_EXE6_b_BaseLayer_71
+    21300144: MM_EXE6_b_BaseLayer_72
+    21300146: MM_EXE6_b_BaseLayer_73
+    21300148: MM_EXE6_b_BaseLayer_74
+    21300150: MM_EXE6_b_BaseLayer_75
+    21300152: MM_EXE6_b_BaseLayer_76
+    21300154: MM_EXE6_b_BaseLayer_77
+    21300156: MM_EXE6_b_BaseLayer_78
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 1024
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: idle
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1175
+        width: 37
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 1117
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_2
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 1117
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_3
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 1117
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_4
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 1117
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_5
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 1117
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_6
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1117
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_7
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 1117
+        width: 40
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_8
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 1117
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_9
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 1061
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_10
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 997
+        width: 33
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_11
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 996
+        width: 37
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_12
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 996
+        width: 37
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_13
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 996
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_14
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 926
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_15
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 926
+        width: 37
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_16
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 926
+        width: 37
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_17
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 928
+        width: 33
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_18
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 870
+        width: 37
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_19
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 870
+        width: 46
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_20
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 870
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_21
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 870
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_22
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 804
+        width: 46
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_23
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 804
+        width: 42
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_24
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 804
+        width: 57
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_25
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 804
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_26
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 804
+        width: 40
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_27
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 804
+        width: 41
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_28
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 804
+        width: 38
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_29
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 753
+        width: 41
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_30
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 753
+        width: 41
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_31
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 753
+        width: 40
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_32
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 753
+        width: 37
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_33
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 701
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_34
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 701
+        width: 41
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_35
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 701
+        width: 40
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_36
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 701
+        width: 40
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_37
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 701
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_38
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 701
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_39
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 701
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_40
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 701
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_41
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 648
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_42
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 648
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_43
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 648
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_44
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 648
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_45
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 597
+        width: 41
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_46
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 545
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_47
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 545
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_48
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 545
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_49
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 545
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_50
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 486
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_51
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 486
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_52
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 486
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_53
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 486
+        width: 42
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_54
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 435
+        width: 41
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_55
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 435
+        width: 41
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_56
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 383
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_57
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 383
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_58
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 383
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_59
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 383
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_60
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 333
+        width: 41
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_61
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 282
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_62
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 282
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_63
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 282
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_64
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 282
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_65
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 231
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_66
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 231
+        width: 41
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_67
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 172
+        width: 37
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_68
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 117
+        width: 37
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_69
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 117
+        width: 40
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_70
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 117
+        width: 41
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_71
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 117
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_72
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 3
+        width: 130
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_73
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 69
+        width: 41
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_74
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 49
+        width: 33
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_75
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 49
+        width: 33
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_76
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 28
+        width: 33
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_77
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 9
+        width: 33
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MM_EXE6_b_BaseLayer_78
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 9
+        width: 33
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

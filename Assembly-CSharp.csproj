@@ -45,15 +45,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\scripts\AnimationScripts\CharacterAnimation.cs" />
+     <Compile Include="Assets\scripts\Camera\CombatCamera.cs" />
      <Compile Include="Assets\scripts\CameraController.cs" />
      <Compile Include="Assets\scripts\ColorAlpha.cs" />
      <Compile Include="Assets\scripts\CompanionController.cs" />
+     <Compile Include="Assets\scripts\Domain\Abilities\Ability.cs" />
+     <Compile Include="Assets\scripts\Domain\Abilities\BasicShot.cs" />
+     <Compile Include="Assets\scripts\Domain\Abilities\EffectPacket.cs" />
+     <Compile Include="Assets\scripts\Domain\Abilities\LongSword.cs" />
+     <Compile Include="Assets\scripts\Domain\Abilities\Projectile.cs" />
+     <Compile Include="Assets\scripts\Domain\Abilities\Sword.cs" />
+     <Compile Include="Assets\scripts\Domain\Abilities\Torrent.cs" />
+     <Compile Include="Assets\scripts\Domain\Abilities\WideSword.cs" />
+     <Compile Include="Assets\scripts\Domain\Arena\Arena.cs" />
+     <Compile Include="Assets\scripts\Domain\Arena\Hitbox.cs" />
+     <Compile Include="Assets\scripts\Domain\Arena\Tile.cs" />
+     <Compile Include="Assets\scripts\Domain\Characters\Character.cs" />
+     <Compile Include="Assets\scripts\Domain\Characters\Enemy.cs" />
      <Compile Include="Assets\scripts\GroundReplicator.cs" />
      <Compile Include="Assets\scripts\NPCController.cs" />
      <Compile Include="Assets\scripts\OpenDoorScript.cs" />
      <Compile Include="Assets\scripts\PlayerController.cs" />
      <Compile Include="Assets\scripts\PlayerSet.cs" />
+     <Compile Include="Assets\scripts\UI\HealthBar.cs" />
+     <Compile Include="Assets\scripts\UI\Spell.cs" />
      <Compile Include="Assets\scripts\UIController.cs" />
+     <Compile Include="Assets\scripts\Unity\GameManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

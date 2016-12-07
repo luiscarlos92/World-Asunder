@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 
 public class UIController : MonoBehaviour {
@@ -34,7 +35,9 @@ public class UIController : MonoBehaviour {
 
 					GameObject.Find ("Cell Door").SetActive (false);
 
-
+					GameObject.FindWithTag("Player").SetActive(false);
+					GameObject.FindWithTag("Companion").SetActive(false);
+					SceneManager.LoadScene("CombatArena");
 
 					//GoToCombat
 				} else {
