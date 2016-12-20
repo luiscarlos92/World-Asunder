@@ -1,11 +1,19 @@
 # World-Asunder
 
 Main Tasks
-  -Sofia
+
+  Sofia
+  
     -Script and overall level flow
-  -Pedro 
+    
+  Pedro 
+  
     -Combat and respective UI around it
-  -Ricardo
+    
+  Ricardo
+  
     -Enemy AI ( input simulator )
-  -Luis
+    
+  Luis
+  
     -Level design
