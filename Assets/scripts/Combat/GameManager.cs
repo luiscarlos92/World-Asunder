@@ -154,13 +154,15 @@ public class GameManager : MonoBehaviour
         logicArena.charAnimation = "";
         logicArena.enemyAnimation = "";
 
-        var hitboxes = logicArena.getPool();
+        var arena = logicArena.getArena();
         for (int x = 0; x < mapSize.x; x++)
         {
             for (int y = 0; y < mapSize.y; y++)
             {
                 var hitbox = new Vector2(x, y);
-                if (hitbox.x > 2)
+
+                //if (hitbox.x > 2)
+                if (arena[x,y].selfAllegiance)
                 {
                     GameObject.Find(hitbox.x.ToString() + hitbox.y.ToString()).GetComponent<MeshRenderer>().material = Resources.Load<Material>("Material/Red");
                 }
@@ -171,13 +173,34 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        foreach (var hitbox in hitboxes.Keys)
+        //FIXME
+        // iterate through list of each position vector and check if active
+
+        //var hitboxes = logicArena.getPool();
+        //foreach (var hitbox in hitboxes.Keys)
+
+        //    var hitboxes = logicArena.getHitboxPool();
+        //foreach (var hitbox in hitboxes)
+        //{
+        //    //if (hitboxes[hitbox].active)
+        //    if (hitbox.active)
+        //    {
+        //        //fix
+        //        if (hitbox.x >= 0 && hitbox.x <= 5 && (3 - hitbox.y - 1) <= 2 && (3 - hitbox.y - 1) >= 0)
+        //            GameObject.Find(hitbox.x.ToString() + (3 - hitbox.y - 1).ToString()).GetComponent<MeshRenderer>().material = Resources.Load<Material>("Material/Yellow");
+        //    }
+        //}
+
+        var hitboxes = logicArena.getPoolList();
+        foreach(var position in hitboxes.Keys)
         {
-            if (hitboxes[hitbox].active)
+            foreach(var hitbox in hitboxes[position])
             {
-                //fix
-                if(hitbox.x >= 0 && hitbox.x <= 5 && (3 - hitbox.y - 1) <= 2 && (3 - hitbox.y - 1) >= 0)
-                    GameObject.Find(hitbox.x.ToString() + (3 - hitbox.y - 1).ToString()).GetComponent<MeshRenderer>().material = Resources.Load<Material>("Material/Yellow");
+                if (hitbox.active)
+                {
+                    if (position.x >= 0 && position.x <= 5 && (3 - position.y - 1) <= 2 && (3 - position.y - 1) >= 0)
+                        GameObject.Find(position.x.ToString() + (3 - position.y - 1).ToString()).GetComponent<MeshRenderer>().material = Resources.Load<Material>("Material/Yellow");
+                }
             }
         }
 
@@ -185,6 +208,7 @@ public class GameManager : MonoBehaviour
         {
             DestroyImmediate(enemy);
             //endgame
+            
         }
 
 
