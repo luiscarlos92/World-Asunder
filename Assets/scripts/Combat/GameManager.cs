@@ -173,33 +173,21 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        //FIXME
-        // iterate through list of each position vector and check if active
 
-        //var hitboxes = logicArena.getPool();
-        //foreach (var hitbox in hitboxes.Keys)
-
-        //    var hitboxes = logicArena.getHitboxPool();
-        //foreach (var hitbox in hitboxes)
-        //{
-        //    //if (hitboxes[hitbox].active)
-        //    if (hitbox.active)
-        //    {
-        //        //fix
-        //        if (hitbox.x >= 0 && hitbox.x <= 5 && (3 - hitbox.y - 1) <= 2 && (3 - hitbox.y - 1) >= 0)
-        //            GameObject.Find(hitbox.x.ToString() + (3 - hitbox.y - 1).ToString()).GetComponent<MeshRenderer>().material = Resources.Load<Material>("Material/Yellow");
-        //    }
-        //}
 
         var hitboxes = logicArena.getPoolList();
-        foreach(var position in hitboxes.Keys)
+        foreach (var position in hitboxes.Keys)
         {
-            foreach(var hitbox in hitboxes[position])
+            var set = hitboxes[position];
+            foreach (var hitbox in set)
             {
                 if (hitbox.active)
                 {
                     if (position.x >= 0 && position.x <= 5 && (3 - position.y - 1) <= 2 && (3 - position.y - 1) >= 0)
+                    {
                         GameObject.Find(position.x.ToString() + (3 - position.y - 1).ToString()).GetComponent<MeshRenderer>().material = Resources.Load<Material>("Material/Yellow");
+                        Debug.Log(hitbox.active);
+                    }
                 }
             }
         }

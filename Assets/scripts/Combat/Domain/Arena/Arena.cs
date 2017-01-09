@@ -131,7 +131,6 @@ public class Arena
         Move(character, move);
         Ability ability = character.HandleCombatInput();
         if(ability != null)
-            Debug.Log(ability.doneFrames);
         Execute(ability);
         //Ability shoot = character.HandleShootInput();
         //Shoot(shoot);
@@ -168,26 +167,7 @@ public class Arena
     {
         if (ability == null) return;
 
-        //if(ability is Projectile)
-        //{
-        //    abilityPool.Add(ability);
-        //    return;
-        //}
         this.charAnimation = ability.animationTriggerName;
-
-        //GameObject.Find("Player").GetComponent<Animator>().SetTrigger(ability.animationTriggerName);
-
-        //foreach (var hit in ability.hitBoxes)
-        //{
-
-            //var tile = getTile(character.position + hit);
-            //tile.HitBoxActive = true;
-            //tile.ability = ability;
-
-            //hitbox implementation
-            //do array implementation of indexes for arrays of framesToResolve
-
-        //}
 
         for(int i = 0; i<ability.hitBoxes.Length; i++)
         {
@@ -203,29 +183,6 @@ public class Arena
 
     void checkCollisions()
     {
-        //for (int x = 0; x < 6; x++)
-        //{
-        //    for (int y = 0; y < 3; y++)
-        //    {
-        //        var tile = getTile(new Vector2(x, y));
-        //        if(tile.gameObject != null && tile.HitBoxActive)
-        //        {
-        //            Debug.Log("Collision Detected at: " + x + "," + y);
-        //            //maybe just tile.CalculateEffects()?
-        //            tile.gameObject.CalculateEffects(tile.ability);
-        //        }
-        //    }
-        //}
-        //hitbox implementation
-        //Hitbox hitbox;
-        //if (HitboxPool.ContainsKey(this.character.position)){
-        //    hitbox = HitboxPool[this.character.position];
-        //    if ((hitbox != null) && hitbox.active)
-        //    {
-        //        this.character.CalculateEffects(hitbox.ability.packet);
-        //    }
-        //}
-
         List<Hitbox> hitboxList;
         if((hitboxList = HitboxListPool[character.position]).Count != 0)
         {
@@ -236,13 +193,6 @@ public class Arena
             }
         }
 
-        //if (HitboxPool.ContainsKey(this.enemy.position))
-        //{
-        //    if (((hitbox = HitboxPool[this.enemy.position]) != null) && hitbox.active)
-        //    {
-        //        this.enemy.CalculateEffects(hitbox.ability.packet);
-        //    }
-        //}
         if((hitboxList = HitboxListPool[enemy.position]).Count != 0)
         {
             foreach(var hitbox in hitboxList)
@@ -259,31 +209,6 @@ public class Arena
 
     void UpdateHitboxes()
     {
-        //for (int x = 0; x < 6; x++)
-        //{
-        //    for (int y = 0; y < 3; y++)
-        //    {
-        //        var tile = getTile(new Vector2(x, y));
-        //        if (tile.ability != null)
-        //            tile.Update();
-        //        else
-        //            tile.HitBoxActive = false;
-        //        //tile.ability.doneFrames++;
-        //        tile.ability = null;
-        //    }
-        //}
-
-        //old implementation
-        //if (HitboxPool.Count == 0) return; 
-        //foreach (Hitbox hitbox in HitboxPool.Values)
-        //{
-        //    hitbox.framesToResolve--;
-        //    //Debug.Log(hitbox.framesToResolve);
-        //    if (!(hitbox.ability.doneFrames == hitbox.ability.frames) && hitbox.active)
-        //    {
-        //        hitbox.ability.doneFrames++;
-        //    }
-        //}
         foreach(var hitboxList in HitboxListPool.Values)
         {
             foreach(var hitbox in hitboxList)
@@ -298,26 +223,11 @@ public class Arena
 
     void ResolveHitboxes()
     {
-        //if (HitboxPool.Count == 0) return;
-        //var vectors = HitboxPool.Keys.ToList();
-       
-        //foreach(Vector2 position  in vectors)
-        //{
-        //    if(HitboxPool[position].framesToResolve < 0)
-        //    {
-        //        //Debug.Log(position + " " + HitboxPool[position].ability.name);
-        //        HitboxPool[position].active = true;
-        //    }
-        //    //cleanup
-        //    if(HitboxPool[position].ability.doneFrames == HitboxPool[position].ability.frames){
-        //        HitboxPool.Remove(position);
-        //    }
-        //}
-
         foreach(var hitboxList in HitboxListPool.Values)
         {
-            foreach(var hitbox in hitboxList)
+            for(int i = 0; i < hitboxList.Count; i++)
             {
+                var hitbox = hitboxList[i];
                 if (hitbox.framesToResolve <= 0) hitbox.active = true;
                 if (hitbox.ability.doneFrames == hitbox.ability.frames) hitboxList.Remove(hitbox);
             }
