@@ -10,7 +10,6 @@ class BasicShot : Ability
     public BasicShot()
     {
         this.name = "BasicShot";
-        this.damage = 5;
         this.cooldown = 0;
         this.remainingCooldown = 0;
         this.hitBoxes = new Vector2[5];
@@ -29,7 +28,7 @@ class BasicShot : Ability
         this.icon = Resources.Load<Sprite>("Sprites/MegamanSpells/sword.png");
         this.animationTriggerName = "SwordAttack";
 
-        this.packet = new EffectPacket(5, 0, 10);
+		this.packet = new EffectPacket(5,0);
     }
 
 

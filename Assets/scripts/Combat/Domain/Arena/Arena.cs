@@ -14,7 +14,7 @@ public class Arena
 
     Tile[,] arena;
     public Character character;
-    public Character enemy;
+	public Enemy enemy;
 
     Dictionary<Vector2, Hitbox> HitboxPool;
     Dictionary<Vector2, List<Hitbox>> HitboxListPool;
@@ -129,9 +129,15 @@ public class Arena
     {
         Vector2 move = character.HandleMovementInput();
         Move(character, move);
+		move = enemy.getNextMove ();
+//		Debug.Log("enemy move is" + move.ToString ());
+//		Debug.Log ("enemy position is" + enemy.position);
+		Move2(enemy, move);
+
         Ability ability = character.HandleCombatInput();
-        if(ability != null)
-        Execute(ability);
+		Execute(ability,character);
+		ability = enemy.getNextAbility ();
+		Execute (ability, enemy);
         //Ability shoot = character.HandleShootInput();
         //Shoot(shoot);
     }
@@ -141,21 +147,37 @@ public class Arena
         var destination = target.position + move;
         if (checkValidTile(destination))
         {
+			if (getTile (destination).selfAllegiance) {
             getTile(target.position).Occupied = false;
             getTile(target.position).gameObject = null;
             target.position = destination;
             getTile(destination).Occupied = true;
             getTile(destination).gameObject = target;
+//			Debug.Log (target.name);
+			}
         }
     }
 
+	void Move2(Enemy target, Vector2 move) {
+        var destination = target.position + move;
+        if (checkValidTile(destination))
+        {
+			if (!getTile (destination).selfAllegiance) {
+				getTile (target.position).Occupied = false;
+				getTile (target.position).gameObject = null;
+				target.position = destination;
+				getTile (destination).Occupied = true;
+				getTile (destination).gameObject = target;
+//				Debug.Log (target.name);
+			}
+        }
+    }
     bool checkValidTile(Vector2 move)
     {
         if ((move.x <= 5) &&
             (move.x >= 0) &&
             (move.y <= 2) &&
             (move.y >= 0) &&
-            getTile(move).selfAllegiance &&
             !getTile(move).Occupied)
         {
             return true;
@@ -163,19 +185,27 @@ public class Arena
         return false;
     }
 
-    void Execute(Ability ability)
+	void Execute(Ability ability, Character sender)
     {
-        if (ability == null) return;
-
+		if (ability == null) {
+			return;
+		}
         this.charAnimation = ability.animationTriggerName;
 
         for(int i = 0; i<ability.hitBoxes.Length; i++)
         {
             Hitbox hitbox = new Hitbox(ability.framesToResolve[i], ability);
-            //HitboxPool.Add(character.position + ability.hitBoxes[i], hitbox);
 
             //list implementation
-            HitboxListPool[character.position + ability.hitBoxes[i]].Add(hitbox);
+			if (ability.relative) {
+//				Debug.Log ("here");
+				if(sender.GetType().ToString() == "Enemy")
+					HitboxListPool [sender.position - ability.hitBoxes [i]].Add (hitbox);
+				else
+					HitboxListPool [sender.position + ability.hitBoxes [i]].Add (hitbox);
+			}
+			else
+	            HitboxListPool[ability.hitBoxes[i]].Add(hitbox);
             //Debug.Log("Hitbox Added with " + hitbox.ability.name + "," + hitbox.framesToResolve + "," + hitbox.active);
         }
     }
@@ -197,8 +227,10 @@ public class Arena
         {
             foreach(var hitbox in hitboxList)
             {
-                if (hitbox.active)
-                    this.enemy.CalculateEffects(hitbox.ability.packet);
+				if (hitbox.active) {
+					this.enemy.CalculateEffects (hitbox.ability.packet);
+
+				}
             }
         }
         //catch (Exception e)

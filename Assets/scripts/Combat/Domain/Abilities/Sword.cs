@@ -10,7 +10,6 @@ class Sword : Ability
     public Sword()
     {
         this.name = "Sword";
-        this.damage = 80;
         this.cooldown = 8;
         this.remainingCooldown = 0;
         Vector2[] hitbox = new Vector2[1];
@@ -22,7 +21,7 @@ class Sword : Ability
         this.icon = Resources.Load<Sprite>("Sprites/MegamanSpells/sword.png");
         this.animationTriggerName = "SwordAttack";
 
-        this.packet = new EffectPacket(80, 0, 20);
+        this.packet = new EffectPacket(80, 20);
     }
 
     

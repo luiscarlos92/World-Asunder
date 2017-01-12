@@ -10,7 +10,6 @@ class WideSword : Ability
     public WideSword()
     {
         this.name = "WideSword";
-        this.damage = 80;
         this.cooldown = 8;
         this.remainingCooldown = 0;
         Vector2[] hitbox = new Vector2[3];
@@ -24,7 +23,7 @@ class WideSword : Ability
         framesToResolve[1] = 0;
         framesToResolve[2] = 0;
 
-        this.packet = new EffectPacket(80, 0, 20);
+        this.packet = new EffectPacket(80, 20);
         this.frames = 20;
 
         this.icon = Resources.Load<Sprite>("Sprites/MegamanSpells/widesword");

@@ -10,7 +10,6 @@ class LongSword : Ability
     public LongSword()
     {
         this.name = "LongSword";
-        this.damage = 80;
         this.cooldown = 8;
         this.remainingCooldown = 0;
         Vector2[] hitbox = new Vector2[2];
@@ -22,7 +21,7 @@ class LongSword : Ability
         this.framesToResolve = new int[2];
         framesToResolve[0] = 0;
         framesToResolve[1] = 0;
-        this.packet = new EffectPacket(80, 0, 20);
+		this.packet = new EffectPacket(80,20);
 
         this.icon = Resources.Load<Sprite>("Sprites/MegamanSpells/longsword");
     }

@@ -48,8 +48,19 @@ public class GameManager : MonoBehaviour
         abilities[4] = new Torrent();
         //Sprite bg = Resources.Load<Sprite>("Sprites/Background/background");
         //GameObject.Find("Background").GetComponent<Image>().sprite = bg;
-        Enemy enemy = new Enemy(new Vector2(3, 1));
-
+        Enemy enemy = new Enemy(new Vector2(4, 1));
+		Ability[] enemies = new Ability[5];
+		enemies [0] = new SleightOfHand ();
+		enemies[1] = new Torrent();
+		enemies[2] = new DirtyTricks();
+		enemies[3] = new CannonBarrage();
+		enemies[4] = new Caravel();
+		enemy.SetAbilities (abilities);
+		enemy.passive = enemies [0];
+		enemy.abilityQ = enemies [1];
+		enemy.abilityW = enemies [2];
+		enemy.abilityE = enemies [3];
+		enemy.abilityR = enemies [4];
         logicArena = new Arena(abilities, enemy);
         GenerateMap();
     }
@@ -137,6 +148,7 @@ public class GameManager : MonoBehaviour
         //update gamestate
         logicArena.Update();
         character.transform.position = ParsePosition(logicArena.character.position);
+		enemy.transform.position = ParsePosition (logicArena.enemy.position);
 
         //UPDATE UI
         //UPDATE HEALTHBARS
@@ -186,7 +198,7 @@ public class GameManager : MonoBehaviour
                     if (position.x >= 0 && position.x <= 5 && (3 - position.y - 1) <= 2 && (3 - position.y - 1) >= 0)
                     {
                         GameObject.Find(position.x.ToString() + (3 - position.y - 1).ToString()).GetComponent<MeshRenderer>().material = Resources.Load<Material>("Material/Yellow");
-                        Debug.Log(hitbox.active);
+//                        Debug.Log(hitbox.active);
                     }
                 }
             }

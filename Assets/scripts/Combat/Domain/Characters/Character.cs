@@ -8,6 +8,7 @@ public class Character
 {
     public Vector2 position;
     public int HP;
+	public string name;
     public const int MAXHP = 100;
 
     public Ability passive;
@@ -33,32 +34,18 @@ public class Character
         abilityE = new LongSword();
         abilityR = new Torrent();
         this.AnimationOccuring = false;
+		this.name = "Hecte";
+
     }
 
     public void SetAbilities(Ability[] abilities)
     {
-        passive = abilities[0];
-        abilityQ = abilities[1];
-        abilityW = abilities[2];
-        abilityE = abilities[3];
-        abilityR = abilities[4];
+        this.passive = abilities[0];
+        this.abilityQ = abilities[1];
+        this.abilityW = abilities[2];
+        this.abilityE = abilities[3];
+        this.abilityR = abilities[4];
 
-    }
-
-    public void CalculateEffects(Ability ability)
-    {
-        if (!Stunned)
-        {
-            if(ability.damage > this.HP)
-            {
-                this.HP -= this.HP;
-            }
-            else
-                this.HP -= ability.damage;
-            this.Stunned = true;
-            this.StunnedFrames = 20;
-            Debug.Log(HP);
-        }
     }
 
     public void CalculateEffects(EffectPacket packet)
@@ -66,10 +53,10 @@ public class Character
         if (!Stunned)
         {
             this.HP -= packet.dmg;
-            this.HP += packet.heal;
+            
             this.StunnedFrames = packet.stunFrames;
             this.Stunned = true;
-            //Debug.Log(HP);
+//			Debug.Log(HP + " " + this.name);
             //Debug.Log(StunnedFrames);
         }
     }
@@ -86,6 +73,7 @@ public class Character
 
             if (Input.GetKeyDown("up"))
             {
+				
                 return new Vector2(0, 1);
             }
             else if (Input.GetKeyDown("down"))
@@ -162,22 +150,6 @@ public class Character
         return null;
     }
 
-    //public Ability HandleShootInput()
-    //{
-    //        if (Input.GetKeyDown("space"))
-    //        {
-    //        //single shot
-    //        //Debug.Log("Pressed space bar one single time")
-    //        return 0;
-    //        }
-    //        else if (Input.GetKey("space"))
-    //        {
-    //        //charged shot
-    //        //Debug.Log("still pressing space bar");
-    //        return 1;
-    //        }
-    //    return -1;
-    //}
     public void Update()
     {
         if (this.StunnedFrames > 0 && Stunned)
@@ -212,8 +184,10 @@ public class Character
             abilityR.remainingCooldown -= 0.016f;
         else
             abilityR.remainingCooldown = 0;
+
+//		Debug.Log (this.name);
         //Debug.Log("Stunned Frames: " + StunnedFrames + "animation frames: " + AnimationFrames);
-        //Debug.Log(abilityQ.remainingCooldown + "/" + abilityQ.cooldown);
+//		Debug.Log(this.name + " " + abilityQ.remainingCooldown + "/" + abilityQ.cooldown);
 
     }
 

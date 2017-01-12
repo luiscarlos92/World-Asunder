@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Ability : ICloneable{
     public string name;
-    public int damage;
     public Vector2[] hitBoxes;
     public float cooldown;
     public float remainingCooldown;
@@ -13,6 +12,7 @@ public class Ability : ICloneable{
     public int frames;
     //parameter to see how many frames were already done
     public int doneFrames;
+	public bool relative = true;
     //name of the parameter on the ide to trigger the sprite animation
     public string animationTriggerName = "DefaultAttack";
     //frames until hitbox is allowed to be active
@@ -25,7 +25,6 @@ public class Ability : ICloneable{
     public Ability()
     {
         name = "";
-        damage = 0;
         this.hitBoxes = new Vector2[1];
         hitBoxes[0] = new Vector2(0, 0);
         cooldown = 0;
@@ -35,10 +34,9 @@ public class Ability : ICloneable{
         this.animationTriggerName = "DefaultAttack";
         packet = new EffectPacket();
     }
-    public Ability(string _name, int _dmg, Vector2[] _hitBoxes, float _cd, int _frames)
+    public Ability(string _name, Vector2[] _hitBoxes, float _cd, int _frames)
     {
         name = _name;
-        damage = _dmg;
         hitBoxes = _hitBoxes;
         cooldown = _cd;
         frames = _frames;
