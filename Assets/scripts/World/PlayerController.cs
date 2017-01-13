@@ -3,8 +3,9 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
+	public LevelManager lManager;
+
 	public float speed;
-	public GameObject companion;
 
 	private int direction;
 	private bool backtracking;
@@ -20,16 +21,11 @@ public class PlayerController : MonoBehaviour {
 		backtracking = false;
 		lastArea = "";
 
-		DontDestroyOnLoad(gameObject);
-		DontDestroyOnLoad(companion);
-
-		//Loads starting level
-		SceneManager.LoadScene("Fort");
 	}
 	
 	void FixedUpdate() {
-		Canvas DialogUI = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
-		if (!DialogUI.isActiveAndEnabled) {
+		
+		if (!lManager.paused) {
 
 			float moveHorizontal = Input.GetAxis ("Horizontal");
 			float moveVertical = Input.GetAxis ("Vertical");
