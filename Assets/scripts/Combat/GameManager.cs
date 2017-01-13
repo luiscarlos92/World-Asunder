@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	public LevelManager lManager;
 
     //MAP RELATED
     //change tile to a tileclass that has a sprite animation
@@ -46,15 +47,13 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+		lManager = (LevelManager)GameObject.Find ("LevelManager").GetComponent (typeof(LevelManager));
+
         chars = new List<Enemy>();
         arena = new GameObject[6, 3];
         ////////////////////////////////////////////////////////////////////////////////////
         //CHARACTER
-        characterAbilities[0] = new PoisonDagger();
-        characterAbilities[1] = new Backstab();
-        characterAbilities[2] = new Invisibility();
-        characterAbilities[3] = new SmokeBomb();
-        characterAbilities[4] = new Garrote();
+		setPlayerAbilities();
         Hecte = new Character("Hecte", characterAbilities);
         Hecte.spritePath = "Sprites/Characters/AnimatedCharacters/Hecte";
 
@@ -84,10 +83,14 @@ public class GameManager : MonoBehaviour
         // so I have to instantiate everything here
 
         Enemy teki = new Enemy(new Vector2(4,1));
+
         foreach(var entry in chars)
         {
-            if (entry.name == PlayerPrefs.GetString("Enemy"))
-                teki = entry;
+			//Debug.Log (entry.name + " " + lManager.enemy);
+			if (entry.name == lManager.enemy) {
+				teki = entry;
+				Debug.Log (entry.name + " " + lManager.enemy);
+			}
         }
         logicArena = new Arena(Hecte,teki);
         ////////////////////////////////////////////////////////////////////////////////////
@@ -99,6 +102,60 @@ public class GameManager : MonoBehaviour
         audio.PlayOneShot(loop, 0.5f);
         
     }
+
+	public void setPlayerAbilities(){
+		//SPACE
+		if (lManager.choosenSpace == "Vriska")
+			characterAbilities[0] = new PoisonDagger();
+		if (lManager.choosenSpace == "Jonah")
+			characterAbilities[0] = new PoisonDagger();
+		if (lManager.choosenSpace == "Coelestine")
+			characterAbilities[0] = new PoisonDagger();
+		if (lManager.choosenSpace == "Poss")
+			characterAbilities[0] = new SleightOfHand();
+
+		//Q
+		if (lManager.choosenSpace == "Vriska")
+			characterAbilities[1] = new PoisonDagger();
+		if (lManager.choosenSpace == "Jonah")
+			characterAbilities[1] = new PoisonDagger();
+		if (lManager.choosenSpace == "Coelestine")
+			characterAbilities[1] = new Backstab();
+		if (lManager.choosenSpace == "Poss")
+			characterAbilities[1] = new Torrent();
+
+		//W
+		if (lManager.choosenSpace == "Vriska")
+			characterAbilities[2] = new PoisonDagger();
+		if (lManager.choosenSpace == "Jonah")
+			characterAbilities[2] = new PoisonDagger();
+		if (lManager.choosenSpace == "Coelestine")
+			characterAbilities[2] = new Invisibility();
+		if (lManager.choosenSpace == "Poss")
+			characterAbilities[2] = new DirtyTricks();
+
+		//E
+		if (lManager.choosenSpace == "Vriska")
+			characterAbilities[3] = new PoisonDagger();
+		if (lManager.choosenSpace == "Jonah")
+			characterAbilities[3] = new PoisonDagger();
+		if (lManager.choosenSpace == "Coelestine")
+			characterAbilities[3] = new SmokeBomb();
+		if (lManager.choosenSpace == "Poss")
+			characterAbilities[3] = new CannonBarrage();
+
+		//R
+		if (lManager.choosenSpace == "Vriska")
+			characterAbilities[4] = new PoisonDagger();
+		if (lManager.choosenSpace == "Jonah")
+			characterAbilities[4] = new PoisonDagger();
+		if (lManager.choosenSpace == "Coelestine")
+			characterAbilities[4] = new Garrote();
+		if (lManager.choosenSpace == "Poss")
+			characterAbilities[4] = new Caravel();
+		
+	}
+
     public Vector3 ParsePosition(Vector2 v)
     {
         return new Vector3(-2.5f + (int)v.x, -1.5f + (int)v.y, -0.1f);
@@ -225,7 +282,8 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    GameObject.Find(hitbox.x.ToString() + hitbox.y.ToString()).GetComponent<MeshRenderer>().material = Resources.Load<Material>("Material/Blue");
+					GameObject.Find(hitbox.x.ToString() + hitbox.y.ToString()).GetComponent<MeshRenderer>().material = Resources.Load("Material/Blue") as Material;
+					Debug.Log ("1");
 
                 }
             }
@@ -251,7 +309,8 @@ public class GameManager : MonoBehaviour
 
         if (logicArena.enemy.HP <= 0)
         {
-            SceneManager.LoadScene("CombatArena");
+			lManager.returnCombatArena ();
+         //   SceneManager.LoadScene("CombatArena");
         }
         if(logicArena.character.HP <= 0)
         {

@@ -32,8 +32,8 @@ public class UIController : MonoBehaviour {
 					messages.Remove (toPrint);
 					dialogUI.enabled = false;
 
-					toPrint.Replace("#trigger:", "");
-
+					toPrint = toPrint.Replace("#trigger:", "");
+					//toPrint.Substring (9);
 					lManager.loadCombatArena (toPrint);
 
 					//GoToCombat

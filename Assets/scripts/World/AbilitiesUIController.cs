@@ -8,15 +8,14 @@ public class AbilitiesUIController : MonoBehaviour {
 	public LevelManager lManager;
 	public Canvas abilitiesUI;
 
-	string choosenCompanion = "Coelestine";
-	string choosenSpace = "Coelestine";
-	string choosenQ = "Coelestine";
-	string choosenW = "Coelestine";
-	string choosenE = "Coelestine";
-	string choosenR = "Coelestine";
+	public Canvas abilitiesVriska;
+	public Canvas abilitiesJonah;
+	public Canvas abilitiesCoelestine;
+	public Canvas abilitiesPoss;
 
 	// Use this for initialization
 	void Start () {
+		abilitiesPoss.enabled = false;
 		abilitiesUI.enabled = false;
 	}
 	
@@ -38,37 +37,37 @@ public class AbilitiesUIController : MonoBehaviour {
 			foreach (Image image in images) {
 				if (image.name.Contains ("Frame")) {
 					if (image.name.Contains (" Companion ")) {
-						if (image.name.Contains (choosenCompanion))
+						if (image.name.Contains (lManager.choosenCompanion))
 							image.enabled = true;
 						else
 							image.enabled = false;
 					}
 					if (image.name.Contains (" Space ")) {
-						if (image.name.Contains (choosenSpace))
+						if (image.name.Contains (lManager.choosenSpace)) 
 							image.enabled = true;
 						else
 							image.enabled = false;
 					}
 					if (image.name.Contains (" Q ")) {
-						if (image.name.Contains (choosenQ))
+						if (image.name.Contains (lManager.choosenQ))
 							image.enabled = true;
 						else
 							image.enabled = false;
 					}
 					if (image.name.Contains (" W ")) {
-						if (image.name.Contains (choosenW))
+						if (image.name.Contains (lManager.choosenW))
 							image.enabled = true;
 						else
 							image.enabled = false;
 					}
 					if (image.name.Contains (" E ")) {
-						if (image.name.Contains (choosenE))
+						if (image.name.Contains (lManager.choosenE))
 							image.enabled = true;
 						else
 							image.enabled = false;
 					}
 					if (image.name.Contains (" R ")) {
-						if (image.name.Contains (choosenR))
+						if (image.name.Contains (lManager.choosenR))
 							image.enabled = true;
 						else
 							image.enabled = false;
@@ -79,84 +78,84 @@ public class AbilitiesUIController : MonoBehaviour {
 	}
 
 	public void clickPortrait_Vriska(){
-		choosenCompanion = "Vriska";
+		lManager.choosenCompanion = "Vriska";
 	}
 	public void clickPortrait_Jonah(){
-		choosenCompanion = "Jonah";
+		lManager.choosenCompanion = "Jonah";
 	}
 	public void clickPortrait_Coelestine(){
-		choosenCompanion = "Coelestine";
+		lManager.choosenCompanion = "Coelestine";
 	}
 	public void clickPortrait_Poss(){
-		choosenCompanion = "Poss";
+		lManager.choosenCompanion = "Poss";
 	}
 
 
 	public void clickSpace_Vriska(){
-		choosenSpace = "Vriska";
+		lManager.choosenSpace = "Vriska";
 	}
 	public void clickSpace_Jonah(){
-		choosenSpace = "Jonah";
+		lManager.choosenSpace = "Jonah";
 	}
 	public void clickSpace_Coelestine(){
-		choosenSpace = "Coelestine";
+		lManager.choosenSpace = "Coelestine";
 	}
 	public void clickSpace_Poss(){
-		choosenSpace = "Poss";
+		lManager.choosenSpace = "Poss";
 	}
 
 
 	public void clickQ_Vriska(){
-		choosenQ = "Vriska";
+		lManager.choosenQ = "Vriska";
 	}
 	public void clickQ_Jonah(){
-		choosenQ = "Jonah";
+		lManager.choosenQ = "Jonah";
 	}
 	public void clickQ_Coelestine(){
-		choosenQ = "Coelestine";
+		lManager.choosenQ = "Coelestine";
 	}
 	public void clickQ_Poss(){
-		choosenQ = "Poss";
+		lManager.choosenQ = "Poss";
 	}
 
 
 	public void clickW_Vriska(){
-		choosenW = "Vriska";
+		lManager.choosenW = "Vriska";
 	}
 	public void clickW_Jonah(){
-		choosenW = "Jonah";
+		lManager.choosenW = "Jonah";
 	}
 	public void clickW_Coelestine(){
-		choosenW = "Coelestine";
+		lManager.choosenW = "Coelestine";
 	}
 	public void clickW_Poss(){
-		choosenW = "Poss";
+		lManager.choosenW = "Poss";
 	}
 
 	public void clickE_Vriska(){
-		choosenE = "Vriska";
+		lManager.choosenE = "Vriska";
 	}
 	public void clickE_Jonah(){
-		choosenE = "Jonah";
+		lManager.choosenE = "Jonah";
 	}
 	public void clickE_Coelestine(){
-		choosenE = "Coelestine";
+		lManager.choosenE = "Coelestine";
 	}
 	public void clickE_Poss(){
-		choosenE = "Poss";
+		lManager.choosenE = "Poss";
 	}
 
 
 	public void clickR_Vriska(){
-		choosenR = "Vriska";
+		lManager.choosenR = "Vriska";
 	}
 	public void clickR_Jonah(){
-		choosenR = "Jonah";
+		lManager.choosenR = "Jonah";
 	}
 	public void clickR_Coelestine(){
-		choosenR = "Coelestine";
+		lManager.choosenR = "Coelestine";
 	}
 	public void clickR_Poss(){
-		choosenR = "Poss";
+		lManager.choosenR = "Poss";
 	}
 }

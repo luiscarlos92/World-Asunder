@@ -9,9 +9,20 @@ public class LevelManager : MonoBehaviour {
 	public GameObject companion;
 	public Canvas hud;
 
+	public Canvas dialogHUD;
+	public Canvas abilitiesHUD;
+
 	public bool paused = false;
 	public string lastScene = "Load";
 	public string currentScene = "Load";
+	public string enemy = "";
+
+	public string choosenCompanion = "Coelestine";
+	public string choosenSpace = "Poss";
+	public string choosenQ = "Poss";
+	public string choosenW = "Poss";
+	public string choosenE = "Poss";
+	public string choosenR = "Poss";
 
 	// Use this for initialization
 	void Start () {
@@ -32,16 +43,28 @@ public class LevelManager : MonoBehaviour {
 
 
 	public void loadCombatArena(string enemyName){
-		if(enemyName.Equals("Poss"))
+		if (enemyName.Equals ("Poss"))
 			GameObject.Find ("Cell Door").SetActive (false);
 
-		PlayerPrefs.SetString ("Enemy", enemyName);
-		GameObject.FindWithTag("Player").SetActive(false);
-		GameObject.FindWithTag("Companion").SetActive(false);
+		//PlayerPrefs.SetString ("Enemy", enemyName);
+		enemy = enemyName;
+		player.SetActive(false);
+		companion.SetActive(false);
 		SceneManager.LoadScene("CombatArena");
 	}
 
+	public void returnCombatArena(){
+		if (enemy.Equals ("Poss"))
+			abilitiesHUD.GetComponent<AbilitiesUIController> ().abilitiesPoss.enabled = true;
+
+		enemy = "";
+		SceneManager.LoadScene(currentScene);
+		player.SetActive(true);
+		companion.SetActive(true);
+	}
+
 	public void loadScene(string sceneName ){
+		
 		paused = false;
 		lastScene = currentScene;
 		currentScene = sceneName;
