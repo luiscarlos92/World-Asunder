@@ -32,6 +32,8 @@ public class CutsceneUIController : MonoBehaviour {
 		currentScene = 0;
 		if (name.Equals ("Poss")) {
 			maxScenes = 5;
+		}if (name.Contains ("Adamastor")) {
+			maxScenes = 3;
 		}
 
 		nextImage ();

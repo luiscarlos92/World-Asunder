@@ -14,6 +14,8 @@ public class UIController : MonoBehaviour {
 	public Image npcImage;
 	public ArrayList messages;
 
+	public Button buttonA;
+	public Button buttonB;
 
 	// Use this for initialization
 	void Start () {
@@ -89,15 +91,46 @@ public class UIController : MonoBehaviour {
 					GameObject newEnemy = Instantiate(lManager.childPrefab, ((GameObject.Find ("Player").transform.position + GameObject.Find ("ChildASpawn").transform.position)/2), this.transform.rotation) as GameObject;
 					Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
 					UIController ui = (UIController)canvas.GetComponent (typeof(UIController));
-					ui.addToQueue ("Hecte:\"Oh, please, don’t let that stop you. Let me see what you did to your own men!\"");
-					ui.addToQueue ("#trigger:Combat:Poss");
+					ui.addToQueue ("Hecte:\"Urgh, another one.\"");
+					ui.addToQueue ("#trigger:Combat:Spawn1");
 				}
 				if (message.Equals ("ChildB")) {
 					GameObject newEnemy = Instantiate(lManager.childPrefab, ((GameObject.Find ("Player").transform.position + GameObject.Find ("ChildBSpawn").transform.position)/2), this.transform.rotation) as GameObject;
 					Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
 					UIController ui = (UIController)canvas.GetComponent (typeof(UIController));
-					ui.addToQueue ("Hecte:\"Oh, please, don’t let that stop you. Let me see what you did to your own men!\"");
-					ui.addToQueue ("#trigger:Combat:Poss");
+					if (lManager.choosenCompanion.Equals ("Poss")) {
+						ui.addToQueue ("Poss:\"Well, this is the worst jig I’ve ever danced. Women can be so clingy sometimes… Huh, mate, it’s Sal Demar all over again.\"");
+					}
+					if (lManager.choosenCompanion.Equals ("Coelestine")) {
+						ui.addToQueue ("Coelestine:\"This is not right! Whatever this is, it made the sea a mass grave. Not even a shred of dignity left for the dead!\"");
+					}
+					ui.addToQueue ("#trigger:Combat:Spawn2");
+				}
+				if (message.Equals ("Adamastor")) {
+					GameObject newEnemy = Instantiate(lManager.adamastorPrefab, GameObject.Find ("AdamastorSpawn").transform.position, this.transform.rotation) as GameObject;
+					Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
+					UIController ui = (UIController)canvas.GetComponent (typeof(UIController));
+
+					if (lManager.choosenCompanion.Equals ("Poss")) {
+						ui.addToQueue ("Poss:\"And here it is...\"");
+					}
+					if (lManager.choosenCompanion.Equals ("Coelestine")) {
+						ui.addToQueue ("Coelestine:\"Not good!\"");
+					}
+
+					ui.addToQueue ("Adamastor:\"I am becoming, the meat. Has rotted, rotted on bone. Bone in the fish, the fish is dust, as we become dust, the sea takes us all. \"");
+					ui.addToQueue ("Adamastor:\"Foam in dreams and fog in clouds. I am becoming...\"");
+					ui.addToQueue ("Adamastor:\"and you are becoming ME!\"");
+					ui.addToQueue ("#trigger:Combat:Adamastor");
+				}if (message.Equals ("Choice")) {
+					
+					Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
+					UIController ui = (UIController)canvas.GetComponent (typeof(UIController));
+
+					buttonA.enabled = true;
+					buttonB.enabled = true;
+					npcNameBox.enabled = false;
+
 				}
 			}
 		} else {
@@ -110,4 +143,26 @@ public class UIController : MonoBehaviour {
 			messages.Remove (message);
 		}
 	}
+
+	public void clickTake(){
+		Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
+		UIController ui = (UIController)canvas.GetComponent (typeof(UIController));
+		buttonA.enabled = false;
+		buttonB.enabled = false;
+		npcNameBox.enabled = true;
+		ui.addToQueue ("Hecte:\"Your pain is meaningless. Know your suffering will ease the suffering of others. Become nothing!\"");
+		ui.addToQueue ("#trigger:Cutscene:Adamastor1");
+	}
+
+	public void clickDontTake(){
+		Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
+		UIController ui = (UIController)canvas.GetComponent (typeof(UIController));
+		buttonA.enabled = false;
+		buttonB.enabled = false;
+		npcNameBox.enabled = true;
+		ui.addToQueue ("Hecte:\"After all this, you were nothing more than a man looking through glass, locked in someone else’s motions. You’re free now. Use that freedom to fix this, and maybe you’ll find absolution.\"");
+		ui.addToQueue ("#trigger:Cutscene:Adamastor2");
+	}
+
+
 }

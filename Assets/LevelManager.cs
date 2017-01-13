@@ -80,7 +80,12 @@ public class LevelManager : MonoBehaviour {
 			
 			ui.addToQueue ("Hecte:\"...\"");
 			ui.addToQueue ("Hecte:\"I’m sorry. For your men.\"");
-			ui.addToQueue ("Prisoner:\"I respect that. The name’s Poss, by the way.\"");
+			ui.addToQueue ("Poss:\"For Hallaway too. The damn man was like a father to me. Honestly, I only did what he would want me too… it was but a mercy.\"");
+			ui.addToQueue ("Poss:\"Yeh. Anyway, that’s what’s happened. The whole of it. The truth. Morrissey didn’t believe a word. Part of the reason I’m stuck here.\"");
+			ui.addToQueue ("Coelestine:\"A sailor. Wind, a storm and sea. Do you know who we are up against?\"");
+			ui.addToQueue ("Hecte:\"I can make a guess...\"");
+			ui.addToQueue ("Hecte:\"We have to go there! The sailor in the clouds, that’s-\"");
+			ui.addToQueue ("Poss:\"You’re daft, mate, you got to be! It’s the literal end of the world!\"");
 
 			ui.addToQueue ("#trigger:Action:Hallaway");
 			events ["PreHallaway"] = true;
@@ -103,8 +108,12 @@ public class LevelManager : MonoBehaviour {
 		events.Add ("HallawayFight", false);
 		events.Add ("GoOutside", false);
 		events.Add ("ChildASpawn", false);
-		events.Add ("ChildAFight", false);
-
+		events.Add ("Spawn1Fight", false);
+		events.Add ("ChildBSpawn", false);
+		events.Add ("Spawn2Fight", false);
+		events.Add ("AdamastorSpawn", false);
+		events.Add ("AdamastorFight", false);
+		events.Add ("GameOver", false);
 	}
 
 	void initializeStrings(){

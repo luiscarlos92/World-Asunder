@@ -113,14 +113,14 @@ public class AbilitiesUIController : MonoBehaviour {
 		lManager.choosenCompanion = "Coelestine";
 		ATitle.text = "Bodyguard";
 		AName.text = "Coelestine";
-		ADescription.text = "Hotheaded";
+		ADescription.text = "Born to a noble Edmenian family, Coelestine has always used her fierce sense of moral to wander the dangerous Elven court. Now fallen from grace, she helps those she deems just and loyal.";
 		displayInfo ();
 	}
 	public void clickPortrait_Poss(){
 		lManager.choosenCompanion = "Poss";
 		ATitle.text = "Bodyguard";
 		AName.text = "Poss";
-		ADescription.text = "...";
+		ADescription.text = "From the dirty alleys of the Human Capital to all corners of the World, Poss seeks the thrill of adventure, the tastiest mead and a bony lass to sit on his knee.";
 		displayInfo ();
 	}
 

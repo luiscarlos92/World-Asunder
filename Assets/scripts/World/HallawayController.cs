@@ -39,7 +39,11 @@ public class HallawayController : MonoBehaviour {
 			if((range < triggerDistance) && (!triggered)){
 				Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
 				UIController ui = (UIController)canvas.GetComponent (typeof(UIController)); 
-				ui.addToQueue ("Poss:\"I'll fight.\"");
+				ui.addToQueue ("Poss:\"Bitch born!\"");
+				ui.addToQueue ("Coelestine:\"Friend of yours?\"");
+				ui.addToQueue ("Poss:\"Hallaway! How?!\"");
+				ui.addToQueue ("Hecte:\"I don’t know, but I don’t think he wants to be asked.\"");
+				ui.addToQueue ("Poss:\"You’re not doing this alone, ye hear! It wouldn’t be right! ‘Tis my battle here, ye!\"");
 				ui.addToQueue ("#trigger:Action:Poss");
 				triggered = true;
 			}else {
@@ -54,7 +58,12 @@ public class HallawayController : MonoBehaviour {
 		if(other.gameObject.CompareTag("Player")) {
 			Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
 			UIController ui = (UIController)canvas.GetComponent (typeof(UIController)); 
-			ui.addToQueue ("Prisoner:\"To arms my friend!\"");
+
+			if(lManager.choosenCompanion.Equals("Poss"))
+				ui.addToQueue ("Poss:\"Up and away ye.\"");
+			if(lManager.choosenCompanion.Equals("Coelestine"))
+				ui.addToQueue ("Coelestine:\"So be it.\"");
+			
 			ui.addToQueue ("#trigger:Combat:Hallaway");
 		}
 

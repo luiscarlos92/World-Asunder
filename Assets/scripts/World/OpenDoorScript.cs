@@ -31,7 +31,10 @@ public class OpenDoorScript : MonoBehaviour {
 			GameObject.Find ("Cell Door").SetActive (false);
 			Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
 			UIController ui = (UIController)canvas.GetComponent (typeof(UIController)); 
-			ui.addToQueue ("Prisoner:\"ahah we won\"");
+			ui.addToQueue ("Poss:\"Bastard always had a mean undercut.\"");
+			ui.addToQueue ("Hecte:\"ahah\"");
+			ui.addToQueue ("Hecte:\"Huh-hum. Can agree.\"");
+			ui.addToQueue ("Hecte:\"The street has have become awfully quiet, however. I don’t like this.\"");
 		}
 
 	}
