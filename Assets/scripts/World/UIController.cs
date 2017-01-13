@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 
 public class UIController : MonoBehaviour {
+	public LevelManager lManager;
 
 	public Canvas dialogUI;
 	public Text npcTextBox;
@@ -14,7 +15,6 @@ public class UIController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		npcTextBox.text = "Olá eu sou noob!";
 		dialogUI.enabled = false;
 		messages = new ArrayList ();
 	}
@@ -24,7 +24,7 @@ public class UIController : MonoBehaviour {
 		if (Input.GetKeyDown ("space") && dialogUI.isActiveAndEnabled) {
 			if(messages.Count == 0){
 			dialogUI.enabled = false;
-			
+			lManager.paused = false;
 
 			} else {
 				string toPrint = (string)messages [0];
@@ -52,7 +52,7 @@ public class UIController : MonoBehaviour {
 			npcTextBox.text = toPrint;
 			messages.Remove (toPrint);
 			dialogUI.enabled = true;
-
+			lManager.paused = true;
 
 		}
 	}
