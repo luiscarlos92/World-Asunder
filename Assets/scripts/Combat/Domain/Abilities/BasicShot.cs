@@ -33,6 +33,6 @@ class BasicShot : Ability
 
     public override void Run()
     {
-        throw new NotImplementedException();
+ 
     }
 }

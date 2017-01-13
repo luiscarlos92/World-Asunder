@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Linq;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public abstract class Ability : ICloneable{
     public string name;
     public string preFab;
     public string description;
+    public Vector2 origin;
+    public List<Vector2> particleDest = new List<Vector2>();
     public Vector2[] hitBoxes;
     public float cooldown;
     public float remainingCooldown;

@@ -48,9 +48,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
 		lManager = (LevelManager)GameObject.Find ("LevelManager").GetComponent (typeof(LevelManager));
-		if (Input.GetKeyDown ("escape")) {
-			logicArena.enemy.HP = 0;
-		}
+
         chars = new List<Enemy>();
         arena = new GameObject[6, 3];
         ////////////////////////////////////////////////////////////////////////////////////
@@ -318,7 +316,7 @@ public class GameManager : MonoBehaviour
         }
         if(logicArena.character.HP <= 0)
         {
-            lManager.restartGame();
+            //lManager.restartGame();
         }
 
 

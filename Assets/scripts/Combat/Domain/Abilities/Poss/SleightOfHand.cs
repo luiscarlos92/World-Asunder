@@ -35,7 +35,7 @@ class SleightOfHand : Ability
 
     public override void Run()
     {
-        throw new NotImplementedException();
+ 
     }
 }
 

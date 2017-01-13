@@ -1,14 +1,17 @@
 fileFormatVersion: 2
-guid: 37b48f247b3fb4c40a34f459f2a0b44c
-timeCreated: 1484311905
+guid: 6dbbc9d8d8710df4e8c5f16d161ba3ef
+timeCreated: 1484316521
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: mob_attack3_0
-    21300002: mob_attack3_1
-    21300004: mob_attack3_2
-    21300006: mob_attack3_3
-    21300008: mob_attack3_4
+    21300000: adamastor_crit_0
+    21300002: adamastor_crit_1
+    21300004: adamastor_crit_2
+    21300006: adamastor_crit_3
+    21300008: adamastor_crit_4
+    21300010: adamastor_crit_5
+    21300012: adamastor_crit_6
+    21300014: adamastor_crit_7
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -75,67 +78,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mob_attack3_0
+      name: adamastor_crit_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 770
-        height: 1148
+        x: 1020
+        y: 1425
+        width: 29
+        height: 59
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob_attack3_1
+      name: adamastor_crit_1
       rect:
         serializedVersion: 2
-        x: 854
-        y: 3
-        width: 772
-        height: 1149
+        x: 2953
+        y: 1391
+        width: 27
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob_attack3_2
+      name: adamastor_crit_2
       rect:
         serializedVersion: 2
-        x: 1711
-        y: 5
-        width: 772
-        height: 1147
+        x: 4907
+        y: 1425
+        width: 26
+        height: 59
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob_attack3_3
+      name: adamastor_crit_3
       rect:
         serializedVersion: 2
-        x: 2519
-        y: 1
-        width: 773
-        height: 1148
+        x: 6838
+        y: 1391
+        width: 26
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob_attack3_4
+      name: adamastor_crit_4
       rect:
         serializedVersion: 2
-        x: 3318
-        y: 0
-        width: 771
-        height: 1147
+        x: 74
+        y: 322
+        width: 1240
+        height: 1095
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_crit_5
+      rect:
+        serializedVersion: 2
+        x: 2005
+        y: 290
+        width: 1240
+        height: 1093
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_crit_6
+      rect:
+        serializedVersion: 2
+        x: 3959
+        y: 322
+        width: 1240
+        height: 1095
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_crit_7
+      rect:
+        serializedVersion: 2
+        x: 5891
+        y: 290
+        width: 1239
+        height: 1093
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

@@ -190,7 +190,15 @@ public class Arena
 		if (ability == null) {
 			return;
 		}
-        this.charAnimation = ability.animationTriggerName;
+        if (sender.name == "Hecte")
+        {
+            this.charAnimation = ability.animationTriggerName;
+        }
+        else
+            this.enemyAnimation = ability.animationTriggerName;
+
+        ability.origin = sender.position;
+        
 
         for(int i = 0; i<ability.hitBoxes.Length; i++)
         {
@@ -237,8 +245,7 @@ public class Arena
 					this.enemy.CalculateEffects (hitbox.ability.packet);
 
 				}
-            }
-        }
+            }}
         //catch (Exception e)
         //{
         //    Debug.Log(e.Message);
@@ -271,6 +278,8 @@ public class Arena
                 if (hitbox.framesToResolve <= 0)
                 {
                     hitbox.active = true;
+                    hitbox.ability.Run();
+                    
                 }
                 if (hitbox.ability.doneFrames == hitbox.ability.frames) hitboxList.Remove(hitbox);
             }

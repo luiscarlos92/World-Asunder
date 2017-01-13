@@ -116,18 +116,10 @@ public class Character
 
             if (Input.GetKeyDown("space"))
             {
-                if (passive.remainingCooldown == 0)
-                {
-                    Debug.Log(passive.name);
-                    this.AnimationFrames = passive.frames;
-                    this.AnimationOccuring = true;
-                    passive.remainingCooldown = passive.cooldown;
-
-                    GameObject projectil = Resources.Load("Prefabs/LazerParticle") as GameObject;
-                    projectil.transform.parent = GameObject.Find("p" + (this.position + passive.hitBoxes[0]).x.ToString() + (this.position + passive.hitBoxes[0]).y.ToString()).transform;
+                    //GameObject projectil = Resources.Load("Prefabs/LazerParticle") as GameObject;
+                    //projectil.transform.parent = GameObject.Find("p" + (this.position + passive.hitBoxes[0]).x.ToString() + (this.position + passive.hitBoxes[0]).y.ToString()).transform;
                     
                     return (Ability)(passive as ICloneable).Clone();
-                }
             }
             if (Input.GetKeyDown("q"))
             {

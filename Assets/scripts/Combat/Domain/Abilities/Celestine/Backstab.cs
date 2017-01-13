@@ -27,7 +27,7 @@ class Backstab : Ability
 
     public override void Run()
     {
-        throw new NotImplementedException();
+ 
     }
 }
 
