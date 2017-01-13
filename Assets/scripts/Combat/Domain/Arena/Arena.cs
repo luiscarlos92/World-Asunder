@@ -261,12 +261,17 @@ public class Arena
 
     void ResolveHitboxes()
     {
+        //TODO
+        //have to change to search keys because i 
         foreach(var hitboxList in HitboxListPool.Values)
         {
             for(int i = 0; i < hitboxList.Count; i++)
             {
                 var hitbox = hitboxList[i];
-                if (hitbox.framesToResolve <= 0) hitbox.active = true;
+                if (hitbox.framesToResolve <= 0)
+                {
+                    hitbox.active = true;
+                }
                 if (hitbox.ability.doneFrames == hitbox.ability.frames) hitboxList.Remove(hitbox);
             }
         }

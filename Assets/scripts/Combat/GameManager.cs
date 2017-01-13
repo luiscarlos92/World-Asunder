@@ -54,8 +54,9 @@ public class GameManager : MonoBehaviour
         ////////////////////////////////////////////////////////////////////////////////////
         //CHARACTER
 		setPlayerAbilities();
+        characterAbilities[0] = new BasicShot();
         Hecte = new Character("Hecte", characterAbilities);
-        Hecte.spritePath = "Sprites/Characters/AnimatedCharacters/Hecte";
+        Hecte.spritePath = "Animations/AnimatedCharacters/Hecte";
 
         //ENEMIES
         //POSS
@@ -65,7 +66,7 @@ public class GameManager : MonoBehaviour
         enemyAbilities[3] = new CannonBarrage();
         enemyAbilities[4] = new Caravel();
         Poss = new Enemy("Poss", enemyAbilities);
-        Poss.spritePath = "Sprites/Characters/AnimatedCharacters/Poss";
+        Poss.spritePath = "Animations/AnimatedCharacters/Poss";
 
         //HALLAWAY
         enemyAbilities[0] = new SleightOfHand();
@@ -74,7 +75,7 @@ public class GameManager : MonoBehaviour
         enemyAbilities[3] = new WideSword();
         enemyAbilities[4] = new LongSword();
         Hallaway = new Enemy("Hallaway", enemyAbilities);
-        Hallaway.spritePath = "Sprites/Characters/AnimatedCharacters/Hallaway";
+        Hallaway.spritePath = "Animations/AnimatedCharacters/Hallaway";
 
         chars.Add(Poss);
         chars.Add(Hallaway);
@@ -82,7 +83,7 @@ public class GameManager : MonoBehaviour
         //  load character and enemy based on string used by PlayerPrefs.
         // so I have to instantiate everything here
 
-        Enemy teki = new Enemy(new Vector2(4,1));
+        Enemy teki = Poss;
 
         foreach(var entry in chars)
         {
@@ -93,6 +94,7 @@ public class GameManager : MonoBehaviour
 			}
         }
         logicArena = new Arena(Hecte,teki);
+        Debug.Log("cenas");
         ////////////////////////////////////////////////////////////////////////////////////
         //Sprite bg = Resources.Load<Sprite>("Sprites/Background/background");
         //GameObject.Find("Background").GetComponent<Image>().sprite = bg;
@@ -130,7 +132,7 @@ public class GameManager : MonoBehaviour
 		if (lManager.choosenSpace == "Jonah")
 			characterAbilities[2] = new PoisonDagger();
 		if (lManager.choosenSpace == "Coelestine")
-			characterAbilities[2] = new Invisibility();
+			characterAbilities[2] = new WideSword();
 		if (lManager.choosenSpace == "Poss")
 			characterAbilities[2] = new DirtyTricks();
 
@@ -142,7 +144,7 @@ public class GameManager : MonoBehaviour
 		if (lManager.choosenSpace == "Coelestine")
 			characterAbilities[3] = new SmokeBomb();
 		if (lManager.choosenSpace == "Poss")
-			characterAbilities[3] = new CannonBarrage();
+			characterAbilities[3] = new LongSword();
 
 		//R
 		if (lManager.choosenSpace == "Vriska")
@@ -314,7 +316,7 @@ public class GameManager : MonoBehaviour
         }
         if(logicArena.character.HP <= 0)
         {
-            SceneManager.LoadScene("_init");
+            //lManager.restartGame();
         }
 
 

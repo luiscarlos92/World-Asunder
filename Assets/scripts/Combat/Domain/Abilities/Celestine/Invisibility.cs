@@ -23,7 +23,10 @@ class Invisibility : Ability
 		this.packet = new EffectPacket(new Condition(360));
 	}
 
-
+    public override void Run()
+    {
+        throw new NotImplementedException();
+    }
 }
 
 

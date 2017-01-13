@@ -1,0 +1,300 @@
+fileFormatVersion: 2
+guid: 62fcac4a06a267f42a168b27acd51503
+timeCreated: 1484301250
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: adamastor_attack1_0
+    21300002: adamastor_attack1_1
+    21300004: adamastor_attack1_2
+    21300006: adamastor_attack1_3
+    21300008: adamastor_attack1_4
+    21300010: adamastor_attack1_5
+    21300012: adamastor_attack1_6
+    21300014: adamastor_attack1_7
+    21300016: adamastor_attack1_8
+    21300018: adamastor_attack1_9
+    21300020: adamastor_attack1_10
+    21300022: adamastor_attack1_11
+    21300024: adamastor_attack1_12
+    21300026: adamastor_attack1_13
+    21300028: adamastor_attack1_14
+    21300030: adamastor_attack1_15
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: adamastor_attack1_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 246
+        width: 84
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_attack1_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 43
+        width: 820
+        height: 962
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_attack1_2
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 243
+        width: 85
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_attack1_3
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 32
+        width: 794
+        height: 973
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_attack1_4
+      rect:
+        serializedVersion: 2
+        x: 1771
+        y: 243
+        width: 87
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_attack1_5
+      rect:
+        serializedVersion: 2
+        x: 1788
+        y: 19
+        width: 807
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_attack1_6
+      rect:
+        serializedVersion: 2
+        x: 2636
+        y: 246
+        width: 115
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_attack1_7
+      rect:
+        serializedVersion: 2
+        x: 2653
+        y: 9
+        width: 817
+        height: 998
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_attack1_8
+      rect:
+        serializedVersion: 2
+        x: 3501
+        y: 246
+        width: 124
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_attack1_9
+      rect:
+        serializedVersion: 2
+        x: 3516
+        y: 0
+        width: 833
+        height: 1007
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_attack1_10
+      rect:
+        serializedVersion: 2
+        x: 4365
+        y: 246
+        width: 133
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_attack1_11
+      rect:
+        serializedVersion: 2
+        x: 4380
+        y: 9
+        width: 828
+        height: 998
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_attack1_12
+      rect:
+        serializedVersion: 2
+        x: 5229
+        y: 246
+        width: 142
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_attack1_13
+      rect:
+        serializedVersion: 2
+        x: 5244
+        y: 19
+        width: 826
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_attack1_14
+      rect:
+        serializedVersion: 2
+        x: 6094
+        y: 246
+        width: 87
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: adamastor_attack1_15
+      rect:
+        serializedVersion: 2
+        x: 6108
+        y: 32
+        width: 822
+        height: 973
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

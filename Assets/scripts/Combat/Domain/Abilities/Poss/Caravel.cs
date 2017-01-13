@@ -11,6 +11,8 @@ class Caravel : Ability
 	{
 		this.name = "Caravel";
 		this.cooldown = 120;
+        this.description = "Throws a Lusitanian Caravel at your enemy dealing damage";
+        this.preFab = "Prefabs/font_back";
 		this.relative = false;
 		this.remainingCooldown = 0;
 		this.hitBoxes = new Vector2[9];
@@ -40,7 +42,10 @@ class Caravel : Ability
 		this.packet = new EffectPacket(150,120);
 	}
 
-
+    public override void Run()
+    {
+        throw new NotImplementedException();
+    }
 }
 
 

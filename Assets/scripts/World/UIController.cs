@@ -60,7 +60,31 @@ public class UIController : MonoBehaviour {
 			dialogUI.enabled = false;
 
 			message = message.Replace("#trigger:", "");
-			lManager.loadCombatArena (message);
+			if (message.Contains ("Combat:")) {
+				message = message.Replace("Combat:", "");
+				lManager.loadCombatArena (message);
+			}
+			if (message.Contains ("Cutscene:")) {
+				Canvas canvas = GameObject.Find ("CutsceneUI").GetComponent<Canvas> ();
+				CutsceneUIController ui = (CutsceneUIController)canvas.GetComponent (typeof(CutsceneUIController));
+
+				message = message.Replace("Cutscene:", "");
+				ui.playCutscene (message);
+			}
+			if (message.Contains ("Action:")) {
+				message = message.Replace("Action:", "");
+				if(message.Equals("Poss")){
+					Canvas canvas = GameObject.Find ("AbilitiesUI").GetComponent<Canvas> ();
+					AbilitiesUIController ui = (AbilitiesUIController)canvas.GetComponent (typeof(AbilitiesUIController));
+					ui.abilitiesPoss.enabled = true;
+					ui.message.enabled = true;
+					canvas.enabled = true;
+				}
+				if (message.Equals ("Hallaway")) {
+					GameObject newEnemy = Instantiate(lManager.hallawayPrefab, GameObject.Find ("CellSpawn").transform.position, this.transform.rotation) as GameObject;
+					lManager.paused = false;
+				}
+			}
 		} else {
 			
 			string[] arr = message.Split (':');

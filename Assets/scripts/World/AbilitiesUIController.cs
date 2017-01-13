@@ -13,8 +13,11 @@ public class AbilitiesUIController : MonoBehaviour {
 	public Canvas abilitiesCoelestine;
 	public Canvas abilitiesPoss;
 
+	public Canvas message;
+
 	// Use this for initialization
 	void Start () {
+		message.enabled = false;
 		abilitiesPoss.enabled = false;
 		abilitiesUI.enabled = false;
 	}
@@ -31,7 +34,13 @@ public class AbilitiesUIController : MonoBehaviour {
 			}
 		}
 
+		if (Input.GetKeyDown ("space") && message.isActiveAndEnabled) {
+			message.enabled = false;
+		}
+
 		if (abilitiesUI.isActiveAndEnabled) {
+			
+
 			Image[] images = abilitiesUI.GetComponentsInChildren<Image> ();
 
 			foreach (Image image in images) {

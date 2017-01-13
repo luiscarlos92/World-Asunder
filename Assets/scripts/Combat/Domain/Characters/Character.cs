@@ -123,6 +123,9 @@ public class Character
                     this.AnimationOccuring = true;
                     passive.remainingCooldown = passive.cooldown;
 
+                    GameObject projectil = Resources.Load("Prefabs/LazerParticle") as GameObject;
+                    projectil.transform.parent = GameObject.Find("p" + (this.position + passive.hitBoxes[0]).x.ToString() + (this.position + passive.hitBoxes[0]).y.ToString()).transform;
+                    
                     return (Ability)(passive as ICloneable).Clone();
                 }
             }

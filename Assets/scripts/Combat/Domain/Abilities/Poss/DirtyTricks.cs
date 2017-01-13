@@ -12,6 +12,8 @@ class DirtyTricks : Ability
 		this.name = "DirtyTricks";
 		this.cooldown = 8;
 		this.remainingCooldown = 0;
+        this.description = "Shoots a sucker bullet dealing damage and stunning your enemy";
+        this.preFab = "Prefabs/Projectile";
 		this.hitBoxes = new Vector2[5];
 		this.hitBoxes[0] = new Vector2(1, 0);
 		this.hitBoxes[1] = new Vector2(2, 0);
@@ -31,7 +33,10 @@ class DirtyTricks : Ability
 		this.packet = new EffectPacket(80,20);
 	}
 
-
+    public override void Run()
+    {
+        throw new NotImplementedException();
+    }
 }
 
 

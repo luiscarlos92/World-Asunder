@@ -22,11 +22,13 @@ public class OpenDoorScript : MonoBehaviour {
 			GameObject.Find ("Cell Door").SetActive (false);
 			Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
 			UIController ui = (UIController)canvas.GetComponent (typeof(UIController)); 
-			ui.addToQueue ("Prisoner:\"♪ ... and when came home on Friday Night, ♪\"");
-			ui.addToQueue ("Prisoner:\"♪ As drunk as drunk could be, ♪\"");
-			ui.addToQueue ("Poss:\"♪ I saw a head upon my bed, ♪\"");
-
+			ui.addToQueue ("Prisoner:\"Ah, mate. You got a mean left on you...\"");
+			ui.addToQueue ("Prisoner:\"But that was a nice fight. You’re not afraid to get your hands bloody like that bastard Morrissey.\"");
+			ui.addToQueue ("Prisoner:\"I respect that. The name’s Poss, by the way.\"");
+			ui.addToQueue ("Poss:\"I’ll be honest with you then. About Hallaway. About Sal Demar. Just... It’s all a bit surreal mate.\"");
+			ui.addToQueue ("#trigger:Cutscene:Poss");
 		}
+
 	}
 	
 	// Update is called once per frame
@@ -46,6 +48,7 @@ public class OpenDoorScript : MonoBehaviour {
 			sang = true;
 			lManager.events ["Sing"] = true;
 		}
+
 
 	}
 
@@ -73,7 +76,7 @@ public class OpenDoorScript : MonoBehaviour {
 			ui.addToQueue ("Prisoner:\"Ah, mate, you’re lucky there’s bars separating us. Otherwise, you would be eating your lying teeth right about now!\"");
 			ui.addToQueue ("Hecte:\"Oh, please, don’t let that stop you. Let me see what you did to your own men!\"");
 
-			ui.addToQueue ("#trigger:Poss");
+			ui.addToQueue ("#trigger:Combat:Poss");
 			lManager.events ["Poss"] = true;
 			dialogSpoken = true;
 

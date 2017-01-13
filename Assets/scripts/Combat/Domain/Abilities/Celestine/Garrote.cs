@@ -10,6 +10,9 @@ class Garrote : Ability
 	public Garrote()
 	{
 		this.name = "Garrote";
+        this.description = "Traps the enemy in front of you, and deals damage over time";
+        this.preFab = "Prefabs/LazerParticle";
+            
 		this.cooldown = 60;
 		this.remainingCooldown = 0;
 		this.hitBoxes = new Vector2[5];
@@ -33,7 +36,10 @@ class Garrote : Ability
 		this.packet = new EffectPacket(50,180,new Condition(30, 180, 36));
 	}
 
-
+    public override void Run()
+    {
+        throw new NotImplementedException();
+    }
 }
 
 

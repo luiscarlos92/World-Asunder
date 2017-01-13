@@ -20,7 +20,7 @@ public class Hitbox
     {
         this.framesToResolve = 0;
         this.active = false;
-        this.ability = new Ability();
+        this.ability = null;
     }
     
     public Hitbox(int frames, Ability ability)

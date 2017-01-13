@@ -29,6 +29,8 @@ public class LevelManager : MonoBehaviour {
 	Vector2 savedPlayer;
 	Vector2 savedCompanion;
 
+	public GameObject hallawayPrefab;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -45,7 +47,18 @@ public class LevelManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
+		UIController ui = (UIController)canvas.GetComponent (typeof(UIController)); 
+		if (events ["PossCutscene"] && !events ["PreHallaway"]) {
+			
+			ui.addToQueue ("Hecte:\"...\"");
+			ui.addToQueue ("Hecte:\"I’m sorry. For your men.\"");
+			ui.addToQueue ("Prisoner:\"I respect that. The name’s Poss, by the way.\"");
+
+			ui.addToQueue ("#trigger:Action:Hallaway");
+			events ["PreHallaway"] = true;
+		}
+
 	}
 
 	void initializeEvents(){
@@ -58,8 +71,18 @@ public class LevelManager : MonoBehaviour {
 		events.Add ("Poss", false);
 		events.Add ("PossFight", false);
 		events.Add ("PossCutscene", false);
+		events.Add ("PreHallaway", false);
+		events.Add ("HallawayFight", false);
 
+	}
 
+	void initializeStrings(){
+		  choosenCompanion = "Coelestine";
+		  choosenSpace = "Coelestine";
+		  choosenQ = "Coelestine";
+		  choosenW = "Coelestine";
+		  choosenE = "Coelestine";
+		  choosenR = "Coelestine";
 	}
 
 	public void loadCombatArena(string enemyName){
@@ -106,6 +129,10 @@ public class LevelManager : MonoBehaviour {
 
 	public void restartGame(){
 		if(currentScene.Equals("Cell")){
+			Canvas canvas = GameObject.Find ("AbilitiesUI").GetComponent<Canvas> ();
+			AbilitiesUIController ui = (AbilitiesUIController)canvas.GetComponent (typeof(AbilitiesUIController));
+			ui.abilitiesPoss.enabled = false;
+			initializeStrings ();
 			lastScene = "Load";
 			currentScene = "Fort";
 			paused = false;

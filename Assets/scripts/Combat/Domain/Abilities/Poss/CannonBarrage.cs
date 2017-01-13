@@ -11,6 +11,7 @@ class CannonBarrage : Ability
 	{
 		this.name = "CannonBarrage";
 		this.cooldown = 12;
+        
 		this.relative = false;
 		this.remainingCooldown = 0;
 		this.hitBoxes = new Vector2[9];
@@ -40,7 +41,10 @@ class CannonBarrage : Ability
 		this.packet = new EffectPacket(40, 20);
 	}
 
-
+    public override void Run()
+    {
+        throw new NotImplementedException();
+    }
 }
 
 

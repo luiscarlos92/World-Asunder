@@ -3,8 +3,10 @@ using System.Collections;
 using System;
 using UnityEngine.UI;
 
-public class Ability : ICloneable{
+public abstract class Ability : ICloneable{
     public string name;
+    public string preFab;
+    public string description;
     public Vector2[] hitBoxes;
     public float cooldown;
     public float remainingCooldown;
@@ -49,4 +51,6 @@ public class Ability : ICloneable{
         Ability ability = (Ability)this.MemberwiseClone();
         return ability;
     }
+
+    public abstract void Run();
 }

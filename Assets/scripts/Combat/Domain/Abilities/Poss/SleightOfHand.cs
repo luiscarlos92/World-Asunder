@@ -11,6 +11,8 @@ class SleightOfHand : Ability
 	{
 		this.name = "SleightOfHand";
 		this.cooldown = 4;
+        this.description = "Shoots a quick bullet for small damage";
+        this.preFab = "Prefabs/Projectile";
 		this.remainingCooldown = 0;
 		this.hitBoxes = new Vector2[5];
 		this.hitBoxes[0] = new Vector2(1, 0);
@@ -31,7 +33,10 @@ class SleightOfHand : Ability
 		this.packet = new EffectPacket(50, 60);
 	}
 
-
+    public override void Run()
+    {
+        throw new NotImplementedException();
+    }
 }
 
 

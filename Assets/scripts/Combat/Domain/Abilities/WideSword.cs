@@ -12,6 +12,8 @@ class WideSword : Ability
         this.name = "WideSword";
         this.cooldown = 8;
         this.remainingCooldown = 0;
+        this.description = "Cuts your enemy 3 square vertically";
+        this.preFab = "Prefabs/LazerParticle";
         Vector2[] hitbox = new Vector2[3];
         hitbox[0] = new Vector2(1, 0);
         hitbox[1] = new Vector2(1, 1);
@@ -27,5 +29,10 @@ class WideSword : Ability
         this.frames = 20;
 
         this.icon = Resources.Load<Sprite>("Sprites/MegamanSpells/widesword");
+    }
+
+    public override void Run()
+    {
+        throw new NotImplementedException();
     }
 }

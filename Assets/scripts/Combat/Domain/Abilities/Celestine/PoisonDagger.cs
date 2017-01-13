@@ -10,6 +10,9 @@ class PoisonDagger : Ability
 	public PoisonDagger()
 	{
 		this.name = "PoisonDagger";
+        this.description = "Throws a poisoned dagger at your enemy, dealing damage over time";
+        this.preFab = "Prefabs/Projectile";
+
 		this.cooldown = 4;
 		this.remainingCooldown = 0;
 		this.hitBoxes = new Vector2[5];
@@ -31,5 +34,8 @@ class PoisonDagger : Ability
 		this.packet = new EffectPacket(new Condition(15,180,36));
 	}
 
-
+    public override void Run()
+    {
+        throw new NotImplementedException();
+    }
 }

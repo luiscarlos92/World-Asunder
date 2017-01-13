@@ -11,6 +11,8 @@ class SmokeBomb : Ability
 	{
 		this.name = "SmokeBomb";
 		this.cooldown = 16;
+        this.description = "Summon sea currents to blow your enemy and deal damage 3 squares away";
+        this.preFab = "Prefabs/font_back";
 		this.remainingCooldown = 0;
 		this.hitBoxes = new Vector2[5];
 		this.hitBoxes[0] = new Vector2(3, 0);
@@ -31,7 +33,10 @@ class SmokeBomb : Ability
 		this.packet = new EffectPacket(80, 60);
 	}
 
-
+    public override void Run()
+    {
+        throw new NotImplementedException();
+    }
 }
 
 

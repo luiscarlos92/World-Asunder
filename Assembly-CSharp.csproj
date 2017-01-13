@@ -79,7 +79,9 @@
      <Compile Include="Assets\scripts\World\CameraController.cs" />
      <Compile Include="Assets\scripts\World\ColorAlpha.cs" />
      <Compile Include="Assets\scripts\World\CompanionController.cs" />
+     <Compile Include="Assets\scripts\World\CutsceneUIController.cs" />
      <Compile Include="Assets\scripts\World\GroundReplicator.cs" />
+     <Compile Include="Assets\scripts\World\HallawayController.cs" />
      <Compile Include="Assets\scripts\World\NPCController.cs" />
      <Compile Include="Assets\scripts\World\OpenDoorScript.cs" />
      <Compile Include="Assets\scripts\World\PlayerController.cs" />
