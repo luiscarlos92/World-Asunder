@@ -9,7 +9,7 @@ public class Enemy : Character
     //public Sprite[] sprite;
 
 	public Vector2[] moves;
-	public int frameStep = 60;
+	public int frameStep = 200;
 
     public Enemy(Vector2 pos)
     {
@@ -22,6 +22,15 @@ public class Enemy : Character
 		moves [2] = new Vector2 (0, 1);
 		moves [3] = new Vector2 (0, -1);
 
+    }
+
+    public Enemy(string name, Ability[] abilities) : base(name, abilities) {
+        this.position = new Vector2(4, 1);
+        this.moves = new Vector2[4];
+        moves[0] = new Vector2(1, 0);
+        moves[1] = new Vector2(-1, 0);
+        moves[2] = new Vector2(0, 1);
+        moves[3] = new Vector2(0, -1);
     }
 
 	public Vector2 getNextMove(){
@@ -51,7 +60,7 @@ public class Enemy : Character
 						this.AnimationFrames = abilityQ.frames;
 						this.AnimationOccuring = true;
 						abilityQ.remainingCooldown = abilityQ.cooldown;
-				frameStep = 30;
+				frameStep = 200;
 
 						return (Ability)(abilityQ as ICloneable).Clone ();
 					}
@@ -61,7 +70,7 @@ public class Enemy : Character
 						this.AnimationFrames = abilityW.frames;
 						this.AnimationOccuring = true;
 						abilityW.remainingCooldown = abilityW.cooldown;
-				frameStep = 30;
+				frameStep = 200;
 						return (Ability)(abilityW as ICloneable).Clone ();
 					}
 				} else if (sample == 3) {
@@ -70,7 +79,7 @@ public class Enemy : Character
 						this.AnimationFrames = abilityE.frames;
 						this.AnimationOccuring = true;
 						abilityE.remainingCooldown = abilityE.cooldown;
-				frameStep = 30;
+				frameStep = 200;
 						return (Ability)(abilityE as ICloneable).Clone ();
 					}
 				} else if (sample == 4) {
@@ -79,7 +88,7 @@ public class Enemy : Character
 						this.AnimationFrames = abilityR.frames;
 						this.AnimationOccuring = true;
 						abilityR.remainingCooldown = abilityR.cooldown;
-				frameStep = 30;
+				frameStep = 200;
 						return (Ability)(abilityR as ICloneable).Clone ();
 					}
 				}

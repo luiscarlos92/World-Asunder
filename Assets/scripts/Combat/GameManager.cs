@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,17 +15,24 @@ public class GameManager : MonoBehaviour
     public Vector2 mapSize = new Vector2(6, 3);
     //tile separation factor
     private float percentOutline = 0.07f;
-
-    //GAME RELATED
-
-    public GameObject character;
-    public GameObject enemy;
-
     public GameObject[,] arena;
     public Arena logicArena;
 
+    //CHANGEABLE PARAMETERS
 
-    public Ability[] abilities;
+    public GameObject character;
+    public GameObject enemy;
+    public Ability[] characterAbilities = new Ability[5];
+    public Ability[] enemyAbilities = new Ability[5];
+
+    public Character Hecte;
+    public Enemy Poss;
+    public Enemy Hallaway;
+    public Enemy Adamastor;
+    public Enemy Spawn1;
+    public Enemy Spawn2;
+
+    public List<Enemy> chars;
 
     //UI RELATED
     private GameObject healthBarCharacter;
@@ -38,35 +46,67 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-
+        chars = new List<Enemy>();
         arena = new GameObject[6, 3];
-        this.abilities = new Ability[5];
-        abilities[0] = new BasicShot();
-        abilities[1] = new Sword();
-        abilities[2] = new WideSword();
-        abilities[3] = new LongSword();
-        abilities[4] = new Torrent();
+        ////////////////////////////////////////////////////////////////////////////////////
+        //CHARACTER
+        characterAbilities[0] = new PoisonDagger();
+        characterAbilities[1] = new Backstab();
+        characterAbilities[2] = new Invisibility();
+        characterAbilities[3] = new SmokeBomb();
+        characterAbilities[4] = new Garrote();
+        Hecte = new Character("Hecte", characterAbilities);
+        Hecte.spritePath = "Sprites/Characters/AnimatedCharacters/Hecte";
+
+        //ENEMIES
+        //POSS
+        enemyAbilities[0] = new SleightOfHand();
+        enemyAbilities[1] = new Torrent();
+        enemyAbilities[2] = new DirtyTricks();
+        enemyAbilities[3] = new CannonBarrage();
+        enemyAbilities[4] = new Caravel();
+        Poss = new Enemy("Poss", enemyAbilities);
+        Poss.spritePath = "Sprites/Characters/AnimatedCharacters/Poss";
+
+        //HALLAWAY
+        enemyAbilities[0] = new SleightOfHand();
+        enemyAbilities[1] = new DirtyTricks();
+        enemyAbilities[2] = new Sword();
+        enemyAbilities[3] = new WideSword();
+        enemyAbilities[4] = new LongSword();
+        Hallaway = new Enemy("Hallaway", enemyAbilities);
+        Hallaway.spritePath = "Sprites/Characters/AnimatedCharacters/Hallaway";
+
+        chars.Add(Poss);
+        chars.Add(Hallaway);
+
+        //  load character and enemy based on string used by PlayerPrefs.
+        // so I have to instantiate everything here
+
+        Enemy teki = new Enemy(new Vector2(4,1));
+        foreach(var entry in chars)
+        {
+            if (entry.name == PlayerPrefs.GetString("Enemy"))
+                teki = entry;
+        }
+        logicArena = new Arena(Hecte,teki);
+        ////////////////////////////////////////////////////////////////////////////////////
         //Sprite bg = Resources.Load<Sprite>("Sprites/Background/background");
         //GameObject.Find("Background").GetComponent<Image>().sprite = bg;
-        Enemy enemy = new Enemy(new Vector2(4, 1));
-		Ability[] enemies = new Ability[5];
-		enemies [0] = new SleightOfHand ();
-		enemies[1] = new Torrent();
-		enemies[2] = new DirtyTricks();
-		enemies[3] = new CannonBarrage();
-		enemies[4] = new Caravel();
-		enemy.SetAbilities (abilities);
-		enemy.passive = enemies [0];
-		enemy.abilityQ = enemies [1];
-		enemy.abilityW = enemies [2];
-		enemy.abilityE = enemies [3];
-		enemy.abilityR = enemies [4];
-        logicArena = new Arena(abilities, enemy);
         GenerateMap();
+        AudioSource audio = GameObject.Find("Map").AddComponent<AudioSource>();
+        AudioClip loop = Resources.Load<AudioClip>("Sound/adamastor2");
+        audio.PlayOneShot(loop, 0.5f);
+        
     }
     public Vector3 ParsePosition(Vector2 v)
     {
         return new Vector3(-2.5f + (int)v.x, -1.5f + (int)v.y, -0.1f);
+    }
+
+    public void SetParameters(Arena arena)
+    {
+        logicArena = arena;
     }
 
     public void GenerateMap()
@@ -111,11 +151,13 @@ public class GameManager : MonoBehaviour
 
         //initialize character and enemies
         Vector3 charPosition = ParsePosition(logicArena.character.position);
+        character = Resources.Load(logicArena.character.spritePath) as GameObject;
         GameObject newChar = Instantiate(character, charPosition, this.transform.rotation) as GameObject;
         newChar.name = "Player";
         character = newChar;
 
         Vector3 enemyPosition = ParsePosition(logicArena.enemy.position);
+        enemy = Resources.Load(logicArena.enemy.spritePath) as GameObject;
         GameObject newEnemy = Instantiate(enemy, enemyPosition, this.transform.rotation) as GameObject;
         newEnemy.name = "Enemy";
         enemy = newEnemy;
@@ -128,6 +170,8 @@ public class GameManager : MonoBehaviour
         GameObject.Find("EnemyOrb").GetComponent<HealthBar>().CurrentHP = logicArena.enemy.HP;
 
         //SPELLBAR
+        GameObject.Find("Passive").GetComponent<Image>().overrideSprite = logicArena.character.passive.icon;
+        GameObject.Find("Passive.CD").GetComponent<Image>().overrideSprite = logicArena.character.passive.icon;
         GameObject.Find("AbilityQ").GetComponent<Image>().overrideSprite = logicArena.character.abilityQ.icon;
         GameObject.Find("AbilityQ.CD").GetComponent<Image>().overrideSprite = logicArena.character.abilityQ.icon;
         GameObject.Find("AbilityQ.CD").GetComponent<Spell>().TotalCooldown = logicArena.character.abilityQ.cooldown;
@@ -156,6 +200,7 @@ public class GameManager : MonoBehaviour
         GameObject.Find("EnemyOrb").GetComponent<HealthBar>().CurrentHP = logicArena.enemy.HP;
 
         //UPDATE SPELLBAR
+        GameObject.Find("Passive.CD").GetComponent<Spell>().remainingCooldown = logicArena.character.passive.remainingCooldown;
         GameObject.Find("AbilityQ.CD").GetComponent<Spell>().remainingCooldown = logicArena.character.abilityQ.remainingCooldown;
         GameObject.Find("AbilityW.CD").GetComponent<Spell>().remainingCooldown = logicArena.character.abilityW.remainingCooldown;
         GameObject.Find("AbilityE.CD").GetComponent<Spell>().remainingCooldown = logicArena.character.abilityE.remainingCooldown;
@@ -206,9 +251,11 @@ public class GameManager : MonoBehaviour
 
         if (logicArena.enemy.HP <= 0)
         {
-            DestroyImmediate(enemy);
-            //endgame
-            
+            SceneManager.LoadScene("CombatArena");
+        }
+        if(logicArena.character.HP <= 0)
+        {
+            SceneManager.LoadScene("_init");
         }
 
 

@@ -6,10 +6,12 @@ using System;
 
 public class Character
 {
+    public Sprite sprite;
     public Vector2 position;
     public int HP;
 	public string name;
     public const int MAXHP = 100;
+    public string spritePath;
 
     public Ability passive;
     public Ability abilityQ;
@@ -36,6 +38,21 @@ public class Character
         this.AnimationOccuring = false;
 		this.name = "Hecte";
 
+    }
+
+    public Character(string name, Ability[] abilities)
+    {
+        position = new Vector2(1, 1);
+        HP = MAXHP;
+        Stunned = false;
+        StunnedFrames = 0;
+        this.AnimationOccuring = false;
+        this.name = name;
+        this.passive = abilities[0];
+        this.abilityQ = abilities[1];
+        this.abilityW = abilities[2];
+        this.abilityE = abilities[3];
+        this.abilityR = abilities[4];
     }
 
     public void SetAbilities(Ability[] abilities)
@@ -99,7 +116,15 @@ public class Character
 
             if (Input.GetKeyDown("space"))
             {
-                return (Ability)(passive as ICloneable).Clone();
+                if (passive.remainingCooldown == 0)
+                {
+                    Debug.Log(passive.name);
+                    this.AnimationFrames = passive.frames;
+                    this.AnimationOccuring = true;
+                    passive.remainingCooldown = passive.cooldown;
+
+                    return (Ability)(passive as ICloneable).Clone();
+                }
             }
             if (Input.GetKeyDown("q"))
             {
@@ -168,18 +193,26 @@ public class Character
         //at each step we subtract 0.016
         //BAD IMPLEMENTION
         //FIXME do it with timestep
+        if (this.passive.remainingCooldown > 0)
+            passive.remainingCooldown -= 0.016f;
+        else
+            passive.remainingCooldown = 0;
+
         if (this.abilityQ.remainingCooldown > 0)
             abilityQ.remainingCooldown -= 0.016f;
         else
             abilityQ.remainingCooldown = 0;
+
         if (this.abilityW.remainingCooldown > 0)
             abilityW.remainingCooldown -= 0.016f;
         else
             abilityW.remainingCooldown = 0;
+        
         if (this.abilityE.remainingCooldown > 0)
             abilityE.remainingCooldown -= 0.016f;
         else
             abilityE.remainingCooldown = 0;
+
         if (this.abilityR.remainingCooldown > 0)
             abilityR.remainingCooldown -= 0.016f;
         else

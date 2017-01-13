@@ -17,7 +17,7 @@ class Backstab : Ability
 		this.framesToResolve = new int[1];
 		framesToResolve[0] = 0;
 		this.frames = 20;
-		this.icon = Resources.Load<Sprite>("Sprites/MegamanSpells/sword.png");
+		this.icon = Resources.Load<Sprite>("Sprites/Icons/Celestine/Backstab");
 		this.animationTriggerName = "DefaultAttack";
 
 		this.packet = new EffectPacket(80, 20);

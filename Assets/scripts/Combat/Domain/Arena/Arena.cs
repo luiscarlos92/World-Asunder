@@ -28,7 +28,7 @@ public class Arena
     /// <param name="abilities"></param>
     /// <param name="enemy"></param>
 
-    public Arena(Ability[] abilities, Enemy enemy)
+    public Arena(Character chara, Enemy enemy)
     {
         //this.HitboxPool = new Dictionary<Vector2, Hitbox>();
 
@@ -53,9 +53,9 @@ public class Arena
         this.HitboxListPool[new Vector2(5, 1)] = new List<Hitbox>();
         this.HitboxListPool[new Vector2(5, 2)] = new List<Hitbox>();
         arena = new Tile[6, 3];
-        this.character = new Character();
-        this.character.SetAbilities(abilities);
+
         //this.enemy = new Enemy(new Vector2(3, 1));
+        this.character = chara;
         this.enemy = enemy;
         for (int x = 0; x < 6; x++)
         {
@@ -204,8 +204,14 @@ public class Arena
 				else
 					HitboxListPool [sender.position + ability.hitBoxes [i]].Add (hitbox);
 			}
-			else
-	            HitboxListPool[ability.hitBoxes[i]].Add(hitbox);
+            else
+            {
+                if (sender.GetType().ToString() == "Enemy")
+                    
+                    HitboxListPool[new Vector2(6, 3) - ability.hitBoxes[i] ].Add(hitbox);
+                else
+                    HitboxListPool[ability.hitBoxes[i]].Add(hitbox);
+            }
             //Debug.Log("Hitbox Added with " + hitbox.ability.name + "," + hitbox.framesToResolve + "," + hitbox.active);
         }
     }

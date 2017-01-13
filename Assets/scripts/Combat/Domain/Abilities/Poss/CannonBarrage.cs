@@ -25,16 +25,16 @@ class CannonBarrage : Ability
 		this.hitBoxes[8] = new Vector2(4, 0);
 		this.framesToResolve = new int[9];
 		framesToResolve[0] = 0;
-		framesToResolve[1] = 30;
-		framesToResolve[2] = 60;
-		framesToResolve [3] = 90;
-		framesToResolve[4] = 120;
-		framesToResolve[5] = 150;
-		framesToResolve[6] = 180;
-		framesToResolve[7] = 210;
-		framesToResolve[8] = 240;
+		framesToResolve[1] = 60;
+		framesToResolve[2] = 120;
+		framesToResolve[3] = 180;
+		framesToResolve[4] = 240;
+		framesToResolve[5] = 300;
+		framesToResolve[6] = 360;
+		framesToResolve[7] = 420;
+		framesToResolve[8] = 480;
 		this.frames = 20;
-		this.icon = Resources.Load<Sprite>("Sprites/MegamanSpells/sword.png");
+		this.icon = Resources.Load<Sprite>("Sprites/Icons/Poss/CannonBarrage");
 		this.animationTriggerName = "DefaultAttack";
 
 		this.packet = new EffectPacket(40, 20);

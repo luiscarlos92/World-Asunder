@@ -50,11 +50,20 @@
      <Compile Include="Assets\scripts\Camera\CombatCamera.cs" />
      <Compile Include="Assets\scripts\Combat\Domain\Abilities\Ability.cs" />
      <Compile Include="Assets\scripts\Combat\Domain\Abilities\BasicShot.cs" />
+     <Compile Include="Assets\scripts\Combat\Domain\Abilities\Celestine\Backstab.cs" />
+     <Compile Include="Assets\scripts\Combat\Domain\Abilities\Celestine\Garrote.cs" />
+     <Compile Include="Assets\scripts\Combat\Domain\Abilities\Celestine\Invisibility.cs" />
+     <Compile Include="Assets\scripts\Combat\Domain\Abilities\Celestine\PoisonDagger.cs" />
+     <Compile Include="Assets\scripts\Combat\Domain\Abilities\Celestine\SmokeBomb.cs" />
+     <Compile Include="Assets\scripts\Combat\Domain\Abilities\Condition.cs" />
      <Compile Include="Assets\scripts\Combat\Domain\Abilities\EffectPacket.cs" />
      <Compile Include="Assets\scripts\Combat\Domain\Abilities\LongSword.cs" />
-     <Compile Include="Assets\scripts\Combat\Domain\Abilities\Projectile.cs" />
+     <Compile Include="Assets\scripts\Combat\Domain\Abilities\Poss\CannonBarrage.cs" />
+     <Compile Include="Assets\scripts\Combat\Domain\Abilities\Poss\Caravel.cs" />
+     <Compile Include="Assets\scripts\Combat\Domain\Abilities\Poss\DirtyTricks.cs" />
+     <Compile Include="Assets\scripts\Combat\Domain\Abilities\Poss\SleightOfHand.cs" />
+     <Compile Include="Assets\scripts\Combat\Domain\Abilities\Poss\Torrent.cs" />
      <Compile Include="Assets\scripts\Combat\Domain\Abilities\Sword.cs" />
-     <Compile Include="Assets\scripts\Combat\Domain\Abilities\Torrent.cs" />
      <Compile Include="Assets\scripts\Combat\Domain\Abilities\WideSword.cs" />
      <Compile Include="Assets\scripts\Combat\Domain\Arena\Arena.cs" />
      <Compile Include="Assets\scripts\Combat\Domain\Arena\Hitbox.cs" />
@@ -73,6 +82,9 @@
      <Compile Include="Assets\scripts\World\PlayerController.cs" />
      <Compile Include="Assets\scripts\World\PlayerSet.cs" />
      <Compile Include="Assets\scripts\World\UIController.cs" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -87,6 +99,9 @@
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Purchasing">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>

@@ -25,7 +25,7 @@ class SmokeBomb : Ability
 		framesToResolve[3] = 120;
 		framesToResolve[4] = 120;
 		this.frames = 40;
-		this.icon = Resources.Load<Sprite>("Sprites/MegamanSpells/sword.png");
+		this.icon = Resources.Load<Sprite>("Sprites/Icons/Celestine/SmokeBomb");
 		this.animationTriggerName = "DefaultAttack";
 
 		this.packet = new EffectPacket(80, 60);

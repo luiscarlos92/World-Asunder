@@ -25,7 +25,7 @@ class Garrote : Ability
 		framesToResolve[3] = 3;
 		framesToResolve[4] = 4;
 		this.frames = 20;
-		this.icon = Resources.Load<Sprite>("Sprites/MegamanSpells/sword.png");
+		this.icon = Resources.Load<Sprite>("Sprites/Icons/Celestine/Garrote");
 		this.animationTriggerName = "DefaultAttack";
 
 		//condition damage/heal, total frames, frame step
