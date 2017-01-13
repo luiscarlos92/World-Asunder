@@ -75,6 +75,7 @@
      <Compile Include="Assets\scripts\Combat\Settings.cs" />
      <Compile Include="Assets\scripts\Combat\UI\HealthBar.cs" />
      <Compile Include="Assets\scripts\Combat\UI\Spell.cs" />
+     <Compile Include="Assets\scripts\MoveForward.cs" />
      <Compile Include="Assets\scripts\World\AbilitiesUIController.cs" />
      <Compile Include="Assets\scripts\World\CameraController.cs" />
      <Compile Include="Assets\scripts\World\ColorAlpha.cs" />

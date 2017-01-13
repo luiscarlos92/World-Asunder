@@ -19,6 +19,8 @@ public class UIController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		buttonA.enabled = false;
+		buttonB.enabled = false;
 		dialogUI.enabled = false;
 		messages = new ArrayList ();
 	}
