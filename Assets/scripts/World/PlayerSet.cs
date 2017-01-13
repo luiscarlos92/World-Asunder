@@ -15,7 +15,7 @@ public class PlayerSet : MonoBehaviour {
 	
 	void Start() {
 		LevelManager lManager = (LevelManager)GameObject.Find ("LevelManager").GetComponent (typeof(LevelManager));
-		GameObject player = GameObject.FindWithTag("Player");
+		/*GameObject player = GameObject.FindWithTag("Player");
 		GameObject companion = GameObject.FindWithTag("Companion");
 
 		if (lManager.currentScene.Equals("Fort")) {
@@ -46,6 +46,7 @@ public class PlayerSet : MonoBehaviour {
 				companion.transform.position = new Vector3 (companionPositionX, companionPositionY, 0.0f);
 			}
 		}
-
+*/
+		lManager.setPlayer ();
 	}
 }

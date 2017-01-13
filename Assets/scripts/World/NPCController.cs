@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using System.Collections; 
+using System.Collections.Generic;
+using System;
 
 public class NPCController : MonoBehaviour {
 
+	public LevelManager lManager;
+	public string name;
 	public Canvas bubbleCanvas;
 	public string message;
 	private bool dialogSpoken = false;
@@ -12,7 +16,9 @@ public class NPCController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		lManager = (LevelManager)GameObject.Find ("LevelManager").GetComponent (typeof(LevelManager));
+		dialogSpoken = lManager.events [name];
+		bubbleCanvas.enabled = !dialogSpoken; 
 	}
 	
 	// Update is called once per frame
@@ -31,7 +37,7 @@ public class NPCController : MonoBehaviour {
 
 				//canvas.GetComponentInChildren<Text> ().text = message;
 				dialogSpoken = true;
-				
+				lManager.events [name] = true;
 		}
 
 	}

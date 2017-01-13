@@ -12,17 +12,22 @@ public class LevelManager : MonoBehaviour {
 	public Canvas dialogHUD;
 	public Canvas abilitiesHUD;
 
+	public Dictionary<string,bool> events;
+
 	public bool paused = false;
 	public string lastScene = "Load";
 	public string currentScene = "Load";
 	public string enemy = "";
 
 	public string choosenCompanion = "Coelestine";
-	public string choosenSpace = "Poss";
-	public string choosenQ = "Poss";
-	public string choosenW = "Poss";
-	public string choosenE = "Poss";
-	public string choosenR = "Poss";
+	public string choosenSpace = "Coelestine";
+	public string choosenQ = "Coelestine";
+	public string choosenW = "Coelestine";
+	public string choosenE = "Coelestine";
+	public string choosenR = "Coelestine";
+
+	Vector2 savedPlayer;
+	Vector2 savedCompanion;
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +36,8 @@ public class LevelManager : MonoBehaviour {
 		DontDestroyOnLoad(player);
 		DontDestroyOnLoad(companion);
 		DontDestroyOnLoad(hud);
+
+		initializeEvents ();
 
 		//Loads starting level
 		loadScene("Fort");
@@ -41,6 +48,19 @@ public class LevelManager : MonoBehaviour {
 		
 	}
 
+	void initializeEvents(){
+		events = new Dictionary<string, bool> ();
+		events.Add ("Started", true);
+		events.Add ("Previously", true);
+		events.Add ("GuardA", false);
+		events.Add ("GuardB", false);
+		events.Add ("Sing", false);
+		events.Add ("Poss", false);
+		events.Add ("PossFight", false);
+		events.Add ("PossCutscene", false);
+
+
+	}
 
 	public void loadCombatArena(string enemyName){
 		if (enemyName.Equals ("Poss"))
@@ -48,17 +68,19 @@ public class LevelManager : MonoBehaviour {
 
 		//PlayerPrefs.SetString ("Enemy", enemyName);
 		enemy = enemyName;
+		savePositions ();
 		player.SetActive(false);
 		companion.SetActive(false);
 		SceneManager.LoadScene("CombatArena");
 	}
 
 	public void returnCombatArena(){
-		if (enemy.Equals ("Poss"))
+		if (enemy.Equals ("Poss")) {
 			abilitiesHUD.GetComponent<AbilitiesUIController> ().abilitiesPoss.enabled = true;
+			events ["PossFight"] = true;
+		}
 
-		enemy = "";
-		SceneManager.LoadScene(currentScene);
+		loadScene(currentScene);
 		player.SetActive(true);
 		companion.SetActive(true);
 	}
@@ -70,7 +92,61 @@ public class LevelManager : MonoBehaviour {
 		currentScene = sceneName;
 		SceneManager.LoadScene(sceneName);
 
-
 	}
-		
+
+	public void savePositions (){
+		savedPlayer = player.transform.position;
+		savedCompanion = companion.transform.position;
+	}
+
+	public void restorePositions(){
+		player.transform.position = savedPlayer;
+		companion.transform.position = savedCompanion;
+	}
+
+	public void restartGame(){
+		if(currentScene.Equals("Cell")){
+			lastScene = "Load";
+			currentScene = "Fort";
+			paused = false;
+			enemy = "";
+			SceneManager.LoadScene(currentScene);
+			player.SetActive(true);
+			companion.SetActive(true);
+		}
+		initializeEvents ();
+	}
+
+	public void setPlayer(){
+
+		if (enemy.Equals ("")) {
+
+			if (currentScene.Equals ("Fort")) {
+				if (lastScene.Equals ("Cell")) {
+					player.transform.position = GameObject.Find ("FortStairs").transform.position;
+					companion.transform.position = GameObject.Find ("FortStairsC").transform.position;
+				}
+
+				if (lastScene.Equals ("Load") || lastScene.Equals ("Beach")) {
+					player.transform.position = GameObject.Find ("FortSpawn").transform.position;
+					companion.transform.position = GameObject.Find ("FortSpawnC").transform.position;
+				}
+			}
+
+			if (currentScene.Equals ("Cell")) {
+				if (lastScene.Equals ("Fort")) {
+					player.transform.position = GameObject.Find ("CellSpawn").transform.position;
+					companion.transform.position = GameObject.Find ("CellSpawnC").transform.position;
+				}
+			}
+
+			if (currentScene.Equals ("Beach")) {
+				if (lastScene.Equals ("Fort")) {
+				}
+			}
+		} else {
+			restorePositions ();
+			enemy = "";
+		}
+	}
 }

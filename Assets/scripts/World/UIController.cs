@@ -10,6 +10,8 @@ public class UIController : MonoBehaviour {
 
 	public Canvas dialogUI;
 	public Text npcTextBox;
+	public Text npcNameBox;
+	public Image npcImage;
 	public ArrayList messages;
 
 
@@ -25,36 +27,48 @@ public class UIController : MonoBehaviour {
 			if(messages.Count == 0){
 			dialogUI.enabled = false;
 			lManager.paused = false;
-
-			} else {
-				string toPrint = (string)messages [0];
-				if(toPrint.Contains("#trigger:")){
-					messages.Remove (toPrint);
-					dialogUI.enabled = false;
-
-					toPrint = toPrint.Replace("#trigger:", "");
-					//toPrint.Substring (9);
-					lManager.loadCombatArena (toPrint);
-
-					//GoToCombat
-				} else {
-
-				npcTextBox.text = toPrint;
-				messages.Remove (toPrint);
-				}
-			}
+			} else
+				processMessage ((string)messages [0]);
 		}		
 		if ((messages.Count != 0) && !dialogUI.isActiveAndEnabled){
-			string toPrint = (string)messages [0];
-			npcTextBox.text = toPrint;
-			messages.Remove (toPrint);
+			processMessage ((string)messages [0]);
 			dialogUI.enabled = true;
 			lManager.paused = true;
-
 		}
 	}
 
 	public void addToQueue(string message){
 		messages.Add (message);
+	}
+
+	public void loadImage(string name){
+		if (name.Equals ("Hecte"))
+			npcImage.sprite = Resources.Load<Sprite> ("hud/hecte");
+		if (name.Equals ("Coelestine"))
+			npcImage.sprite = Resources.Load<Sprite> ("hud/coelestine");
+		if(name.Equals("Poss") || name.Equals("Prisoner"))
+			npcImage.sprite = Resources.Load<Sprite>("hud/poss");
+		if (name.Equals ("Guard"))
+			npcImage.sprite = Resources.Load<Sprite> ("hud/guard");
+		if(name.Equals("Adamastor"))
+			npcImage.sprite = Resources.Load<Sprite>("hud/adamastor");
+	}
+
+	public void processMessage(string message){
+		if(message.Contains("#trigger:")){
+			messages.Remove (message);
+			dialogUI.enabled = false;
+
+			message = message.Replace("#trigger:", "");
+			lManager.loadCombatArena (message);
+		} else {
+			
+			string[] arr = message.Split (':');
+
+			npcNameBox.text = arr [0];
+			npcTextBox.text = arr [1];
+			loadImage (arr [0]);
+			messages.Remove (message);
+		}
 	}
 }
