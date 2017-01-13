@@ -3,8 +3,9 @@ using System.Collections;
 
 public class CompanionController : MonoBehaviour {
 
+	public string name;
 	Transform target; //the enemy's target
-	public float moveSpeed = 1.5f; //move speed
+	public float moveSpeed = 2f; //move speed
 	float maxDistance = 1;
 	float range;
 	Transform myTransform; //current transform data of this enemy
@@ -36,5 +37,14 @@ public class CompanionController : MonoBehaviour {
 		}
 	}
 
+	public void changeCompanion(string cname){
+		if (!name.Equals (cname)) {
+			name = cname;
+			if(cname.Equals("Poss"))
+				gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite> ("poss_walk");
+			if(cname.Equals("Coelestine"))
+				gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite> ("coelestine_0");
+		}
+	}
 
 }

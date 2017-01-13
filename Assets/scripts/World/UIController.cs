@@ -79,10 +79,25 @@ public class UIController : MonoBehaviour {
 					ui.abilitiesPoss.enabled = true;
 					ui.message.enabled = true;
 					canvas.enabled = true;
+					GameObject.Find ("Poss").SetActive (false);
 				}
 				if (message.Equals ("Hallaway")) {
 					GameObject newEnemy = Instantiate(lManager.hallawayPrefab, GameObject.Find ("CellSpawn").transform.position, this.transform.rotation) as GameObject;
 					lManager.paused = false;
+				}
+				if (message.Equals ("ChildA")) {
+					GameObject newEnemy = Instantiate(lManager.childPrefab, ((GameObject.Find ("Player").transform.position + GameObject.Find ("ChildASpawn").transform.position)/2), this.transform.rotation) as GameObject;
+					Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
+					UIController ui = (UIController)canvas.GetComponent (typeof(UIController));
+					ui.addToQueue ("Hecte:\"Oh, please, don’t let that stop you. Let me see what you did to your own men!\"");
+					ui.addToQueue ("#trigger:Combat:Poss");
+				}
+				if (message.Equals ("ChildB")) {
+					GameObject newEnemy = Instantiate(lManager.childPrefab, ((GameObject.Find ("Player").transform.position + GameObject.Find ("ChildBSpawn").transform.position)/2), this.transform.rotation) as GameObject;
+					Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
+					UIController ui = (UIController)canvas.GetComponent (typeof(UIController));
+					ui.addToQueue ("Hecte:\"Oh, please, don’t let that stop you. Let me see what you did to your own men!\"");
+					ui.addToQueue ("#trigger:Combat:Poss");
 				}
 			}
 		} else {

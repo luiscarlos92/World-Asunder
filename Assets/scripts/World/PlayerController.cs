@@ -156,6 +156,24 @@ public class PlayerController : MonoBehaviour {
 		if(other.gameObject.CompareTag("StairsFort")) {
 			lManager.loadScene("Fort");
 		}
+
+		if(other.gameObject.CompareTag("Entrance") && lManager.events["HallawayFight"]) {
+			lManager.loadScene("Beach");
+		}
+
+		if(other.gameObject.CompareTag("ChildASpawn")) {
+			Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
+			UIController ui = (UIController)canvas.GetComponent (typeof(UIController));
+			ui.addToQueue ("Hecte:\"Oh, please, don’t let that stop you. Let me see what you did to your own men!\"");
+			ui.addToQueue ("#trigger:Action:ChildA");
+		}
+
+		if(other.gameObject.CompareTag("ChildBSpawn")) {
+			Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
+			UIController ui = (UIController)canvas.GetComponent (typeof(UIController));
+			ui.addToQueue ("Hecte:\"Oh, please, don’t let that stop you. Let me see what you did to your own men!\"");
+			ui.addToQueue ("#trigger:Action:ChildB");
+		}
 	}
 
 }

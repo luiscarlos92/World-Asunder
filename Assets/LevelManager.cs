@@ -11,6 +11,10 @@ public class LevelManager : MonoBehaviour {
 
 	public Canvas dialogHUD;
 	public Canvas abilitiesHUD;
+	public Canvas cutsceneHUD;
+	public Canvas startHUD;
+	public Canvas buttonsHUD;
+	public Canvas storyHUD;
 
 	public Dictionary<string,bool> events;
 
@@ -30,6 +34,9 @@ public class LevelManager : MonoBehaviour {
 	Vector2 savedCompanion;
 
 	public GameObject hallawayPrefab;
+	public GameObject childPrefab;
+	public GameObject adamastorPrefab;
+
 
 	// Use this for initialization
 	void Start () {
@@ -41,12 +48,32 @@ public class LevelManager : MonoBehaviour {
 
 		initializeEvents ();
 
+		buttonsHUD.enabled = false;
+		storyHUD.enabled = false;
+		paused = true;
 		//Loads starting level
 		loadScene("Fort");
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (Input.GetKeyDown ("space") && startHUD.isActiveAndEnabled) {
+			events ["Started"] = true;
+			startHUD.enabled = false;
+			buttonsHUD.enabled = true;
+		} else
+		if (Input.GetKeyDown ("space") && buttonsHUD.isActiveAndEnabled) {
+			events ["Buttons"] = true;
+			buttonsHUD.enabled = false;
+			storyHUD.enabled = true;
+		} else
+		if (Input.GetKeyDown ("space") && storyHUD.isActiveAndEnabled) {
+			events ["Previously"] = true;
+			storyHUD.enabled = false;
+			paused = false;
+		}
+
 		Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
 		UIController ui = (UIController)canvas.GetComponent (typeof(UIController)); 
 		if (events ["PossCutscene"] && !events ["PreHallaway"]) {
@@ -63,8 +90,9 @@ public class LevelManager : MonoBehaviour {
 
 	void initializeEvents(){
 		events = new Dictionary<string, bool> ();
-		events.Add ("Started", true);
-		events.Add ("Previously", true);
+		events.Add ("Started", false);
+		events.Add ("Buttons", false);
+		events.Add ("Previously", false);
 		events.Add ("GuardA", false);
 		events.Add ("GuardB", false);
 		events.Add ("Sing", false);
@@ -73,6 +101,9 @@ public class LevelManager : MonoBehaviour {
 		events.Add ("PossCutscene", false);
 		events.Add ("PreHallaway", false);
 		events.Add ("HallawayFight", false);
+		events.Add ("GoOutside", false);
+		events.Add ("ChildASpawn", false);
+		events.Add ("ChildAFight", false);
 
 	}
 
@@ -102,7 +133,9 @@ public class LevelManager : MonoBehaviour {
 			abilitiesHUD.GetComponent<AbilitiesUIController> ().abilitiesPoss.enabled = true;
 			events ["PossFight"] = true;
 		}
-
+		if (enemy.Equals ("Hallaway")) {
+			events ["HallawayFight"] = true;
+		}
 		loadScene(currentScene);
 		player.SetActive(true);
 		companion.SetActive(true);
@@ -137,6 +170,18 @@ public class LevelManager : MonoBehaviour {
 			currentScene = "Fort";
 			paused = false;
 			enemy = "";
+			CompanionController comp = (CompanionController) GameObject.FindGameObjectWithTag ("Companion").GetComponent (typeof(CompanionController)); 
+			comp.changeCompanion ("Coelestine");
+			SceneManager.LoadScene(currentScene);
+			player.SetActive(true);
+			companion.SetActive(true);
+
+		}
+		if(currentScene.Equals("Beach")){
+			lastScene = "Fort";
+			currentScene = "Beach";
+			paused = false;
+			enemy = "";
 			SceneManager.LoadScene(currentScene);
 			player.SetActive(true);
 			companion.SetActive(true);
@@ -169,6 +214,8 @@ public class LevelManager : MonoBehaviour {
 
 			if (currentScene.Equals ("Beach")) {
 				if (lastScene.Equals ("Fort")) {
+					player.transform.position = GameObject.Find ("BeachSpawn").transform.position;
+					companion.transform.position = GameObject.Find ("BeachSpawnC").transform.position;
 				}
 			}
 		} else {

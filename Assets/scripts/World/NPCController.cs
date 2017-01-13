@@ -19,6 +19,11 @@ public class NPCController : MonoBehaviour {
 		lManager = (LevelManager)GameObject.Find ("LevelManager").GetComponent (typeof(LevelManager));
 		dialogSpoken = lManager.events [name];
 		bubbleCanvas.enabled = !dialogSpoken; 
+
+		if (name.Contains ("Guard") && lManager.events ["HallawayFight"])
+			gameObject.SetActive (false);
+		if (name.Contains ("Poss") && lManager.events ["HallawayFight"])
+			gameObject.SetActive (false);
 	}
 	
 	// Update is called once per frame

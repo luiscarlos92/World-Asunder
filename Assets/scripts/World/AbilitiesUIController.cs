@@ -13,6 +13,10 @@ public class AbilitiesUIController : MonoBehaviour {
 	public Canvas abilitiesCoelestine;
 	public Canvas abilitiesPoss;
 
+	public Text ATitle;
+	public Text AName;
+	public Text ADescription;
+
 	public Canvas message;
 
 	// Use this for initialization
@@ -20,6 +24,9 @@ public class AbilitiesUIController : MonoBehaviour {
 		message.enabled = false;
 		abilitiesPoss.enabled = false;
 		abilitiesUI.enabled = false;
+		ATitle.enabled = false;
+		AName.enabled = false;
+		ADescription.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -31,6 +38,9 @@ public class AbilitiesUIController : MonoBehaviour {
 			} else {
 				abilitiesUI.enabled = false;
 				lManager.paused = false;
+
+				CompanionController comp = (CompanionController) GameObject.FindGameObjectWithTag ("Companion").GetComponent (typeof(CompanionController)); 
+				comp.changeCompanion (lManager.choosenCompanion);
 			}
 		}
 
@@ -86,6 +96,13 @@ public class AbilitiesUIController : MonoBehaviour {
 		}
 	}
 
+	public void displayInfo(){
+
+		ATitle.enabled = true;
+		AName.enabled = true;
+		ADescription.enabled = true;
+	}
+
 	public void clickPortrait_Vriska(){
 		lManager.choosenCompanion = "Vriska";
 	}
@@ -94,9 +111,17 @@ public class AbilitiesUIController : MonoBehaviour {
 	}
 	public void clickPortrait_Coelestine(){
 		lManager.choosenCompanion = "Coelestine";
+		ATitle.text = "Bodyguard";
+		AName.text = "Coelestine";
+		ADescription.text = "Hotheaded";
+		displayInfo ();
 	}
 	public void clickPortrait_Poss(){
 		lManager.choosenCompanion = "Poss";
+		ATitle.text = "Bodyguard";
+		AName.text = "Poss";
+		ADescription.text = "...";
+		displayInfo ();
 	}
 
 
@@ -108,9 +133,17 @@ public class AbilitiesUIController : MonoBehaviour {
 	}
 	public void clickSpace_Coelestine(){
 		lManager.choosenSpace = "Coelestine";
+		ATitle.text = "Space";
+		AName.text = "Poison Dagger";
+		ADescription.text = "Throws a poisoned dagger at your enemy, dealing damage over time.";
+		displayInfo ();
 	}
 	public void clickSpace_Poss(){
 		lManager.choosenSpace = "Poss";
+		ATitle.text = "Space";
+		AName.text = "Sleight of Hand";
+		ADescription.text = "Shoots a quick bullet for small damage";
+		displayInfo ();
 	}
 
 
@@ -122,9 +155,17 @@ public class AbilitiesUIController : MonoBehaviour {
 	}
 	public void clickQ_Coelestine(){
 		lManager.choosenQ = "Coelestine";
+		ATitle.text = "Q";
+		AName.text = "Backstab";
+		ADescription.text = "Cuts your enemy in the back 2 squares forward.";
+		displayInfo ();
 	}
 	public void clickQ_Poss(){
 		lManager.choosenQ = "Poss";
+		ATitle.text = "Q";
+		AName.text = "Torrent";
+		ADescription.text = "Summon sea currents 3 squares away to surprise your enemy, and stop them in their tracks.";
+		displayInfo ();
 	}
 
 
@@ -136,9 +177,17 @@ public class AbilitiesUIController : MonoBehaviour {
 	}
 	public void clickW_Coelestine(){
 		lManager.choosenW = "Coelestine";
+		ATitle.text = "W";
+		AName.text = "Invisibility";
+		ADescription.text = "...";
+		displayInfo ();
 	}
 	public void clickW_Poss(){
 		lManager.choosenW = "Poss";
+		ATitle.text = "W";
+		AName.text = "Dirty Tricks";
+		ADescription.text = "Shoots a sucker bullet dealing damage and stunning your enemy.";
+		displayInfo ();
 	}
 
 	public void clickE_Vriska(){
@@ -149,9 +198,17 @@ public class AbilitiesUIController : MonoBehaviour {
 	}
 	public void clickE_Coelestine(){
 		lManager.choosenE = "Coelestine";
+		ATitle.text = "E";
+		AName.text = "Smoke Bomb";
+		ADescription.text = "Summon sea currents to blow your enemy and deal damage 3 squares away.";
+		displayInfo ();
 	}
 	public void clickE_Poss(){
 		lManager.choosenE = "Poss";
+		ATitle.text = "E";
+		AName.text = "Cannon Barrage";
+		ADescription.text = "...";
+		displayInfo ();
 	}
 
 
@@ -163,8 +220,16 @@ public class AbilitiesUIController : MonoBehaviour {
 	}
 	public void clickR_Coelestine(){
 		lManager.choosenR = "Coelestine";
+		ATitle.text = "R";
+		AName.text = "Garrote";
+		ADescription.text = "Traps the enemy in front of you, and deals damage over time.";
+		displayInfo ();
 	}
 	public void clickR_Poss(){
 		lManager.choosenR = "Poss";
+		ATitle.text = "R";
+		AName.text = "Caravel";
+		ADescription.text = "Throws a Lusitanian Caravel at your enemy dealing damage.";
+		displayInfo ();
 	}
 }

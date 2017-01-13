@@ -11,7 +11,6 @@ public class OpenDoorScript : MonoBehaviour {
 	public LevelManager lManager;
 
 	public bool sang;
-
 	// Use this for initialization
 	void Start () {
 		lManager = (LevelManager)GameObject.Find ("LevelManager").GetComponent (typeof(LevelManager));
@@ -27,6 +26,12 @@ public class OpenDoorScript : MonoBehaviour {
 			ui.addToQueue ("Prisoner:\"I respect that. The name’s Poss, by the way.\"");
 			ui.addToQueue ("Poss:\"I’ll be honest with you then. About Hallaway. About Sal Demar. Just... It’s all a bit surreal mate.\"");
 			ui.addToQueue ("#trigger:Cutscene:Poss");
+		}
+		if (lManager.events ["HallawayFight"] && !lManager.events ["GoOutside"]) {
+			GameObject.Find ("Cell Door").SetActive (false);
+			Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
+			UIController ui = (UIController)canvas.GetComponent (typeof(UIController)); 
+			ui.addToQueue ("Prisoner:\"ahah we won\"");
 		}
 
 	}
