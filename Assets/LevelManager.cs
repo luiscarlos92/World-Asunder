@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour {
 	public Canvas hud;
 
 	public bool paused = false;
+	public string lastScene = "Load";
+	public string currentScene = "Load";
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +22,7 @@ public class LevelManager : MonoBehaviour {
 		DontDestroyOnLoad(hud);
 
 		//Loads starting level
-		SceneManager.LoadScene("Fort");
+		loadScene("Fort");
 	}
 	
 	// Update is called once per frame
@@ -29,8 +31,23 @@ public class LevelManager : MonoBehaviour {
 	}
 
 
-	void loadCombatArena(string enemyName){
-		//PlayerPrefs.SetString ("Enemy", enemyName);
+	public void loadCombatArena(string enemyName){
+		if(enemyName.Equals("Poss"))
+			GameObject.Find ("Cell Door").SetActive (false);
+
+		PlayerPrefs.SetString ("Enemy", enemyName);
+		GameObject.FindWithTag("Player").SetActive(false);
+		GameObject.FindWithTag("Companion").SetActive(false);
+		SceneManager.LoadScene("CombatArena");
+	}
+
+	public void loadScene(string sceneName ){
+		paused = false;
+		lastScene = currentScene;
+		currentScene = sceneName;
+		SceneManager.LoadScene(sceneName);
+
 
 	}
+		
 }

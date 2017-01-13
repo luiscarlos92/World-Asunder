@@ -58,7 +58,7 @@ public class OpenDoorScript : MonoBehaviour {
 			ui.addToQueue ("Prisoner: \"Ah, mate, you’re lucky there’s bars separating us. Otherwise, you would be eating your lying teeth right about now!\"");
 			ui.addToQueue ("Hecte: \"Oh, please, don’t let that stop you. Let me see what you did to your own men!\"");
 
-			ui.addToQueue ("*trigger*");
+			ui.addToQueue ("#trigger:Poss");
 			dialogSpoken = true;
 
 		}

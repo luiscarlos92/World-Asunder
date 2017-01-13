@@ -28,16 +28,13 @@ public class UIController : MonoBehaviour {
 
 			} else {
 				string toPrint = (string)messages [0];
-				if(toPrint.Equals("*trigger*")){
+				if(toPrint.Contains("#trigger:")){
 					messages.Remove (toPrint);
 					dialogUI.enabled = false;
 
+					toPrint.Replace("#trigger:", "");
 
-					GameObject.Find ("Cell Door").SetActive (false);
-
-					GameObject.FindWithTag("Player").SetActive(false);
-					GameObject.FindWithTag("Companion").SetActive(false);
-					SceneManager.LoadScene("CombatArena");
+					lManager.loadCombatArena (toPrint);
 
 					//GoToCombat
 				} else {

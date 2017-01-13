@@ -14,19 +14,38 @@ public class PlayerSet : MonoBehaviour {
 	private bool backtracking;
 	
 	void Start() {
-		//Get the player and companion objects
+		LevelManager lManager = (LevelManager)GameObject.Find ("LevelManager").GetComponent (typeof(LevelManager));
 		GameObject player = GameObject.FindWithTag("Player");
-		PlayerController pc = (PlayerController) player.GetComponent(typeof(PlayerController));
-		backtracking = pc.getBacktracking();
 		GameObject companion = GameObject.FindWithTag("Companion");
 
-		if(backtracking == false) {
-			player.transform.position = new Vector3(playerPositionX, playerPositionY, 0.0f);
-			companion.transform.position = new Vector3(companionPositionX, companionPositionY, 0.0f);
+		if (lManager.currentScene.Equals("Fort")) {
+			if (lManager.lastScene.Equals ("Cell")) {
+				player.transform.position = new Vector3 (playerBacktrackX, playerBacktrackY, 0.0f);
+				companion.transform.position = new Vector3 (companionBacktrackX, companionBacktrackY, 0.0f);
+			}
+			if (lManager.lastScene.Equals ("Beach")) {
+				
+			}
+
+			if (lManager.lastScene.Equals ("Load")) {
+				player.transform.position = new Vector3 (playerPositionX, playerPositionY, 0.0f);
+				companion.transform.position = new Vector3 (companionPositionX, companionPositionY, 0.0f);
+			}
 		}
-		else {
-			player.transform.position = new Vector3(playerBacktrackX, playerBacktrackY, 0.0f);
-			companion.transform.position = new Vector3(companionBacktrackX, companionBacktrackY, 0.0f);
+
+		if (lManager.currentScene.Equals ("Cell")) {
+			if (lManager.lastScene.Equals ("Fort")) {
+				player.transform.position = new Vector3 (playerPositionX, playerPositionY, 0.0f);
+				companion.transform.position = new Vector3 (companionPositionX, companionPositionY, 0.0f);
+			}
 		}
+
+		if (lManager.currentScene.Equals ("Beach")) {
+			if (lManager.lastScene.Equals ("Fort")) {
+				player.transform.position = new Vector3 (playerPositionX, playerPositionY, 0.0f);
+				companion.transform.position = new Vector3 (companionPositionX, companionPositionY, 0.0f);
+			}
+		}
+
 	}
 }

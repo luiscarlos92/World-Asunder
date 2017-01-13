@@ -8,8 +8,6 @@ public class PlayerController : MonoBehaviour {
 	public float speed;
 
 	private int direction;
-	private bool backtracking;
-	private string lastArea;
 	private Animator animator;
 	private SpriteRenderer sprite;
 
@@ -18,9 +16,6 @@ public class PlayerController : MonoBehaviour {
 		sprite = GetComponent<SpriteRenderer>();
 
 		direction = 0;
-		backtracking = false;
-		lastArea = "";
-
 	}
 	
 	void FixedUpdate() {
@@ -153,40 +148,14 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if(other.gameObject.CompareTag("Enemy")) {
-			//Change to Arena Scene
-		}
-
-		if(other.gameObject.CompareTag("Poss")) {
-			//Something happens?
-		}
-
-		if(other.gameObject.CompareTag("StairsCell")) {
-			backtracking = false;
-			lastArea = "Cell";
-
-			//Change to Cell Scene
-			SceneManager.LoadScene("Cell");
-
 		
-
-
+		if(other.gameObject.CompareTag("StairsCell")) {
+			lManager.loadScene("Cell");
 		}
 
 		if(other.gameObject.CompareTag("StairsFort")) {
-			if(lastArea == "Cell")
-				backtracking = true;
-			else
-				backtracking = false;
-			
-			lastArea = "Fort";
-
-			//Change to Fort Scene
-			SceneManager.LoadScene("Fort");
+			lManager.loadScene("Fort");
 		}
 	}
 
-	public bool getBacktracking() {
-		return backtracking;
-	}
 }
