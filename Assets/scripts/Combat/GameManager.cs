@@ -47,14 +47,18 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-		lManager = (LevelManager)GameObject.Find ("LevelManager").GetComponent (typeof(LevelManager));
+        lManager = (LevelManager)GameObject.Find("LevelManager").GetComponent(typeof(LevelManager));
 
         chars = new List<Enemy>();
         arena = new GameObject[6, 3];
         ////////////////////////////////////////////////////////////////////////////////////
         //CHARACTER
-		setPlayerAbilities();
+		//setPlayerAbilities();
         characterAbilities[0] = new BasicShot();
+        characterAbilities[1] = new Sword();
+        characterAbilities[2] = new CannonBarrage();
+        characterAbilities[3] = new SmokeBomb();
+        characterAbilities[4] = new Caravel();
         Hecte = new Character("Hecte", characterAbilities);
         Hecte.spritePath = "Animations/AnimatedCharacters/Hecte";
 
@@ -77,21 +81,51 @@ public class GameManager : MonoBehaviour
         Hallaway = new Enemy("Hallaway", enemyAbilities);
         Hallaway.spritePath = "Animations/AnimatedCharacters/Hallaway";
 
+        //spawn
+        enemyAbilities[0] = new DirtyTricks();
+        enemyAbilities[1] = new DirtyTricks();
+        enemyAbilities[2] = new DirtyTricks();
+        enemyAbilities[3] = new DirtyTricks();
+        enemyAbilities[4] = new DirtyTricks();
+        Enemy spawn1 = new Enemy("Spawn1", enemyAbilities);
+        spawn1.spritePath = "Animations/AnimatedCharacters/Spawn";
+
+        //spawn
+        enemyAbilities[0] = new DirtyTricks();
+        enemyAbilities[1] = new DirtyTricks();
+        enemyAbilities[2] = new DirtyTricks();
+        enemyAbilities[3] = new DirtyTricks();
+        enemyAbilities[4] = new DirtyTricks();
+        Enemy spawn2 = new Enemy("Spawn2", enemyAbilities);
+        spawn2.spritePath = "Animations/AnimatedCharacters/Spawn";
+        //ADAMAS
+        enemyAbilities[0] = new Torrent();
+        enemyAbilities[1] = new DirtyTricks();
+        enemyAbilities[2] = new Torrent();
+        enemyAbilities[3] = new DirtyTricks();
+        enemyAbilities[4] = new Torrent();
+        Enemy Adamastor = new Enemy("Adamastor", enemyAbilities);
+        Adamastor.spritePath = "Animations/AnimatedCharacters/Adamastor";
+
         chars.Add(Poss);
         chars.Add(Hallaway);
+        chars.Add(Adamastor);
+        chars.Add(spawn1);
+        chars.Add(spawn2);
 
         //  load character and enemy based on string used by PlayerPrefs.
         // so I have to instantiate everything here
 
-        Enemy teki = Poss;
+        Enemy teki = Adamastor;
 
-        foreach(var entry in chars)
+        foreach (var entry in chars)
         {
-			//Debug.Log (entry.name + " " + lManager.enemy);
-			if (entry.name == lManager.enemy) {
-				teki = entry;
-				Debug.Log (entry.name + " " + lManager.enemy);
-			}
+            //Debug.Log (entry.name + " " + lManager.enemy);
+            if (entry.name == lManager.enemy)
+            {
+                teki = entry;
+                Debug.Log(entry.name + " " + lManager.enemy);
+            }
         }
         logicArena = new Arena(Hecte,teki);
         Debug.Log("cenas");
@@ -221,6 +255,8 @@ public class GameManager : MonoBehaviour
         newEnemy.name = "Enemy";
         enemy = newEnemy;
 
+      
+
         //UI ELEMENTS
         //HEALTHBARS
         GameObject.Find("CharacterOrb").GetComponent<HealthBar>().TotalHp = logicArena.character.HP;
@@ -267,9 +303,31 @@ public class GameManager : MonoBehaviour
 
         GameObject.Find("Player").GetComponent<Animator>().SetTrigger(logicArena.charAnimation);
         GameObject.Find("Enemy").GetComponent<Animator>().SetTrigger(logicArena.enemyAnimation);
+
+        if (logicArena.character.Stunned)
+        {
+            GameObject.Find("Player").GetComponent<Animator>().SetTrigger("Hurt");
+            if (logicArena.character.StunnedFrames % 2 == 0)
+                GameObject.Find("Player").GetComponent<SpriteRenderer>().enabled = false;
+            else
+                GameObject.Find("Player").GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else
+            GameObject.Find("Player").GetComponent<SpriteRenderer>().enabled = true;
+
+        if (logicArena.enemy.Stunned)
+        {
+            GameObject.Find("Enemy").GetComponent<Animator>().SetTrigger("Hurt");
+            if (logicArena.enemy.StunnedFrames % 2 == 0)
+                GameObject.Find("Enemy").GetComponent<SpriteRenderer>().enabled = false;
+            else
+                GameObject.Find("Enemy").GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else
+            GameObject.Find("Enemy").GetComponent<SpriteRenderer>().enabled = true;
+
         logicArena.charAnimation = "";
         logicArena.enemyAnimation = "";
-
         var arena = logicArena.getArena();
         for (int x = 0; x < mapSize.x; x++)
         {
@@ -285,7 +343,6 @@ public class GameManager : MonoBehaviour
                 else
                 {
 					GameObject.Find(hitbox.x.ToString() + hitbox.y.ToString()).GetComponent<MeshRenderer>().material = Resources.Load("Material/Blue") as Material;
-					Debug.Log ("1");
 
                 }
             }
@@ -298,14 +355,19 @@ public class GameManager : MonoBehaviour
             var set = hitboxes[position];
             foreach (var hitbox in set)
             {
-                if (hitbox.active)
-                {
+                //if (hitbox.active)
+                //{
                     if (position.x >= 0 && position.x <= 5 && (3 - position.y - 1) <= 2 && (3 - position.y - 1) >= 0)
                     {
                         GameObject.Find(position.x.ToString() + (3 - position.y - 1).ToString()).GetComponent<MeshRenderer>().material = Resources.Load<Material>("Material/Yellow");
-//                        Debug.Log(hitbox.active);
+                    //                        Debug.Log(hitbox.active);
+                    GameObject prefab = Resources.Load(hitbox.ability.preFab) as GameObject;
+                    foreach (var cena in hitbox.ability.particleDest)
+                    {
+                        GameObject PARTICLE = Instantiate(prefab, ParsePosition(cena), this.transform.rotation);
                     }
-                }
+                    }
+                //}
             }
         }
 

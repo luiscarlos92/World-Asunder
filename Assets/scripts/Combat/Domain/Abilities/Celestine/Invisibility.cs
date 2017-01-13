@@ -25,7 +25,7 @@ class Invisibility : Ability
 
     public override void Run()
     {
-        throw new NotImplementedException();
+ 
     }
 }
 

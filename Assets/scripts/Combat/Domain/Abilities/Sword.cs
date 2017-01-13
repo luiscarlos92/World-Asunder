@@ -28,6 +28,7 @@ class Sword : Ability
 
     public override void Run()
     {
-        throw new NotImplementedException();
+        this.particleDest.Add(origin + new Vector2(1, 0));
+        
     }
 }

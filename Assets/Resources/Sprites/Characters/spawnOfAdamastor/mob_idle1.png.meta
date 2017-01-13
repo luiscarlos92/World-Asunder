@@ -1,9 +1,42 @@
 fileFormatVersion: 2
 guid: dd78b1ac5990072499bba926f0e83088
-timeCreated: 1484293395
+timeCreated: 1484312162
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: mob_idle1_0
+    21300002: mob_idle1_1
+    21300004: mob_idle1_2
+    21300006: mob_idle1_3
+    21300008: mob_idle1_4
+    21300010: mob_idle1_5
+    21300012: mob_idle1_6
+    21300014: mob_idle1_7
+    21300016: mob_idle1_8
+    21300018: mob_idle1_9
+    21300020: mob_idle1_10
+    21300022: mob_idle1_11
+    21300024: mob_idle1_12
+    21300026: mob_idle1_13
+    21300028: mob_idle1_14
+    21300030: mob_idle1_15
+    21300032: mob_idle1_16
+    21300034: mob_idle1_17
+    21300036: mob_idle1_18
+    21300038: mob_idle1_19
+    21300040: mob_idle1_20
+    21300042: mob_idle1_21
+    21300044: mob_idle1_22
+    21300046: mob_idle1_23
+    21300048: mob_idle1_24
+    21300050: mob_idle1_25
+    21300052: mob_idle1_26
+    21300054: mob_idle1_27
+    21300056: mob_idle1_28
+    21300058: mob_idle1_29
+    21300060: mob_idle1_30
+    21300062: mob_idle1_31
+    21300064: mob_idle1_32
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +67,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -58,9 +91,160 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: mob_idle1_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 29
+        width: 376
+        height: 1106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mob_idle1_2
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 43
+        width: 364
+        height: 1099
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mob_idle1_4
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 58
+        width: 350
+        height: 1091
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mob_idle1_6
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 49
+        width: 366
+        height: 1102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mob_idle1_8
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 42
+        width: 388
+        height: 1113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mob_idle1_10
+      rect:
+        serializedVersion: 2
+        x: 2277
+        y: 26
+        width: 410
+        height: 1128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mob_idle1_12
+      rect:
+        serializedVersion: 2
+        x: 2737
+        y: 16
+        width: 421
+        height: 1139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mob_idle1_13
+      rect:
+        serializedVersion: 2
+        x: 3207
+        y: 9
+        width: 417
+        height: 1132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mob_idle1_15
+      rect:
+        serializedVersion: 2
+        x: 3677
+        y: 4
+        width: 409
+        height: 1131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mob_idle1_17
+      rect:
+        serializedVersion: 2
+        x: 4143
+        y: 0
+        width: 405
+        height: 1122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mob_idle1_19
+      rect:
+        serializedVersion: 2
+        x: 4594
+        y: 0
+        width: 390
+        height: 1116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

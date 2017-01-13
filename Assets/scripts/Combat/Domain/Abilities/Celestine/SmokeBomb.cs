@@ -21,12 +21,12 @@ class SmokeBomb : Ability
 		this.hitBoxes[3] = new Vector2(3, 1);
 		this.hitBoxes[4] = new Vector2(3, -1);
 		this.framesToResolve = new int[5];
-		framesToResolve[0] = 120;
-		framesToResolve[1] = 120;
-		framesToResolve[2] = 120;
-		framesToResolve[3] = 120;
-		framesToResolve[4] = 120;
-		this.frames = 40;
+		framesToResolve[0] = 20;
+		framesToResolve[1] = 20;
+		framesToResolve[2] = 20;
+		framesToResolve[3] = 20;
+		framesToResolve[4] = 20;
+		this.frames = 20;
 		this.icon = Resources.Load<Sprite>("Sprites/Icons/Celestine/SmokeBomb");
 		this.animationTriggerName = "DefaultAttack";
 
@@ -35,7 +35,7 @@ class SmokeBomb : Ability
 
     public override void Run()
     {
-        throw new NotImplementedException();
+ 
     }
 }
 

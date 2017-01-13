@@ -34,7 +34,7 @@ class CannonBarrage : Ability
 		framesToResolve[6] = 360;
 		framesToResolve[7] = 420;
 		framesToResolve[8] = 480;
-		this.frames = 20;
+		this.frames = 0;
 		this.icon = Resources.Load<Sprite>("Sprites/Icons/Poss/CannonBarrage");
 		this.animationTriggerName = "DefaultAttack";
 
@@ -43,7 +43,7 @@ class CannonBarrage : Ability
 
     public override void Run()
     {
-        throw new NotImplementedException();
+ 
     }
 }
 
