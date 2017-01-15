@@ -139,12 +139,22 @@ public class LevelManager : MonoBehaviour {
 
 	public void returnCombatArena(){
 		if (enemy.Equals ("Poss")) {
-			abilitiesHUD.GetComponent<AbilitiesUIController> ().abilitiesPoss.enabled = true;
+			
 			events ["PossFight"] = true;
 		}
 		if (enemy.Equals ("Hallaway")) {
 			events ["HallawayFight"] = true;
 		}
+		if (enemy.Equals ("Spawn1")) {
+			events ["Spawn1Fight"] = true;
+		}
+		if (enemy.Equals ("Spawn2")) {
+			events ["Spawn2Fight"] = true;
+		}
+		if (enemy.Equals ("Adamastor")) {
+			events ["AdamastorFight"] = true;
+		}
+
 		loadScene(currentScene);
 		player.SetActive(true);
 		companion.SetActive(true);

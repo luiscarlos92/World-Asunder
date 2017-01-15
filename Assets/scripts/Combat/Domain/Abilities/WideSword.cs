@@ -27,6 +27,7 @@ class WideSword : Ability
 
         this.packet = new EffectPacket(80, 20);
         this.frames = 20;
+        this.doneFrames = this.frames;
 
         this.icon = Resources.Load<Sprite>("Sprites/MegamanSpells/widesword");
     }

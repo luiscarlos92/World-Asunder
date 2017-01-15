@@ -266,8 +266,6 @@ public class Arena
                 else
                 {
                     tilePos = ability.hitBoxes[i];
-                    if (ability.name == "CannonBarrage")
-                        Debug.Log(i);
                 }
             }
             if (tilePos != null && checkHitbox(tilePos))

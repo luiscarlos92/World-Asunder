@@ -20,6 +20,7 @@ class Torrent: Ability
 		hitbox[2] = new Vector2(3, -1);
 		this.hitBoxes = hitbox;
 		this.frames = 40;
+        this.doneFrames = this.frames;
 
 		this.framesToResolve = new int[3];
 		framesToResolve[0] = 120;

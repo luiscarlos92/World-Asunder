@@ -30,8 +30,8 @@ public class GameManager : MonoBehaviour
     public Enemy Poss;
     public Enemy Hallaway;
     public Enemy Adamastor;
-    public Enemy Spawn1;
-    public Enemy Spawn2;
+    public Enemy spawn1;
+    public Enemy spawn2;
 
     public List<Enemy> chars;
 
@@ -47,17 +47,19 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        //lManager = (LevelManager)GameObject.Find("LevelManager").GetComponent(typeof(LevelManager));
-		//setPlayerAbilities();
+        lManager = (LevelManager)GameObject.Find("LevelManager").GetComponent(typeof(LevelManager));
+        setPlayerAbilities();
 
         chars = new List<Enemy>();
         arena = new GameObject[6, 3];
         ////////////////////////////////////////////////////////////////////////////////////
+
         //CHARACTER
+        setPlayerAbilities();
         characterAbilities[0] = new PoisonDagger();
-        characterAbilities[1] = new Torrent();
-        characterAbilities[2] = new Garrote();
-        characterAbilities[3] = new CannonBarrage();
+        characterAbilities[1] = new WideSword();
+        characterAbilities[2] = new CannonBarrage();
+        characterAbilities[3] = new SmokeBomb();
         characterAbilities[4] = new Caravel();
         Hecte = new Character("Hecte", characterAbilities);
         Hecte.spritePath = "Animations/AnimatedCharacters/Hecte";
@@ -81,24 +83,54 @@ public class GameManager : MonoBehaviour
         Hallaway = new Enemy("Hallaway", enemyAbilities);
         Hallaway.spritePath = "Animations/AnimatedCharacters/Hallaway";
 
+        //spawn
+        enemyAbilities[0] = new DirtyTricks();
+        enemyAbilities[1] = new DirtyTricks();
+        enemyAbilities[2] = new DirtyTricks();
+        enemyAbilities[3] = new DirtyTricks();
+        enemyAbilities[4] = new DirtyTricks();
+        spawn1 = new Enemy("Spawn1", enemyAbilities);
+        spawn1.spritePath = "Animations/AnimatedCharacters/SpawnFab";
+        Debug.Log(spawn1.name);
+
+        //spawn 2
+        enemyAbilities[0] = new Torrent();
+        enemyAbilities[1] = new Torrent();
+        enemyAbilities[2] = new Torrent();
+        enemyAbilities[3] = new Torrent();
+        enemyAbilities[4] = new Torrent();
+        spawn2 = new Enemy("Spawn2", enemyAbilities);
+        spawn2.spritePath = "Animations/AnimatedCharacters/SpawnFab";
+        //ADAMAS
+        enemyAbilities[0] = new Torrent();
+        enemyAbilities[1] = new DirtyTricks();
+        enemyAbilities[2] = new Torrent();
+        enemyAbilities[3] = new DirtyTricks();
+        enemyAbilities[4] = new Torrent();
+        Adamastor = new Enemy("Adamastor", enemyAbilities);
+        Adamastor.spritePath = "Animations/AnimatedCharacters/Adamastor";
+
         chars.Add(Poss);
         chars.Add(Hallaway);
+        chars.Add(Adamastor);
+        chars.Add(spawn1);
+        chars.Add(spawn2);
 
         //  load character and enemy based on string used by PlayerPrefs.
         // so I have to instantiate everything here
 
-        Enemy teki = Poss;
+        Enemy teki = spawn1;
 
-   //     foreach(var entry in chars)
-   //     {
-			////Debug.Log (entry.name + " " + lManager.enemy);
-			//if (entry.name == lManager.enemy) {
-			//	teki = entry;
-			//	Debug.Log (entry.name + " " + lManager.enemy);
-			//}
-   //     }
+        foreach (var entry in chars)
+        {
+            //Debug.Log (entry.name + " " + lManager.enemy);
+            if (entry.name == lManager.enemy)
+            {
+                teki = entry;
+                Debug.Log(entry.name + " " + lManager.enemy);
+            }
+        }
         logicArena = new Arena(Hecte,teki);
-        Debug.Log("cenas");
         ////////////////////////////////////////////////////////////////////////////////////
         //Sprite bg = Resources.Load<Sprite>("Sprites/Background/background");
         //GameObject.Find("Background").GetComponent<Image>().sprite = bg;
@@ -220,10 +252,13 @@ public class GameManager : MonoBehaviour
         character = newChar;
 
         Vector3 enemyPosition = ParsePosition(logicArena.enemy.position);
+		Debug.Log (logicArena.enemy.name);
         enemy = Resources.Load(logicArena.enemy.spritePath) as GameObject;
         GameObject newEnemy = Instantiate(enemy, enemyPosition, this.transform.rotation) as GameObject;
         newEnemy.name = "Enemy";
         enemy = newEnemy;
+
+      
 
         //UI ELEMENTS
         //HEALTHBARS
@@ -268,8 +303,33 @@ public class GameManager : MonoBehaviour
         GameObject.Find("AbilityE.CD").GetComponent<Spell>().remainingCooldown = logicArena.character.abilityE.remainingCooldown;
         GameObject.Find("AbilityR.CD").GetComponent<Spell>().remainingCooldown = logicArena.character.abilityR.remainingCooldown;
 
-       
+        GameObject.Find("Player").GetComponent<Animator>().SetTrigger(logicArena.charAnimation);
+        GameObject.Find("Enemy").GetComponent<Animator>().SetTrigger(logicArena.enemyAnimation);
 
+        if (logicArena.character.Stunned)
+        {
+            GameObject.Find("Player").GetComponent<Animator>().SetTrigger("Hurt");
+            if (logicArena.character.StunnedFrames % 2 == 0)
+                GameObject.Find("Player").GetComponent<SpriteRenderer>().enabled = false;
+            else
+                GameObject.Find("Player").GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else
+            GameObject.Find("Player").GetComponent<SpriteRenderer>().enabled = true;
+
+        if (logicArena.enemy.Stunned)
+        {
+            GameObject.Find("Enemy").GetComponent<Animator>().SetTrigger("Hurt");
+            if (logicArena.enemy.StunnedFrames % 2 == 0)
+                GameObject.Find("Enemy").GetComponent<SpriteRenderer>().enabled = false;
+            else
+                GameObject.Find("Enemy").GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else
+            GameObject.Find("Enemy").GetComponent<SpriteRenderer>().enabled = true;
+
+        logicArena.charAnimation = "";
+        logicArena.enemyAnimation = "";
         var arena = logicArena.getArena();
         for (int x = 0; x < mapSize.x; x++)
         {
@@ -317,8 +377,8 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-                    GameObject.Find("50").transform.FindChild("Explosion").GetComponent<SpriteRenderer>().enabled = true;
-        GameObject.Find("50").transform.FindChild("Torrent").GetComponent<ParticleRenderer>().enabled = true;
+        //GameObject.Find("50").transform.FindChild("Explosion").GetComponent<SpriteRenderer>().enabled = true;
+        //GameObject.Find("50").transform.FindChild("Torrent").GetComponent<ParticleRenderer>().enabled = true;
 
         if (logicArena.character.Stunned)
         {
@@ -344,11 +404,11 @@ public class GameManager : MonoBehaviour
         logicArena.Update();
         if (logicArena.enemy.HP <= 0)
         {
-			//lManager.returnCombatArena ();
+            lManager.returnCombatArena();
         }
         if(logicArena.character.HP <= 0)
         {
-            //lManager.restartGame();
+            lManager.restartGame();
         }
 
 

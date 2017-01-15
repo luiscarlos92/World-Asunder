@@ -19,6 +19,7 @@ class LongSword : Ability
         hitbox[1] = new Vector2(2, 0);
         this.hitBoxes = hitbox;
         this.frames = 20;
+        this.doneFrames = this.frames;
 
         this.framesToResolve = new int[2];
         framesToResolve[0] = 0;

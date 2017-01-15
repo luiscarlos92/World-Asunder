@@ -20,6 +20,7 @@ class Sword : Ability
         this.framesToResolve = new int[1];
         framesToResolve[0] = 0;
         this.frames = 20;
+        this.doneFrames = this.frames;
         this.icon = Resources.Load<Sprite>("Sprites/MegamanSpells/sword.png");
         this.animationTriggerName = "SwordAttack";
 

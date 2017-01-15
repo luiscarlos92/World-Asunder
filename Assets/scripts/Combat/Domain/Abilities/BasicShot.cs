@@ -25,6 +25,7 @@ class BasicShot : Ability
         framesToResolve[3] = 3;
         framesToResolve[4] = 4;
         this.frames = 20;
+        this.doneFrames = this.frames;
         this.icon = Resources.Load<Sprite>("Sprites/MegamanSpells/sword.png");
         this.animationTriggerName = "DefaultAttack";
         this.preFab = "Prefabs/Projectile";

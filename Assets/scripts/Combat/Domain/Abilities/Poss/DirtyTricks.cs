@@ -27,6 +27,7 @@ class DirtyTricks : Ability
 		framesToResolve[3] = 3;
 		framesToResolve[4] = 4;
 		this.frames = 20;
+        this.doneFrames = this.frames;
 		this.icon = Resources.Load<Sprite>("Sprites/Icons/Poss/DirtyTricks");
 		this.animationTriggerName = "DefaultAttack";
 

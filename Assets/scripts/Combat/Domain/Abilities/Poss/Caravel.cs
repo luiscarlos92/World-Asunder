@@ -36,6 +36,7 @@ class Caravel : Ability
 		framesToResolve[7] = 180;
 		framesToResolve[8] = 180;
 		this.frames = 20;
+        this.doneFrames = this.frames;
         this.animationFrames = 20;
         
 		this.icon = Resources.Load<Sprite>("Sprites/Icons/Poss/Caravel");

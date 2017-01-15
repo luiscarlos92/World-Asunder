@@ -27,6 +27,7 @@ class SmokeBomb : Ability
 		framesToResolve[3] = 20;
 		framesToResolve[4] = 20;
 		this.frames = 20;
+        this.doneFrames = frames;
 		this.icon = Resources.Load<Sprite>("Sprites/Icons/Celestine/SmokeBomb");
 		this.animationTriggerName = "DefaultAttack";
 
