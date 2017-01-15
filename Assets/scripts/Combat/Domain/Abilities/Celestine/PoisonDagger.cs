@@ -11,7 +11,7 @@ class PoisonDagger : Ability
 	{
 		this.name = "PoisonDagger";
         this.description = "Throws a poisoned dagger at your enemy, dealing damage over time";
-        this.preFab = "Prefabs/Projectile";
+        this.preFab = "Projectile";
 
 		this.cooldown = 4;
 		this.remainingCooldown = 0;

@@ -11,7 +11,7 @@ class Garrote : Ability
 	{
 		this.name = "Garrote";
         this.description = "Traps the enemy in front of you, and deals damage over time";
-        this.preFab = "Prefabs/LazerParticle";
+        this.preFab = "LazerParticle";
             
 		this.cooldown = 60;
 		this.remainingCooldown = 0;

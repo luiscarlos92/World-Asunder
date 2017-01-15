@@ -13,7 +13,7 @@ class Torrent: Ability
 		this.cooldown = 12;
 		this.remainingCooldown = 0;
         this.description = "Summon sea currents 3 squares away to surprise your enemy, and stop them in their tracks";
-        this.preFab = "Prefabs/font_back";
+        this.preFab = "Explosion";
 		Vector2[] hitbox = new Vector2[3];
 		hitbox[0] = new Vector2(3, 0);
 		hitbox[1] = new Vector2(3, 1);

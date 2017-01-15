@@ -12,7 +12,7 @@ class SleightOfHand : Ability
 		this.name = "SleightOfHand";
 		this.cooldown = 4;
         this.description = "Shoots a quick bullet for small damage";
-        this.preFab = "Prefabs/Projectile";
+        this.preFab = "Projectile";
 		this.remainingCooldown = 0;
 		this.hitBoxes = new Vector2[5];
 		this.hitBoxes[0] = new Vector2(1, 0);

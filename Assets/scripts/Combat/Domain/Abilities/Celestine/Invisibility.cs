@@ -12,6 +12,7 @@ class Invisibility : Ability
 		this.name = "Invisibility";
 		this.cooldown = 12;
 		this.remainingCooldown = 0;
+        this.preFab = "Explosion";
 		this.hitBoxes = new Vector2[1];
 		this.hitBoxes[0] = new Vector2(0, 0);
 		this.framesToResolve = new int[1];

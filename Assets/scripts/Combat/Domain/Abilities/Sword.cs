@@ -13,7 +13,7 @@ class Sword : Ability
         this.cooldown = 8;
         this.remainingCooldown = 0;
         this.description = "Cuts your enemy 1 square forward";
-        this.preFab = "Prefabs/LazerParticle";
+        this.preFab = "LazerParticle";
         Vector2[] hitbox = new Vector2[1];
         hitbox[0] = new Vector2(1, 0);
         this.hitBoxes = hitbox;

@@ -47,15 +47,14 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        lManager = (LevelManager)GameObject.Find("LevelManager").GetComponent(typeof(LevelManager));
-        setPlayerAbilities();
+        //lManager = (LevelManager)GameObject.Find("LevelManager").GetComponent(typeof(LevelManager));
 
         chars = new List<Enemy>();
         arena = new GameObject[6, 3];
         ////////////////////////////////////////////////////////////////////////////////////
 
         //CHARACTER
-        setPlayerAbilities();
+        //setPlayerAbilities();
         characterAbilities[0] = new PoisonDagger();
         characterAbilities[1] = new WideSword();
         characterAbilities[2] = new CannonBarrage();
@@ -121,15 +120,15 @@ public class GameManager : MonoBehaviour
 
         Enemy teki = spawn1;
 
-        foreach (var entry in chars)
-        {
-            //Debug.Log (entry.name + " " + lManager.enemy);
-            if (entry.name == lManager.enemy)
-            {
-                teki = entry;
-                Debug.Log(entry.name + " " + lManager.enemy);
-            }
-        }
+        //foreach (var entry in chars)
+        //{
+        //    //Debug.Log (entry.name + " " + lManager.enemy);
+        //    if (entry.name == lManager.enemy)
+        //    {
+        //        teki = entry;
+        //        Debug.Log(entry.name + " " + lManager.enemy);
+        //    }
+        //}
         logicArena = new Arena(Hecte,teki);
         ////////////////////////////////////////////////////////////////////////////////////
         //Sprite bg = Resources.Load<Sprite>("Sprites/Background/background");
@@ -373,11 +372,21 @@ public class GameManager : MonoBehaviour
             {
                 if (arena[x, y].hitbox != null)
                 {
-                    GameObject.Find(x.ToString() + (3 - y - 1).ToString()).GetComponent<MeshRenderer>().material = Resources.Load<Material>("Material/Yellow");
+                    string prefab = arena[x, y].hitbox.preFab;
+                    if(prefab == "Explosion")
+                        GameObject.Find(arena[x,y].hitbox.preFab + x.ToString() + (2-y).ToString()).GetComponent<SpriteRenderer>().enabled = true;
+                    if(prefab == "LazerParticle")
+                        GameObject.Find(arena[x,y].hitbox.preFab + x.ToString() + (2-y).ToString()).GetComponent<LineRenderer>().enabled = true;
+                    GameObject.Find(x.ToString() + (2 - y).ToString()).GetComponent<MeshRenderer>().material = Resources.Load<Material>("Material/Yellow");
+                }
+                else
+                {
+                    GameObject.Find("Explosion" + x.ToString() + (2-y).ToString()).GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.Find("LazerParticle" + x.ToString() + (2-y).ToString()).GetComponent<LineRenderer>().enabled = false;
                 }
             }
         }
-        //GameObject.Find("50").transform.FindChild("Explosion").GetComponent<SpriteRenderer>().enabled = true;
+        
         //GameObject.Find("50").transform.FindChild("Torrent").GetComponent<ParticleRenderer>().enabled = true;
 
         if (logicArena.character.Stunned)

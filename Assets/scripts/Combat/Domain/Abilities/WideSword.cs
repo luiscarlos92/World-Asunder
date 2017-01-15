@@ -13,7 +13,7 @@ class WideSword : Ability
         this.cooldown = 8;
         this.remainingCooldown = 0;
         this.description = "Cuts your enemy 3 square vertically";
-        this.preFab = "Prefabs/LazerParticle";
+        this.preFab = "LazerParticle";
         Vector2[] hitbox = new Vector2[3];
         hitbox[0] = new Vector2(1, 0);
         hitbox[1] = new Vector2(1, 1);
