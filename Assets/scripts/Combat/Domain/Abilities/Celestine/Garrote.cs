@@ -36,9 +36,12 @@ class Garrote : Ability
 		this.packet = new EffectPacket(50,180,new Condition(30, 180, 36));
 	}
 
-    public override void Run()
+    public override void ApplyEffects(Character character)
     {
- 
+        character.HP -= 50;
+        character.StunnedFrames = 180;
+        character.Stunned = true;
+        character.conditionPool.Add(new Condition(30, 180, 5));
     }
 }
 

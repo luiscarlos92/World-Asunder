@@ -80,6 +80,11 @@ public class Arena
             }
         }
     }
+
+    /// <summary>
+    ///
+    /// </summary>
+    /// <returns></returns>
     public List<Vector2> getHitboxes()
     {
         return HitboxPool.Keys.ToList();
@@ -122,24 +127,26 @@ public class Arena
 
     public Tile getTile(Vector2 position)
     {
-        return arena[(int)position.x, (int)position.y];
+        //TODO
+        //checkar range
+       
+            return arena[(int)position.x, (int)position.y];
+        
+        
     }
-
+    /// <summary>
+    /// ///////////////////////////////////////////
+    /// </summary>
     public void HandleInput()
     {
         Vector2 move = character.HandleMovementInput();
         Move(character, move);
 		move = enemy.getNextMove ();
-//		Debug.Log("enemy move is" + move.ToString ());
-//		Debug.Log ("enemy position is" + enemy.position);
 		Move2(enemy, move);
-
         Ability ability = character.HandleCombatInput();
 		Execute(ability,character);
-		ability = enemy.getNextAbility ();
-		Execute (ability, enemy);
-        //Ability shoot = character.HandleShootInput();
-        //Shoot(shoot);
+        //ability = enemy.getNextAbility();
+        //Execute(ability, enemy);
     }
 
     void Move(Character target, Vector2 move)
@@ -185,7 +192,19 @@ public class Arena
         return false;
     }
 
-	void Execute(Ability ability, Character sender)
+    bool checkHitbox(Vector2 move)
+    {
+        if ((move.x <= 5) &&
+            (move.x >= 0) &&
+            (move.y <= 2) &&
+            (move.y >= 0))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    void Execute(Ability ability, Character sender)
     {
 		if (ability == null) {
 			return;
@@ -198,36 +217,71 @@ public class Arena
             this.enemyAnimation = ability.animationTriggerName;
 
         ability.origin = sender.position;
-        
 
-        for(int i = 0; i<ability.hitBoxes.Length; i++)
+        //this phase is where the ability hitboxes are distributed
+        //so here we just calculate in which tiles to put our abilities
+
+        //        for(int i = 0; i<ability.hitBoxes.Length; i++)
+        //        {
+        //            Hitbox hitbox = new Hitbox(ability.framesToResolve[i], ability);
+
+        //            //list implementation
+        //			if (ability.relative) {
+        ////				Debug.Log ("here");
+        //				if(sender.GetType().ToString() == "Enemy")
+        //					HitboxListPool [sender.position - ability.hitBoxes [i]].Add (hitbox);
+        //				else
+        //					HitboxListPool [sender.position + ability.hitBoxes [i]].Add (hitbox);
+        //			}
+        //            else
+        //            {
+        //                if (sender.GetType().ToString() == "Enemy")
+
+        //                    HitboxListPool[new Vector2(6, 3) - ability.hitBoxes[i] ].Add(hitbox);
+        //                else
+        //                    HitboxListPool[ability.hitBoxes[i]].Add(hitbox);
+        //            }
+        //            //Debug.Log("Hitbox Added with " + hitbox.ability.name + "," + hitbox.framesToResolve + "," + hitbox.active);
+        //        }
+        for (int i = 0; i < ability.hitBoxes.Length; i++)
         {
-            Hitbox hitbox = new Hitbox(ability.framesToResolve[i], ability);
-
+            var copy = (Ability)(ability as ICloneable).Clone();
+            //Debug.Log(ability.name + " " + i.ToString());
+            //check wether hitbox is within range
+            Hitbox hitbox = null;
+            Vector2 tilePos = new Vector2(10,10);
             //list implementation
-			if (ability.relative) {
-//				Debug.Log ("here");
-				if(sender.GetType().ToString() == "Enemy")
-					HitboxListPool [sender.position - ability.hitBoxes [i]].Add (hitbox);
-				else
-					HitboxListPool [sender.position + ability.hitBoxes [i]].Add (hitbox);
-			}
+            hitbox = new Hitbox(ability.framesToResolve[i], copy);
+            if (ability.relative)
+            {
+                if (sender.GetType().ToString() == "Enemy")
+                    tilePos = sender.position - ability.hitBoxes[i];
+                else
+                    tilePos = sender.position + ability.hitBoxes[i];
+            }
             else
             {
                 if (sender.GetType().ToString() == "Enemy")
-                    
-                    HitboxListPool[new Vector2(6, 3) - ability.hitBoxes[i] ].Add(hitbox);
+                    tilePos = new Vector2(5, 2) - ability.hitBoxes[i];
                 else
-                    HitboxListPool[ability.hitBoxes[i]].Add(hitbox);
+                {
+                    tilePos = ability.hitBoxes[i];
+                    if (ability.name == "CannonBarrage")
+                        Debug.Log(i);
+                }
             }
-            //Debug.Log("Hitbox Added with " + hitbox.ability.name + "," + hitbox.framesToResolve + "," + hitbox.active);
+            if (tilePos != null && checkHitbox(tilePos))
+            {
+                getTile(tilePos).pool.Add(hitbox);
+                //Debug.Log("Hitbox Added with " + hitbox.ability.name + "," + hitbox.framesToResolve + "," + hitbox.active + " " + tilePos.ToString());
+            }
         }
     }
 
 
     void checkCollisions()
     {
-        List<Hitbox> hitboxList;
+        /*List<Hitbox> hitboxList;
         if((hitboxList = HitboxListPool[character.position]).Count != 0)
         {
             foreach(var hitbox in hitboxList)
@@ -249,42 +303,48 @@ public class Arena
         //catch (Exception e)
         //{
         //    Debug.Log(e.Message);
-        //}
+        //}*/
+        Ability ability = getTile(this.character.position).hitbox;
+        if (ability != null && !this.character.Stunned && !(this.character.immuneFrames > 0))
+            ability.ApplyEffects(this.character);
+        ability = getTile(this.enemy.position).hitbox;
+        if (ability != null && !this.enemy.Stunned && !(this.enemy.immuneFrames > 0))
+            ability.ApplyEffects(this.enemy);
     }
 
-    void UpdateHitboxes()
-    {
-        foreach(var hitboxList in HitboxListPool.Values)
-        {
-            foreach(var hitbox in hitboxList)
-            {
-                hitbox.framesToResolve--;
-                if (!(hitbox.ability.doneFrames == hitbox.ability.frames) && hitbox.active)
-                    hitbox.ability.doneFrames++; 
-            }
-        }
+    //void UpdateHitboxes()
+    //{
+    //    foreach(var hitboxList in HitboxListPool.Values)
+    //    {
+    //        foreach(var hitbox in hitboxList)
+    //        {
+    //            hitbox.framesToResolve--;
+    //            if (!(hitbox.ability.doneFrames == hitbox.ability.frames) && hitbox.active)
+    //                hitbox.ability.doneFrames++; 
+    //        }
+    //    }
 
-    }
+    //}
 
-    void ResolveHitboxes()
-    {
-        //TODO
-        //have to change to search keys because i 
-        foreach(var hitboxList in HitboxListPool.Values)
-        {
-            for(int i = 0; i < hitboxList.Count; i++)
-            {
-                var hitbox = hitboxList[i];
-                if (hitbox.framesToResolve <= 0)
-                {
-                    hitbox.active = true;
-                    hitbox.ability.Run();
+    //void ResolveHitboxes()
+    //{
+    //    //TODO
+    //    //have to change to search keys because i 
+    //    foreach(var hitboxList in HitboxListPool.Values)
+    //    {
+    //        for(int i = 0; i < hitboxList.Count; i++)
+    //        {
+    //            var hitbox = hitboxList[i];
+    //            if (hitbox.framesToResolve <= 0)
+    //            {
+    //                hitbox.active = true;
+    //                hitbox.ability.Run();
                     
-                }
-                if (hitbox.ability.doneFrames == hitbox.ability.frames) hitboxList.Remove(hitbox);
-            }
-        }
-    }
+    //            }
+    //            if (hitbox.ability.doneFrames == hitbox.ability.frames) hitboxList.Remove(hitbox);
+    //        }
+    //    }
+    //}
 
     void UpdateCharacters()
     {
@@ -292,13 +352,26 @@ public class Arena
         enemy.Update();
     }
 
+    void UpdateTiles()
+    {
+        for(int x = 0; x < 6; x++)
+        {
+            for(int y = 0; y < 3; y++)
+            {
+                arena[x, y].Update();
+            }
+        }
+    }
     public void Update()
     {
         HandleInput();
-        ResolveHitboxes();
-        checkCollisions();
-        UpdateHitboxes();
+        //resolve first
+        UpdateTiles();
         UpdateCharacters();
+        //ResolveHitboxes();
+        checkCollisions();
+        //updating tile takes care of this because all frame related stuff is treated of inside
+        //UpdateHitboxes(); 
 
 
     }

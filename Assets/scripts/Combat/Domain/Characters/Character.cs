@@ -10,7 +10,8 @@ public class Character
     public Vector2 position;
     public int HP;
 	public string name;
-    public const int MAXHP = 100;
+    public const int MAXHP = 500;
+
     public string spritePath;
 
     public Ability passive;
@@ -24,6 +25,13 @@ public class Character
 
     public bool AnimationOccuring;
     public int AnimationFrames;
+
+    public int immuneFrames;
+    public List<Condition> conditionPool;
+
+    //************************************************
+    //I still need to do the goddamn hurt animation, and the condition manager of dots
+    //************************************************
 
     public Character() {
         position = new Vector2(1, 1);
@@ -43,11 +51,13 @@ public class Character
     public Character(string name, Ability[] abilities)
     {
         position = new Vector2(1, 1);
+        conditionPool = new List<Condition>();
         HP = MAXHP;
         Stunned = false;
         StunnedFrames = 0;
         this.AnimationOccuring = false;
         this.name = name;
+        this.immuneFrames = 0;
         this.passive = abilities[0];
         this.abilityQ = abilities[1];
         this.abilityW = abilities[2];
@@ -126,7 +136,7 @@ public class Character
                 if (abilityQ.remainingCooldown == 0)
                 {
                     Debug.Log(abilityQ.name);
-                    this.AnimationFrames = abilityQ.frames;
+                    this.AnimationFrames = abilityQ.animationFrames;
                     this.AnimationOccuring = true;
                     abilityQ.remainingCooldown = abilityQ.cooldown;
                     
@@ -138,7 +148,7 @@ public class Character
                 if (abilityW.remainingCooldown == 0)
                 {
                     Debug.Log(abilityW.name);
-                    this.AnimationFrames = abilityW.frames;
+                    this.AnimationFrames = abilityW.animationFrames;
                     this.AnimationOccuring = true;
                     abilityW.remainingCooldown = abilityW.cooldown;
                     return (Ability)(abilityW as ICloneable).Clone();
@@ -149,7 +159,7 @@ public class Character
                 if (abilityE.remainingCooldown == 0)
                 {
                     Debug.Log(abilityE.name);
-                    this.AnimationFrames = abilityE.frames;
+                    this.AnimationFrames = abilityE.animationFrames;
                     this.AnimationOccuring = true;
                     abilityE.remainingCooldown = abilityE.cooldown;
                     return (Ability)(abilityE as ICloneable).Clone();
@@ -160,7 +170,7 @@ public class Character
                 if (abilityR.remainingCooldown == 0)
                 {
                     Debug.Log(abilityR.name);
-                    this.AnimationFrames = abilityR.frames;
+                    this.AnimationFrames = abilityR.animationFrames;
                     this.AnimationOccuring = true;
                     abilityR.remainingCooldown = abilityR.cooldown;
                     return (Ability)(abilityR as ICloneable).Clone();
@@ -213,10 +223,39 @@ public class Character
         else
             abilityR.remainingCooldown = 0;
 
-//		Debug.Log (this.name);
+        //		Debug.Log (this.name);
         //Debug.Log("Stunned Frames: " + StunnedFrames + "animation frames: " + AnimationFrames);
-//		Debug.Log(this.name + " " + abilityQ.remainingCooldown + "/" + abilityQ.cooldown);
+        //		Debug.Log(this.name + " " + abilityQ.remainingCooldown + "/" + abilityQ.cooldown);
+        if (this.immuneFrames > 0)
+            this.immuneFrames--;
+        //Update the condition pool
+        if (conditionPool.Count != 0)
+        {
+            foreach (var condish in conditionPool)
+            {
+                if (condish.frameStepCounter >= 0)
+                {
+                    if (condish.totalFrames == condish.doneFrame - (condish.doneFrame/condish.frameStep))
+                    {
+                        Debug.Log("DOT DMG" + condish.totalFrames.ToString());
+                        condish.doneFrame = condish.totalFrames;
+                        //apply
+                        this.HP -= condish.dmg;
+                        if (this.immuneFrames == 0)
+                            this.immuneFrames = condish.immortalFrames;
+                        condish.frameStepCounter--;
+                    }
+                }
+                condish.totalFrames--;
 
+            }
+        }
+
+        for (int i = 0; i < conditionPool.Count; i++)
+        {
+            if (conditionPool[i].totalFrames <= 0)
+                conditionPool.Remove(conditionPool[i]);
+        }
     }
 
     

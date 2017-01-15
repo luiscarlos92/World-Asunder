@@ -23,8 +23,9 @@ class Invisibility : Ability
 		this.packet = new EffectPacket(new Condition(360));
 	}
 
-    public override void Run()
+    public override void ApplyEffects(Character character)
     {
+        character.conditionPool.Add(new Condition(420));
  
     }
 }

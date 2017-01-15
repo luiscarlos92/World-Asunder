@@ -33,9 +33,11 @@ class SleightOfHand : Ability
 		this.packet = new EffectPacket(50, 60);
 	}
 
-    public override void Run()
+    public override void ApplyEffects(Character character)
     {
- 
+        character.HP -= 40;
+        character.Stunned = true;
+        character.StunnedFrames = 20;
     }
 }
 

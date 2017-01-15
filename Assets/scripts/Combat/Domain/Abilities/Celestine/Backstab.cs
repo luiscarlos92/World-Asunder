@@ -25,9 +25,11 @@ class Backstab : Ability
 		this.packet = new EffectPacket(80, 20);
 	}
 
-    public override void Run()
+    public override void ApplyEffects(Character character)
     {
- 
+        character.HP -= 80;
+        character.StunnedFrames = 20;
+        character.Stunned = true;
     }
 }
 

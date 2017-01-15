@@ -11,7 +11,7 @@ class CannonBarrage : Ability
 	{
 		this.name = "CannonBarrage";
 		this.cooldown = 12;
-        
+        this.preFab = "Explosion";
 		this.relative = false;
 		this.remainingCooldown = 0;
 		this.hitBoxes = new Vector2[9];
@@ -34,16 +34,20 @@ class CannonBarrage : Ability
 		framesToResolve[6] = 360;
 		framesToResolve[7] = 420;
 		framesToResolve[8] = 480;
-		this.frames = 0;
+        this.animationFrames = 20;
+		this.frames = 20;
+        this.doneFrames = frames;
 		this.icon = Resources.Load<Sprite>("Sprites/Icons/Poss/CannonBarrage");
 		this.animationTriggerName = "DefaultAttack";
 
 		this.packet = new EffectPacket(40, 20);
 	}
 
-    public override void Run()
+    public override void ApplyEffects(Character character)
     {
- 
+        character.HP -= 40;
+        character.Stunned = true;
+        character.StunnedFrames = 20; 
     }
 }
 

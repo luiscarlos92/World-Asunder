@@ -33,8 +33,11 @@ class SmokeBomb : Ability
 		this.packet = new EffectPacket(80, 60);
 	}
 
-    public override void Run()
+    public override void ApplyEffects(Character character)
     {
+        character.HP -= 80;
+        character.Stunned = true;
+        character.StunnedFrames = 60;
  
     }
 }

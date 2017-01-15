@@ -47,14 +47,18 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-		lManager = (LevelManager)GameObject.Find ("LevelManager").GetComponent (typeof(LevelManager));
+        //lManager = (LevelManager)GameObject.Find("LevelManager").GetComponent(typeof(LevelManager));
+		//setPlayerAbilities();
 
         chars = new List<Enemy>();
         arena = new GameObject[6, 3];
         ////////////////////////////////////////////////////////////////////////////////////
         //CHARACTER
-		setPlayerAbilities();
-        characterAbilities[0] = new BasicShot();
+        characterAbilities[0] = new PoisonDagger();
+        characterAbilities[1] = new Torrent();
+        characterAbilities[2] = new Garrote();
+        characterAbilities[3] = new CannonBarrage();
+        characterAbilities[4] = new Caravel();
         Hecte = new Character("Hecte", characterAbilities);
         Hecte.spritePath = "Animations/AnimatedCharacters/Hecte";
 
@@ -85,14 +89,14 @@ public class GameManager : MonoBehaviour
 
         Enemy teki = Poss;
 
-        foreach(var entry in chars)
-        {
-			//Debug.Log (entry.name + " " + lManager.enemy);
-			if (entry.name == lManager.enemy) {
-				teki = entry;
-				Debug.Log (entry.name + " " + lManager.enemy);
-			}
-        }
+   //     foreach(var entry in chars)
+   //     {
+			////Debug.Log (entry.name + " " + lManager.enemy);
+			//if (entry.name == lManager.enemy) {
+			//	teki = entry;
+			//	Debug.Log (entry.name + " " + lManager.enemy);
+			//}
+   //     }
         logicArena = new Arena(Hecte,teki);
         Debug.Log("cenas");
         ////////////////////////////////////////////////////////////////////////////////////
@@ -249,7 +253,6 @@ public class GameManager : MonoBehaviour
     {
 
         //update gamestate
-        logicArena.Update();
         character.transform.position = ParsePosition(logicArena.character.position);
 		enemy.transform.position = ParsePosition (logicArena.enemy.position);
 
@@ -265,10 +268,7 @@ public class GameManager : MonoBehaviour
         GameObject.Find("AbilityE.CD").GetComponent<Spell>().remainingCooldown = logicArena.character.abilityE.remainingCooldown;
         GameObject.Find("AbilityR.CD").GetComponent<Spell>().remainingCooldown = logicArena.character.abilityR.remainingCooldown;
 
-        GameObject.Find("Player").GetComponent<Animator>().SetTrigger(logicArena.charAnimation);
-        GameObject.Find("Enemy").GetComponent<Animator>().SetTrigger(logicArena.enemyAnimation);
-        logicArena.charAnimation = "";
-        logicArena.enemyAnimation = "";
+       
 
         var arena = logicArena.getArena();
         for (int x = 0; x < mapSize.x; x++)
@@ -285,34 +285,66 @@ public class GameManager : MonoBehaviour
                 else
                 {
 					GameObject.Find(hitbox.x.ToString() + hitbox.y.ToString()).GetComponent<MeshRenderer>().material = Resources.Load("Material/Blue") as Material;
-					Debug.Log ("1");
 
                 }
             }
         }
 
 
-        var hitboxes = logicArena.getPoolList();
-        foreach (var position in hitboxes.Keys)
+        //        var hitboxes = logicArena.getPoolList();
+        //        foreach (var position in hitboxes.Keys)
+        //        {
+        //            var set = hitboxes[position];
+        //            foreach (var hitbox in set)
+        //            {
+        //                if (hitbox.active)
+        //                {
+        //                    if (position.x >= 0 && position.x <= 5 && (3 - position.y - 1) <= 2 && (3 - position.y - 1) >= 0)
+        //                    {
+        //                        GameObject.Find(position.x.ToString() + (3 - position.y - 1).ToString()).GetComponent<MeshRenderer>().material = Resources.Load<Material>("Material/Yellow");
+        ////                        Debug.Log(hitbox.active);
+        //                    }
+        //                }
+        //            }
+        //        }
+        for (int x = 0; x < mapSize.x; x++)
         {
-            var set = hitboxes[position];
-            foreach (var hitbox in set)
+            for (int y = 0; y < mapSize.y; y++)
             {
-                if (hitbox.active)
+                if (arena[x, y].hitbox != null)
                 {
-                    if (position.x >= 0 && position.x <= 5 && (3 - position.y - 1) <= 2 && (3 - position.y - 1) >= 0)
-                    {
-                        GameObject.Find(position.x.ToString() + (3 - position.y - 1).ToString()).GetComponent<MeshRenderer>().material = Resources.Load<Material>("Material/Yellow");
-//                        Debug.Log(hitbox.active);
-                    }
+                    GameObject.Find(x.ToString() + (3 - y - 1).ToString()).GetComponent<MeshRenderer>().material = Resources.Load<Material>("Material/Yellow");
                 }
             }
         }
+                    GameObject.Find("50").transform.FindChild("Explosion").GetComponent<SpriteRenderer>().enabled = true;
+        GameObject.Find("50").transform.FindChild("Torrent").GetComponent<ParticleRenderer>().enabled = true;
 
+        if (logicArena.character.Stunned)
+        {
+            logicArena.charAnimation = "Hurt";
+            if(logicArena.character.StunnedFrames % 2 == 0)
+            GameObject.Find("Player").GetComponent<SpriteRenderer>().enabled = true;
+            else
+            GameObject.Find("Player").GetComponent<SpriteRenderer>().enabled = false;
+        }
+        if (logicArena.enemy.Stunned)
+        {
+            logicArena.enemyAnimation = "Hurt";
+            if(logicArena.enemy.StunnedFrames % 2 == 0)
+            GameObject.Find("Enemy").GetComponent<SpriteRenderer>().enabled = true;
+            else
+            GameObject.Find("Enemy").GetComponent<SpriteRenderer>().enabled = false;
+        }
+        GameObject.Find("Player").GetComponent<Animator>().SetTrigger(logicArena.charAnimation);
+        GameObject.Find("Enemy").GetComponent<Animator>().SetTrigger(logicArena.enemyAnimation);
+        logicArena.charAnimation = "";
+        logicArena.enemyAnimation = "";
+
+        logicArena.Update();
         if (logicArena.enemy.HP <= 0)
         {
-			lManager.returnCombatArena ();
-         //   SceneManager.LoadScene("CombatArena");
+			//lManager.returnCombatArena ();
         }
         if(logicArena.character.HP <= 0)
         {

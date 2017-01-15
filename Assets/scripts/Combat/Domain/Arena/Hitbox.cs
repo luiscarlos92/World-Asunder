@@ -13,7 +13,7 @@ public class Hitbox
     //the non active hitboxes will clutters things that wanna do damage so
     //dictionary <vector, list<hitbox>>
     public int framesToResolve;
-    public bool active;
+    public bool active = true;
     public Ability ability;
 
     public Hitbox()
@@ -28,5 +28,10 @@ public class Hitbox
         this.framesToResolve = frames;
         this.active = false;
         this.ability = ability;
+    }
+
+    public void Update()
+    {
+        this.framesToResolve--;
     }
 }

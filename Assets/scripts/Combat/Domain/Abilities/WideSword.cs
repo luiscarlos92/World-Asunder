@@ -31,8 +31,11 @@ class WideSword : Ability
         this.icon = Resources.Load<Sprite>("Sprites/MegamanSpells/widesword");
     }
 
-    public override void Run()
+    public override void ApplyEffects(Character character)
     {
-       
+        character.HP -= 80;
+        character.Stunned = true;
+        character.StunnedFrames = 20;
     }
+
 }

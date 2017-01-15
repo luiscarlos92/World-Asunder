@@ -31,8 +31,10 @@ class BasicShot : Ability
 		this.packet = new EffectPacket(5,0);
     }
 
-    public override void Run()
+    public override void ApplyEffects(Character character)
     {
- 
+        character.HP -= 5;
     }
+
+
 }

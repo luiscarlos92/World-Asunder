@@ -9,6 +9,7 @@ public abstract class Ability : ICloneable{
     public string name;
     public string preFab;
     public string description;
+    public int animationFrames;
     public Vector2 origin;
     public List<Vector2> particleDest = new List<Vector2>();
     public Vector2[] hitBoxes;
@@ -56,5 +57,10 @@ public abstract class Ability : ICloneable{
         return ability;
     }
 
-    public abstract void Run();
+    public abstract void ApplyEffects(Character character);
+
+    public void Update()
+    {
+        this.doneFrames--;
+    }
 }

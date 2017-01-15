@@ -26,9 +26,12 @@ class Sword : Ability
         this.packet = new EffectPacket(80, 20);
     }
 
-    public override void Run()
+    public override void ApplyEffects(Character character)
     {
-        this.particleDest.Add(origin + new Vector2(1, 0));
-        
+        character.HP -= 80;
+        character.Stunned = true;
+        character.StunnedFrames = 20;
     }
+
+
 }

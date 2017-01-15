@@ -34,8 +34,10 @@ class PoisonDagger : Ability
 		this.packet = new EffectPacket(new Condition(15,180,36));
 	}
 
-    public override void Run()
+    public override void ApplyEffects(Character character)
     {
- 
+        character.Stunned = true;
+        character.StunnedFrames = 20;
+        character.conditionPool.Add(new Condition(15, 180, 5)); 
     }
 }

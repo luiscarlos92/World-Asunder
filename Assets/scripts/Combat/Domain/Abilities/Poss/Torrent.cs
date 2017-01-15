@@ -30,10 +30,11 @@ class Torrent: Ability
 		this.animationTriggerName = "DefaultAttack";
 		this.packet = new EffectPacket(100, 100);
 	}
-
-    public override void Run()
+    public override void ApplyEffects(Character character)
     {
- 
+        character.HP -= 100;
+        character.Stunned = true;
+        character.StunnedFrames = 100;
     }
 }
 

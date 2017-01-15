@@ -14,7 +14,7 @@ public class Enemy : Character
     public Enemy(Vector2 pos)
     {
         position = pos;
-        this.HP = 50;
+        this.HP = 1000;
 		this.name = "Poss";
 		this.moves = new Vector2[4];
 		moves [0] = new Vector2 (1, 0);
