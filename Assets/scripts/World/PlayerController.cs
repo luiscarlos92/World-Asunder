@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour {
 			lManager.loadScene("Beach");
 		}
 
-		/*if(other.gameObject.CompareTag("ChildASpawn") && !lManager.events["ChildASpawn"]) {
+		if(other.gameObject.CompareTag("ChildASpawn") && !lManager.events["ChildASpawn"]) {
 			Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
 			UIController ui = (UIController)canvas.GetComponent (typeof(UIController));
 			ui.addToQueue ("Hecte:\"Oh, please, don’t let that stop you. Let me see what you did to your own men!\"");
@@ -175,7 +175,7 @@ public class PlayerController : MonoBehaviour {
 			ui.addToQueue ("Hecte:\"Oh, please, don’t let that stop you. Let me see what you did to your own men!\"");
 			ui.addToQueue ("#trigger:Action:ChildB");
 			lManager.events ["ChildBSpawn"] = true;
-		}*/
+		}
 
 		if(other.gameObject.CompareTag("ChildBSpawn")&& !lManager.events["AdamastorSpawn"]) {
 

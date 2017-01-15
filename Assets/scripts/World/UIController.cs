@@ -78,12 +78,17 @@ public class UIController : MonoBehaviour {
 			if (message.Contains ("Action:")) {
 				message = message.Replace("Action:", "");
 				if(message.Equals("Poss")){
+
+					GameObject.Find ("Poss").SetActive (false);
+
 					Canvas canvas = GameObject.Find ("AbilitiesUI").GetComponent<Canvas> ();
 					AbilitiesUIController ui = (AbilitiesUIController)canvas.GetComponent (typeof(AbilitiesUIController));
 					ui.abilitiesPoss.enabled = true;
 					ui.message.enabled = true;
+					ui.wasPaused = false;
+
 					canvas.enabled = true;
-					GameObject.Find ("Poss").SetActive (false);
+
 				}
 				if (message.Equals ("Hallaway")) {
 					GameObject newEnemy = Instantiate(lManager.hallawayPrefab, GameObject.Find ("CellSpawn").transform.position, this.transform.rotation) as GameObject;

@@ -19,6 +19,8 @@ public class AbilitiesUIController : MonoBehaviour {
 
 	public Canvas message;
 
+	public bool wasPaused = true;
+
 	// Use this for initialization
 	void Start () {
 		message.enabled = false;
@@ -31,16 +33,23 @@ public class AbilitiesUIController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown ("tab")) {
+		if (Input.GetKeyDown ("tab") && lManager.enemy.Equals("")) {
 			if (!abilitiesUI.isActiveAndEnabled) {
 				abilitiesUI.enabled = true;
-				lManager.paused = true;
+				wasPaused = lManager.paused;
+				if (!wasPaused)
+					lManager.paused = true;
 			} else {
 				abilitiesUI.enabled = false;
-				lManager.paused = false;
+				lManager.paused = wasPaused;
 
 				CompanionController comp = (CompanionController) GameObject.FindGameObjectWithTag ("Companion").GetComponent (typeof(CompanionController)); 
 				comp.changeCompanion (lManager.choosenCompanion);
+
+				ATitle.text = "";
+				AName.text = "";
+				ADescription.text = "";
+
 			}
 		}
 

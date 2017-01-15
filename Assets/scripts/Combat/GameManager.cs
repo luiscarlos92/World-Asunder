@@ -30,8 +30,8 @@ public class GameManager : MonoBehaviour
     public Enemy Poss;
     public Enemy Hallaway;
     public Enemy Adamastor;
-    public Enemy Spawn1;
-    public Enemy Spawn2;
+    public Enemy spawn1;
+    public Enemy spawn2;
 
     public List<Enemy> chars;
 
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
         enemyAbilities[2] = new DirtyTricks();
         enemyAbilities[3] = new DirtyTricks();
         enemyAbilities[4] = new DirtyTricks();
-        Enemy spawn1 = new Enemy("Spawn1", enemyAbilities);
+        spawn1 = new Enemy("Spawn1", enemyAbilities);
         spawn1.spritePath = "Animations/AnimatedCharacters/Spawn";
 
         //spawn
@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
         enemyAbilities[2] = new DirtyTricks();
         enemyAbilities[3] = new DirtyTricks();
         enemyAbilities[4] = new DirtyTricks();
-        Enemy spawn2 = new Enemy("Spawn2", enemyAbilities);
+        spawn2 = new Enemy("Spawn2", enemyAbilities);
         spawn2.spritePath = "Animations/AnimatedCharacters/Spawn";
         //ADAMAS
         enemyAbilities[0] = new Torrent();
