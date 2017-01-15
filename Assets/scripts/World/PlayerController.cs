@@ -154,11 +154,14 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if(other.gameObject.CompareTag("StairsFort")) {
+
 			lManager.loadScene("Fort");
 		}
 
 		if(other.gameObject.CompareTag("Entrance") && lManager.events["HallawayFight"]) {
-			lManager.loadScene("Beach");
+            GameObject.Find("Player").GetComponent<AudioSource>().clip = Resources.Load("Sound/praia") as AudioClip;
+            GameObject.Find("Player").GetComponent<AudioSource>().PlayOneShot(Resources.Load("Sound/praia") as AudioClip, 0.5f);
+            lManager.loadScene("Beach");
 		}
 
 		if(other.gameObject.CompareTag("ChildASpawn") && !lManager.events["ChildASpawn"]) {

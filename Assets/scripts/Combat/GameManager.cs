@@ -47,14 +47,14 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        //lManager = (LevelManager)GameObject.Find("LevelManager").GetComponent(typeof(LevelManager));
+        lManager = (LevelManager)GameObject.Find("LevelManager").GetComponent(typeof(LevelManager));
 
         chars = new List<Enemy>();
         arena = new GameObject[6, 3];
         ////////////////////////////////////////////////////////////////////////////////////
 
         //CHARACTER
-        //setPlayerAbilities();
+        setPlayerAbilities();
         characterAbilities[0] = new PoisonDagger();
         characterAbilities[1] = new WideSword();
         characterAbilities[2] = new CannonBarrage();
@@ -120,15 +120,15 @@ public class GameManager : MonoBehaviour
 
         Enemy teki = spawn1;
 
-        //foreach (var entry in chars)
-        //{
-        //    //Debug.Log (entry.name + " " + lManager.enemy);
-        //    if (entry.name == lManager.enemy)
-        //    {
-        //        teki = entry;
-        //        Debug.Log(entry.name + " " + lManager.enemy);
-        //    }
-        //}
+        foreach (var entry in chars)
+        {
+            //Debug.Log (entry.name + " " + lManager.enemy);
+            if (entry.name == lManager.enemy)
+            {
+                teki = entry;
+                Debug.Log(entry.name + " " + lManager.enemy);
+            }
+        }
         logicArena = new Arena(Hecte,teki);
         ////////////////////////////////////////////////////////////////////////////////////
         //Sprite bg = Resources.Load<Sprite>("Sprites/Background/background");

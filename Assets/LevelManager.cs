@@ -53,7 +53,10 @@ public class LevelManager : MonoBehaviour {
 		paused = true;
 		//Loads starting level
 		loadScene("Fort");
-	}
+        GameObject.Find("Player").GetComponent<AudioSource>().clip = Resources.Load("Sound/india") as AudioClip;
+        GameObject.Find("Player").GetComponent<AudioSource>().PlayOneShot(Resources.Load("Sound/india") as AudioClip, 0.5f);
+            //PlayOneShot(Resources.Load("Sound/india") as AudioClip,0.5f);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -201,7 +204,11 @@ public class LevelManager : MonoBehaviour {
 			currentScene = "Beach";
 			paused = false;
 			enemy = "";
-			SceneManager.LoadScene(currentScene);
+            GameObject.Find("Player").GetComponent<AudioSource>().clip = Resources.Load("Sound/praia") as AudioClip;
+            GameObject.Find("Player").GetComponent<AudioSource>().PlayOneShot(Resources.Load("Sound/praia") as AudioClip, 0.5f);
+            SceneManager.LoadScene(currentScene);
+           
+            
 			player.SetActive(true);
 			companion.SetActive(true);
 		}
