@@ -10,7 +10,7 @@ public class HallawayController : MonoBehaviour {
 	Transform target; //the enemy's target
 	public float moveSpeed = 2f; //move speed
 	float maxDistance = 1;
-	float triggerDistance = 2;
+	float triggerDistance = 2.5f;
 	float range;
 	Transform myTransform; //current transform data of this enemy
 	bool triggered = false;

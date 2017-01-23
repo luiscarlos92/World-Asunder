@@ -17,10 +17,12 @@ public class UIController : MonoBehaviour {
 	public Button buttonA;
 	public Button buttonB;
 
+	public Canvas choices;
+
 	// Use this for initialization
 	void Start () {
-		buttonA.enabled = false;
-		buttonB.enabled = false;
+		
+		choices.enabled = false;
 		dialogUI.enabled = false;
 		messages = new ArrayList ();
 	}
@@ -29,8 +31,12 @@ public class UIController : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown ("space") && dialogUI.isActiveAndEnabled) {
 			if(messages.Count == 0){
-			dialogUI.enabled = false;
-			lManager.paused = false;
+				if (lManager.events ["Choice"] && !lManager.events ["Choosen"]) {
+					print ("Choosing");
+				} else {
+					dialogUI.enabled = false;
+					lManager.paused = false;
+				}
 			} else
 				processMessage ((string)messages [0]);
 		}		
@@ -114,7 +120,7 @@ public class UIController : MonoBehaviour {
 					ui.addToQueue ("#trigger:Combat:Spawn2");
 				}
 				if (message.Equals ("Adamastor")) {
-					GameObject newEnemy = Instantiate(lManager.adamastorPrefab, GameObject.Find ("AdamastorSpawn").transform.position, this.transform.rotation) as GameObject;
+					GameObject newEnemy = Instantiate(lManager.adamastorPrefab, ((GameObject.Find ("Player").transform.position + GameObject.Find ("AdamastorSpawn").transform.position)/2), this.transform.rotation) as GameObject;
 					Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
 					UIController ui = (UIController)canvas.GetComponent (typeof(UIController));
 
@@ -134,9 +140,11 @@ public class UIController : MonoBehaviour {
 					Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
 					UIController ui = (UIController)canvas.GetComponent (typeof(UIController));
 
-					buttonA.enabled = true;
-					buttonB.enabled = true;
+					canvas.enabled = true;
+					choices.enabled = true;
 					npcNameBox.enabled = false;
+					npcTextBox.enabled = false;
+					npcImage.enabled = false;
 
 				}
 			}
@@ -152,22 +160,33 @@ public class UIController : MonoBehaviour {
 	}
 
 	public void clickTake(){
+		print ("i'll take");
 		Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
 		UIController ui = (UIController)canvas.GetComponent (typeof(UIController));
-		buttonA.enabled = false;
-		buttonB.enabled = false;
+		canvas.enabled = false;
+		choices.enabled = false;
+
+		npcImage.enabled = true;
 		npcNameBox.enabled = true;
+		npcTextBox.enabled = true;
 		ui.addToQueue ("Hecte:\"Your pain is meaningless. Know your suffering will ease the suffering of others. Become nothing!\"");
 		ui.addToQueue ("#trigger:Cutscene:Adamastor1");
 	}
 
 	public void clickDontTake(){
+
+		print ("i won't take");
 		Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
 		UIController ui = (UIController)canvas.GetComponent (typeof(UIController));
-		buttonA.enabled = false;
-		buttonB.enabled = false;
+		canvas.enabled = false;
+		choices.enabled = false;
+
 		npcNameBox.enabled = true;
-		ui.addToQueue ("Hecte:\"After all this, you were nothing more than a man looking through glass, locked in someone else’s motions. You’re free now. Use that freedom to fix this, and maybe you’ll find absolution.\"");
+		npcTextBox.enabled = true;
+		npcImage.enabled = true;
+		ui.addToQueue ("Hecte:\"After all this, you were nothing more than a man looking through glass, locked in someone else’s motions.\"");
+		ui.addToQueue ("Hecte:\"You’re free now. Use that freedom to fix this, and maybe you’ll find absolution.\"");
+
 		ui.addToQueue ("#trigger:Cutscene:Adamastor2");
 	}
 

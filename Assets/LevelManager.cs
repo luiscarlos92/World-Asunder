@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour {
 	public Canvas startHUD;
 	public Canvas buttonsHUD;
 	public Canvas storyHUD;
+	public Canvas gameOverHUD;
+
 
 	public Dictionary<string,bool> events;
 
@@ -36,6 +38,8 @@ public class LevelManager : MonoBehaviour {
 	public GameObject hallawayPrefab;
 	public GameObject childPrefab;
 	public GameObject adamastorPrefab;
+	public GameObject adamastordefeatedPrefab;
+
 
 
 	// Use this for initialization
@@ -50,6 +54,7 @@ public class LevelManager : MonoBehaviour {
 
 		buttonsHUD.enabled = false;
 		storyHUD.enabled = false;
+		gameOverHUD.enabled = false;
 		paused = true;
 		//Loads starting level
 		loadScene("Fort");
@@ -75,6 +80,10 @@ public class LevelManager : MonoBehaviour {
 			events ["Previously"] = true;
 			storyHUD.enabled = false;
 			paused = false;
+		}
+
+		if (events ["Adamastor1Cutscene"] || events ["Adamastor2Cutscene"]) {
+			gameOverHUD.enabled = true;
 		}
 
 		Canvas canvas = GameObject.Find ("DialogUI").GetComponent<Canvas> ();
@@ -116,6 +125,13 @@ public class LevelManager : MonoBehaviour {
 		events.Add ("Spawn2Fight", false);
 		events.Add ("AdamastorSpawn", false);
 		events.Add ("AdamastorFight", false);
+		events.Add ("Choice", false);
+
+		events.Add ("Choosen", false);
+
+		events.Add ("Adamastor1Cutscene", false);
+
+		events.Add ("Adamastor2Cutscene", false);
 		events.Add ("GameOver", false);
 	}
 
@@ -161,6 +177,8 @@ public class LevelManager : MonoBehaviour {
 		loadScene(currentScene);
 		player.SetActive(true);
 		companion.SetActive(true);
+
+
 	}
 
 	public void loadScene(string sceneName ){
