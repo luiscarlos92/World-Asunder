@@ -11,7 +11,7 @@ class Caravel : Ability
 	{
 		this.name = "Caravel";
 		this.cooldown = 120;
-        this.description = "Throws a Lusitanian Caravel at your enemy dealing damage";
+        this.description = "Throws a Lusitanian Caravel at your enemy's field, dealing tons of damage";
         this.preFab = "Explosion";
 		this.relative = false;
 		this.remainingCooldown = 0;

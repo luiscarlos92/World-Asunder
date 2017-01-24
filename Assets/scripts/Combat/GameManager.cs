@@ -55,11 +55,11 @@ public class GameManager : MonoBehaviour
 
         //CHARACTER
         setPlayerAbilities();
-        characterAbilities[0] = new PoisonDagger();
-        characterAbilities[1] = new WideSword();
-        characterAbilities[2] = new CannonBarrage();
-        characterAbilities[3] = new SmokeBomb();
-        characterAbilities[4] = new Caravel();
+        //characterAbilities[0] = new PoisonDagger();
+        //characterAbilities[1] = new WideSword();
+        //characterAbilities[2] = new CannonBarrage();
+        //characterAbilities[3] = new SmokeBomb();
+        //characterAbilities[4] = new Caravel();
         Hecte = new Character("Hecte", characterAbilities);
         Hecte.spritePath = "Animations/AnimatedCharacters/Hecte";
 
@@ -167,7 +167,7 @@ public class GameManager : MonoBehaviour
 		if (lManager.choosenSpace == "Jonah")
 			characterAbilities[2] = new PoisonDagger();
 		if (lManager.choosenSpace == "Coelestine")
-			characterAbilities[2] = new WideSword();
+			characterAbilities[2] = new Invisibility();
 		if (lManager.choosenSpace == "Poss")
 			characterAbilities[2] = new DirtyTricks();
 
@@ -179,7 +179,7 @@ public class GameManager : MonoBehaviour
 		if (lManager.choosenSpace == "Coelestine")
 			characterAbilities[3] = new SmokeBomb();
 		if (lManager.choosenSpace == "Poss")
-			characterAbilities[3] = new LongSword();
+			characterAbilities[3] = new CannonBarrage();
 
 		//R
 		if (lManager.choosenSpace == "Vriska")

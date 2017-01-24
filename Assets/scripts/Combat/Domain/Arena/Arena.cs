@@ -145,8 +145,8 @@ public class Arena
 		Move2(enemy, move);
         Ability ability = character.HandleCombatInput();
 		Execute(ability,character);
-        //ability = enemy.getNextAbility();
-        //Execute(ability, enemy);
+        ability = enemy.getNextAbility();
+        Execute(ability, enemy);
     }
 
     void Move(Character target, Vector2 move)

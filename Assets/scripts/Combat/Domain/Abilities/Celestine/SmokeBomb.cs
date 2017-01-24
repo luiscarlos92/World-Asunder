@@ -11,7 +11,7 @@ class SmokeBomb : Ability
 	{
 		this.name = "SmokeBomb";
 		this.cooldown = 16;
-        this.description = "Summon sea currents to blow your enemy and deal damage 3 squares away";
+        this.description = "Throws a bomb to blow your enemy 3 squares away, and explodes in a cross";
         this.preFab = "Explosion";
 		this.remainingCooldown = 0;
 		this.hitBoxes = new Vector2[5];

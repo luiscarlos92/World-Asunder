@@ -14,6 +14,7 @@ class CannonBarrage : Ability
         this.preFab = "Explosion";
 		this.relative = false;
 		this.remainingCooldown = 0;
+        this.description = "Fires a set of cannonballs that fall from time to time in your enemies field";
 		this.hitBoxes = new Vector2[9];
 		this.hitBoxes[0] = new Vector2(3, 0);
 		this.hitBoxes[1] = new Vector2(4, 1);
